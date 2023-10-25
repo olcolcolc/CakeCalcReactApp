@@ -6,7 +6,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <Button/>
+      <Button name="start"/>
+      <Button name="again"/>
+      <Button name="next"/>
+      <Button name="previous"/>
     </>
   );
 }
