@@ -3,8 +3,8 @@ import React from "react";
 const icons: Record<string, React.FC> = {
   logo: () => (
     <svg
-      width="225"
-      height="119"
+      width="115"
+      height="60"
       viewBox="0 0 225 119"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

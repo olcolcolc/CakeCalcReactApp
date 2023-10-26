@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Icon } from "../icon/Icon";
+import { theme } from "../../styles/theme";
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -8,22 +9,13 @@ const NavbarContainer = styled.div`
   background-color: inherit;
   flex-direction: row;
   align-items: center;
-  height: 100px;
+  height: 80px;
   justify-content: space-between;
-  margin: 10px 0 10px 0;
   cursor: pointer;
 `;
 
-const English = styled.button`
-  display: flex;
-  border-style: none;
-  cursor: pointer;
-`;
-
-const Polish = styled.button`
-  display: flex;
-  border-style: none;
-  cursor: pointer;
+const Language = styled.button`
+  ${theme.mixin.defaultButton}; 
 `;
 
 const Navbar: React.FC = () => {
@@ -37,9 +29,9 @@ const Navbar: React.FC = () => {
     <NavbarContainer className="navbar">
       <Icon name="logo" />
       {isEnglishLanguage ? (
-        <English onClick={toggleLanguage}>En</English>
+        <Language onClick={toggleLanguage}>en</Language>
       ) : (
-        <Polish onClick={toggleLanguage}>Pl</Polish>
+        <Language onClick={toggleLanguage}>pl</Language>
       )}
     </NavbarContainer>
   );

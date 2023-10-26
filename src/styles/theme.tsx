@@ -6,13 +6,12 @@ const mixin = {
   `,
 
   defaultButton: () => `
+    display: flex;
     all: unset;
     text-transform: uppercase;
     border-style: none;
     border-radius: 40px;
-    padding: 20px 32px;
     cursor: pointer;
-    font-weight: 700;
     `,
 
 };

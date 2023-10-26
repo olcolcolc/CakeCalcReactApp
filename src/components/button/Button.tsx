@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import { theme } from "../../styles/theme";
 
 const Button = styled.button`
-  display: flex;
   ${theme.mixin.defaultButton}; 
 `;
 
