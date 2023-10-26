@@ -8,18 +8,30 @@ const mixin = {
   defaultButton: () => `
     all: unset;
     text-transform: uppercase;
+    border-style: none;
+    border-radius: 40px;
+    padding: 20px 32px;
     cursor: pointer;
-  `,
+    font-weight: 700;
+    `,
+
 };
 
 const colors = {
   mainBackground: "#ffafc4",
+  startButton: "#34A9D1",
+  startButtonHover: "#FFADCC",
+  nextButton: "#FFADCC",
+  nextButtonHover: "#34A9D1",
+  againButton: "#FF2272",
+  againButtonHover: "#DCF6BA",
   white: "#ffffff",
   black: "#000000",
 };
 
 const fontSize = {
   base: "16px",
+  button: "30px"
 };
 
 const padding = {
