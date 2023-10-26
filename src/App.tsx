@@ -1,6 +1,6 @@
 import Navbar from "./components/navbar/Navbar";
 import Button from "./components/button/Button";
-import MainContainerComponent from "./components/mainContainer/mainContainer";
+import MainContainerComponent from "./components/mainContainer/MainContainer";
 
 
 function App() {
