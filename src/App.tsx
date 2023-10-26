@@ -1,15 +1,17 @@
 import Navbar from "./components/navbar/Navbar";
 import Button from "./components/button/Button";
+import MainContainerComponent from "./components/mainContainer/mainContainer";
 
 
 function App() {
   return (
     <>
       <Navbar />
-      <Button name="start"/>
+      <MainContainerComponent/>
+      {/* <Button name="start"/>
       <Button name="again"/>
       <Button name="next"/>
-      <Button name="previous"/>
+      <Button name="previous"/> */}
     </>
   );
 }
