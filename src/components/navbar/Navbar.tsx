@@ -14,12 +14,8 @@ const NavbarContainer = styled.div`
   cursor: pointer;
 `;
 
-const English = styled.button`
+const Language = styled.button`
   ${theme.mixin.defaultButton}; 
-`;
-
-const Polish = styled.button`
- ${theme.mixin.defaultButton}; 
 `;
 
 const Navbar: React.FC = () => {
@@ -33,9 +29,9 @@ const Navbar: React.FC = () => {
     <NavbarContainer className="navbar">
       <Icon name="logo" />
       {isEnglishLanguage ? (
-        <English onClick={toggleLanguage}>En</English>
+        <Language onClick={toggleLanguage}>en</Language>
       ) : (
-        <Polish onClick={toggleLanguage}>Pl</Polish>
+        <Language onClick={toggleLanguage}>pl</Language>
       )}
     </NavbarContainer>
   );
