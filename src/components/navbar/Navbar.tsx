@@ -16,6 +16,7 @@ const NavbarContainer = styled.div`
 
 const Language = styled.button`
   ${theme.mixin.defaultButton}; 
+  padding: 10px;
 `;
 
 const Navbar: React.FC = () => {

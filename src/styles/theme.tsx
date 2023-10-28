@@ -8,18 +8,17 @@ const mixin = {
   defaultButton: () => `
     display: flex;
     all: unset;
-    text-transform: uppercase;
     border-style: none;
     border-radius: 40px;
     cursor: pointer;
-    `,
-
+    padding: 10px 30px;
+  `,
 };
 
 const colors = {
   mainBackground: "#ffafc4",
   startButton: "#34A9D1",
-  startButtonHover: "#FFADCC",
+  startButtonHover: "#fd68a1",
   nextButton: "#FFADCC",
   nextButtonHover: "#34A9D1",
   againButton: "#FF2272",
@@ -30,7 +29,11 @@ const colors = {
 
 const fontSize = {
   base: "16px",
-  button: "30px"
+  button: "30px",
+};
+
+const fontFamily = {
+  nunito: "'Nunito', sans-serif",
 };
 
 const padding = {
@@ -47,6 +50,7 @@ export const theme = {
   padding,
   margin,
   mixin,
+  fontFamily,
 };
 
 export type Theme = typeof theme;

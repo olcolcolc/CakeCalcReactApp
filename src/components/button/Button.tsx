@@ -4,6 +4,10 @@ import { theme } from "../../styles/theme";
 
 const Button = styled.button`
   ${theme.mixin.defaultButton}; 
+  margin: 0 auto;
+  text-align: center;
+  font-size: ${theme.fontSize.button};
+  font-family: ${theme.fontFamily.nunito};
 `;
 
 const StartButton = styled(Button)`
@@ -13,6 +17,10 @@ const StartButton = styled(Button)`
   &:hover {
     background-color: ${theme.colors.startButtonHover};
   }
+  ${theme.mixin.forDesktop(`
+    font-size: 60px; 
+    padding: 10px 70px;
+`)}
 `;
 
 const NextButton = styled(Button)`
@@ -44,6 +52,7 @@ const AgainButton = styled(Button)`
 
 interface IconProps {
   name: "start" | "next" | "previous" | "again";
+  // onClick: () => void;
 }
 
 const ButtonComponent: React.FC<IconProps> = ({ name }) => {
