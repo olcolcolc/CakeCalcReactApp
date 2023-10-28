@@ -1,14 +1,14 @@
+import React from "react";
 import styled from "@emotion/styled";
 import welcomeIcon from '../../assets/welcome_icon.png';
 import { theme } from "../../styles/theme";
 import Button from "../button/Button";
 
-
 const WelcomePageDiv = styled.div`
     margin: 20px;
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     ${theme.mixin.forDesktop(`
         flex-direction: row;
@@ -20,7 +20,7 @@ const WelcomeIcon = styled.img`
     height: auto;
     margin: 20px;
     ${theme.mixin.forDesktop(`
-        width: 300px; 
+        width: 300px;
     `)}
 `;
 
@@ -48,7 +48,7 @@ const Description = styled.div`
 
 const LeftWrapper = styled.div`
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     margin-right: 30px;
     ${theme.mixin.forDesktop(`
         margin-top: 160px;
@@ -57,14 +57,17 @@ const LeftWrapper = styled.div`
 
 const RightWrapper = styled.div`
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
 `;
 
-const WelcomePage = () => {
+interface WelcomePageProps {
+    onStartClick: (e: React.MouseEvent) => void;
+}
 
+const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
     return (
         <WelcomePageDiv>
-            <LeftWrapper>            
+            <LeftWrapper>
                 <Label>cześć!</Label>
                 <Description>oblicz cenę i wielkość swojego tortu</Description>
             </LeftWrapper>
@@ -75,6 +78,7 @@ const WelcomePage = () => {
                 />
                 <Button
                     name="start"
+                    onClick={onStartClick}
                 />
             </RightWrapper>
         </WelcomePageDiv>

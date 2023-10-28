@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { theme } from "../../styles/theme";
 
 const Button = styled.button`
-  ${theme.mixin.defaultButton}; 
+  ${theme.mixin.defaultButton};
   margin: 0 auto;
   text-align: center;
   font-size: ${theme.fontSize.button};
@@ -13,54 +13,54 @@ const Button = styled.button`
 const StartButton = styled(Button)`
   background: ${theme.colors.startButton};
   color: ${theme.colors.white};
-  
+
   &:hover {
     background-color: ${theme.colors.startButtonHover};
   }
   ${theme.mixin.forDesktop(`
-    font-size: 60px; 
+    font-size: 60px;
     padding: 10px 70px;
-`)}
+  `)}
 `;
 
 const NextButton = styled(Button)`
   background: ${theme.colors.nextButton};
-  color: ${theme.colors.white}; 
+  color: ${theme.colors.white};
 
   &:hover {
     background-color: ${theme.colors.nextButtonHover};
   }
-  `;
+`;
 
 const PreviousButton = styled(Button)`
   background: ${theme.colors.nextButton};
-  color: ${theme.colors.white}; 
-  
+  color: ${theme.colors.white};
+
   &:hover {
     background-color: ${theme.colors.nextButtonHover};
   }
-  `;
+`;
 
 const AgainButton = styled(Button)`
   background: ${theme.colors.againButton};
-  color: ${theme.colors.white}; 
+  color: ${theme.colors.white};
 
   &:hover {
     background-color: ${theme.colors.againButtonHover};
   }
-  `;
+`;
 
 interface IconProps {
   name: "start" | "next" | "previous" | "again";
-  // onClick: () => void;
+  onClick?: React.MouseEventHandler; // Zaktualizowana linia
 }
 
-const ButtonComponent: React.FC<IconProps> = ({ name }) => {
+const ButtonComponent: React.FC<IconProps> = ({ name, onClick }) => {
   let button;
 
   switch (name) {
     case "start":
-      button = <StartButton>start</StartButton>;
+      button = <StartButton onClick={onClick}>start</StartButton>; // Przekazuje onClick
       break;
     case "next":
       button = <NextButton>dalej</NextButton>;
@@ -72,7 +72,7 @@ const ButtonComponent: React.FC<IconProps> = ({ name }) => {
       button = <AgainButton>jeszcze raz</AgainButton>;
       break;
     default:
-      button = null; 
+      button = null;
   }
 
   return button;
