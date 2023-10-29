@@ -14,9 +14,16 @@ const StartButton = styled(Button)`
   background: ${theme.colors.startButton};
   color: ${theme.colors.white};
 
-  &:hover {
+  :hover {
     background-color: ${theme.colors.startButtonHover};
+    transform: scale(0.90);
+    transition: transform 0.2s ease;
   }
+
+  :active{
+    transform: scale(1.2);
+  }
+
   ${theme.mixin.forDesktop(`
     font-size: 60px;
     padding: 10px 70px;
@@ -24,41 +31,58 @@ const StartButton = styled(Button)`
 `;
 
 const NextButton = styled(Button)`
-  background: ${theme.colors.nextButton};
+  background-color: ${theme.colors.nextButton};
   color: ${theme.colors.white};
   font-size: 26px;
 
-  &:hover {
+  :hover {
     background-color: ${theme.colors.nextButtonHover};
+    transform: scale(0.90);
+    transition: transform 0.2s ease;
+  }
+
+  :active{
+    transform: scale(0.98);
+  }
+  
+  :focus{
+    outline: none;
+  }
+
+  :disabled{
+    background-color: ${theme.colors.disabledButton};
+    pointer-events: none;
   }
 `;
+
 
 const AgainButton = styled(Button)`
   background: ${theme.colors.againButton};
   color: ${theme.colors.white};
 
-  &:hover {
+  :hover {
     background-color: ${theme.colors.againButtonHover};
   }
 `;
 
 interface IconProps {
   name: "start" | "next" | "previous" | "again";
-  onClick?: React.MouseEventHandler; // Zaktualizowana linia
+  onClick?: React.MouseEventHandler; 
+  disabled?: boolean;
 }
 
-const ButtonComponent: React.FC<IconProps> = ({ name, onClick }) => {
+const ButtonComponent: React.FC<IconProps> = ({ name, onClick, disabled }) => {
   let button;
 
   switch (name) {
     case "start":
-      button = <StartButton onClick={onClick}>start</StartButton>; // Przekazuje onClick
+      button = <StartButton onClick={onClick}>start</StartButton>; 
       break;
     case "next":
-      button = <NextButton>dalej</NextButton>;
+      button = <NextButton onClick={onClick} disabled={disabled}>dalej</NextButton>;
       break;
     case "previous":
-      button = <NextButton>wróć</NextButton>;
+      button = <NextButton onClick={onClick} disabled={disabled}>wróć</NextButton>;
       break;
     case "again":
       button = <AgainButton>jeszcze raz</AgainButton>;
