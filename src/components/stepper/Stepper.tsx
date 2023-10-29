@@ -3,6 +3,7 @@ import Circle from "../circle/Circle";
 import styled from "@emotion/styled";
 import { theme } from "../../styles/theme";
 import Button from "../button/Button";
+import Steps from "../steps/Steps";
 
 const StepperContainer = styled.div`
   display: flex;
@@ -62,7 +63,7 @@ const ButtonsContainer = styled.div`
 `;
 
 const Stepper = () => {
-  const [circle] = useState(4);
+  const [circle] = useState(5); //How many steps
   const [active, setActive] = useState(0);
   const [width, setWidth] = useState(0);
   useEffect(()=>{
@@ -81,6 +82,7 @@ const Stepper = () => {
           <Progress style={{width:width+"%"}}></Progress>
           {arr}
         </ProgressBar>
+        <Steps number={active} /> 
         <ButtonsContainer>
             <Button
                 name="previous"

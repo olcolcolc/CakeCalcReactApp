@@ -29,7 +29,7 @@ const colors = {
 };
 
 const fontSize = {
-  base: "16px",
+  base: "20px",
   button: "30px",
 };
 
