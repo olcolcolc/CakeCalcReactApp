@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "./components/navbar/Navbar";
 import WelcomePage from "./components/welcomePage/WelcomePage";
 import MainContainerComponent from "./components/mainContainer/MainContainer";

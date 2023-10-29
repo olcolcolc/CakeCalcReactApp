@@ -26,15 +26,7 @@ const StartButton = styled(Button)`
 const NextButton = styled(Button)`
   background: ${theme.colors.nextButton};
   color: ${theme.colors.white};
-
-  &:hover {
-    background-color: ${theme.colors.nextButtonHover};
-  }
-`;
-
-const PreviousButton = styled(Button)`
-  background: ${theme.colors.nextButton};
-  color: ${theme.colors.white};
+  font-size: 26px;
 
   &:hover {
     background-color: ${theme.colors.nextButtonHover};
@@ -66,7 +58,7 @@ const ButtonComponent: React.FC<IconProps> = ({ name, onClick }) => {
       button = <NextButton>dalej</NextButton>;
       break;
     case "previous":
-      button = <PreviousButton>wróć</PreviousButton>;
+      button = <NextButton>wróć</NextButton>;
       break;
     case "again":
       button = <AgainButton>jeszcze raz</AgainButton>;
