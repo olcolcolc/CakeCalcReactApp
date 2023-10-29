@@ -17,8 +17,9 @@ const MainContainer = styled.div`
 const MainContainerComponent: React.FC = () => {
   return (
     <MainContainer>
+            <Button name="previous"></Button>
+
       <Button name="next"></Button>
-      <Button name="previous"></Button>
     </MainContainer>
   );
 };
