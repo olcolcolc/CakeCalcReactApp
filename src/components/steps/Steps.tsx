@@ -6,20 +6,22 @@ const StepContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 100px 0;
 `;
 
 const StepHeader = styled.div`
   font-size: ${theme.fontSize.base};
-  font-family: ${theme.fontFamily.nunito}
 `;
 
 const InputField = styled.input`
   width: 100%;
-  max-width: 200px;
+  max-width: 100px;
+  height: 60px;
   padding: 10px;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #131212;
+  text-align: center;
   border-radius: 5px;
-  font-size: 16px;
+  font-size: 36px;
   margin: 5px 0;
 `;
 
@@ -27,7 +29,8 @@ interface StepsProps {
   number: number;
 }
 
-const Steps: React.FC<StepsProps> = ({ number }) => {  let step;
+const Steps: React.FC<StepsProps> = ({ number }) => {
+  let step;
 
   switch (number) {
     case 0:
@@ -53,7 +56,7 @@ const Steps: React.FC<StepsProps> = ({ number }) => {  let step;
           <InputField type="number" id="price-per-portion" />
         </>
       );
-      break;    
+      break;
     case 3:
       step = (
         <>
@@ -64,11 +67,7 @@ const Steps: React.FC<StepsProps> = ({ number }) => {  let step;
       break;
   }
 
-  return (
-    <StepContainer>
-      {step}
-    </StepContainer>
-  );
+  return <StepContainer>{step}</StepContainer>;
 };
 
 export default Steps;
