@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { theme } from "../../styles/theme";
+import Output from "../output/Output";
 
 const StepContainer = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: 100px 0;
+  height: 330px;
 `;
 
 const StepHeader = styled.div`
+  margin-bottom: 20px;
   font-size: ${theme.fontSize.base};
 `;
 
@@ -22,23 +25,20 @@ const InputField = styled.input`
   text-align: center;
   border-radius: 5px;
   font-size: 36px;
-  margin: 5px 0;
 `;
 
 interface StepsProps {
   number: number;
-  setCakeValues: (values: any) => void; // Funkcja do aktualizacji wartości w komponencie nadrzędnym
+  setCakeValues: (values: any) => void;
 }
 
 const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
-  // Użyj stanu, aby śledzić wartości wprowadzone w polach
   const [portionsCount, setPortionsCount] = useState(0);
   const [cakesHigh, setCakesHigh] = useState(0);
   const [pricePerPortion, setPricePerPortion] = useState(0);
   const [otherPrice, setOtherPrice] = useState(0);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    // Aktualizuj stan w zależności od zmian w polach
     const { id, value } = event.target;
     switch (id) {
       case "portions-count":
@@ -57,7 +57,6 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
         break;
     }
 
-    // Aktualizuj wartości w komponencie nadrzędnym
     setCakeValues({
       portionsCount,
       cakesHigh,
@@ -121,6 +120,19 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
         </>
       );
       break;
+    case 4:
+      step = (
+        <>
+          <Output
+            cakeValues={{
+              portionsCount,
+              cakesHigh,
+              pricePerPortion,
+              otherPrice,
+            }}
+          />
+        </>
+      );
   }
 
   return <StepContainer>{step}</StepContainer>;
