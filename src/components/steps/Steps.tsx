@@ -1,5 +1,5 @@
+import React, { useState } from "react";
 import styled from "@emotion/styled";
-import React from "react";
 import { theme } from "../../styles/theme";
 
 const StepContainer = styled.div`
@@ -27,9 +27,45 @@ const InputField = styled.input`
 
 interface StepsProps {
   number: number;
+  setCakeValues: (values: any) => void; // Funkcja do aktualizacji wartości w komponencie nadrzędnym
 }
 
-const Steps: React.FC<StepsProps> = ({ number }) => {
+const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
+  // Użyj stanu, aby śledzić wartości wprowadzone w polach
+  const [portionsCount, setPortionsCount] = useState(0);
+  const [cakesHigh, setCakesHigh] = useState(0);
+  const [pricePerPortion, setPricePerPortion] = useState(0);
+  const [otherPrice, setOtherPrice] = useState(0);
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    // Aktualizuj stan w zależności od zmian w polach
+    const { id, value } = event.target;
+    switch (id) {
+      case "portions-count":
+        setPortionsCount(Number(value));
+        break;
+      case "cakes-high":
+        setCakesHigh(Number(value));
+        break;
+      case "price-per-portion":
+        setPricePerPortion(Number(value));
+        break;
+      case "other-price":
+        setOtherPrice(Number(value));
+        break;
+      default:
+        break;
+    }
+
+    // Aktualizuj wartości w komponencie nadrzędnym
+    setCakeValues({
+      portionsCount,
+      cakesHigh,
+      pricePerPortion,
+      otherPrice,
+    });
+  };
+
   let step;
 
   switch (number) {
@@ -37,7 +73,12 @@ const Steps: React.FC<StepsProps> = ({ number }) => {
       step = (
         <>
           <StepHeader>Na ile osób?</StepHeader>
-          <InputField type="number" id="portions-count" />
+          <InputField
+            type="number"
+            id="portions-count"
+            value={portionsCount}
+            onChange={handleInputChange}
+          />
         </>
       );
       break;
@@ -45,7 +86,12 @@ const Steps: React.FC<StepsProps> = ({ number }) => {
       step = (
         <>
           <StepHeader>Wysokosc tortu:</StepHeader>
-          <InputField type="number" id="cakes-high" />
+          <InputField
+            type="number"
+            id="cakes-high"
+            value={cakesHigh}
+            onChange={handleInputChange}
+          />
         </>
       );
       break;
@@ -53,7 +99,12 @@ const Steps: React.FC<StepsProps> = ({ number }) => {
       step = (
         <>
           <StepHeader>Ustal cenę za osobę:</StepHeader>
-          <InputField type="number" id="price-per-portion" />
+          <InputField
+            type="number"
+            id="price-per-portion"
+            value={pricePerPortion}
+            onChange={handleInputChange}
+          />
         </>
       );
       break;
@@ -61,7 +112,12 @@ const Steps: React.FC<StepsProps> = ({ number }) => {
       step = (
         <>
           <StepHeader>Dodatkowe koszty:</StepHeader>
-          <InputField type="number" id="other-price" />
+          <InputField
+            type="number"
+            id="other-price"
+            value={otherPrice}
+            onChange={handleInputChange}
+          />
         </>
       );
       break;
