@@ -66,42 +66,52 @@ const Stepper = () => {
   const [circle] = useState(5); //How many steps
   const [active, setActive] = useState(0);
   const [width, setWidth] = useState(0);
-  useEffect(()=>{
-    setWidth(100/(circle-1)*active)
-  },[circle,active])
+
+  // Funkcja do aktualizacji wartości w komponencie Stepper
+  const setCakeValues = (values: number) => {
+    console.log("Updated cake values:", values);
+  };
+
+  useEffect(() => {
+    setWidth((100 / (circle - 1)) * active);
+  }, [circle, active]);
   const arr = [];
-  console.log(active, "Current step")
+  console.log(active, "Current step");
   for (let i = 0; i < circle; i++) {
-    arr.push(<Circle classname={i<=active?"active":""} key={i}>{i}</Circle>);
+    arr.push(
+      <Circle classname={i <= active ? "active" : ""} key={i}>
+        {i}
+      </Circle>
+    );
   }
 
   return (
     <StepperContainer>
       <Content>
         <ProgressBar>
-          <Progress style={{width:width+"%"}}></Progress>
+          <Progress style={{ width: width + "%" }}></Progress>
           {arr}
         </ProgressBar>
-        <Steps number={active} /> 
+        <Steps number={active} setCakeValues={setCakeValues} />{" "}
         <ButtonsContainer>
-            <Button
-                name="previous"
-                disabled={active <= 0}
-                onClick={() => {
-                    if (active <= 0) {
-                    setActive(0);
-                    } else setActive(active - 1);
-                }}
-            />
-            <Button
-                name="next"
-                disabled={active >= circle - 1}
-                onClick={() => {
-                    if (active >= circle - 1) {
-                    setActive(circle - 1);
-                    } else setActive(active + 1);
-                }}
-            />
+          <Button
+            name="previous"
+            disabled={active <= 0}
+            onClick={() => {
+              if (active <= 0) {
+                setActive(0);
+              } else setActive(active - 1);
+            }}
+          />
+          <Button
+            name="next"
+            disabled={active >= circle - 1}
+            onClick={() => {
+              if (active >= circle - 1) {
+                setActive(circle - 1);
+              } else setActive(active + 1);
+            }}
+          />
         </ButtonsContainer>
       </Content>
     </StepperContainer>
