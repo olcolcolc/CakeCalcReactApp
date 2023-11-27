@@ -14,6 +14,7 @@ const StepperContainer = styled.div`
   align-items: center;
   height: 100vh;
   width: 100vw;
+  flex-direction: column;
 `;
 
 const Content = styled.div`
@@ -57,7 +58,7 @@ const Progress = styled.div`
 
 const ButtonsContainer = styled.div`
   display: flex;
-  width: 100%;
+  width: 500px;
   justify-content: space-between;
   flex-direction: row;
 `;
@@ -93,27 +94,27 @@ const Stepper = () => {
           {arr}
         </ProgressBar>
         <Steps number={active} setCakeValues={setCakeValues} />{" "}
-        <ButtonsContainer>
-          <Button
-            name="previous"
-            disabled={active <= 0}
-            onClick={() => {
-              if (active <= 0) {
-                setActive(0);
-              } else setActive(active - 1);
-            }}
-          />
-          <Button
-            name="next"
-            disabled={active >= circle - 1}
-            onClick={() => {
-              if (active >= circle - 1) {
-                setActive(circle - 1);
-              } else setActive(active + 1);
-            }}
-          />
-        </ButtonsContainer>
       </Content>
+      <ButtonsContainer>
+        <Button
+          name="previous"
+          disabled={active <= 0}
+          onClick={() => {
+            if (active <= 0) {
+              setActive(0);
+            } else setActive(active - 1);
+          }}
+        />
+        <Button
+          name="next"
+          disabled={active >= circle - 1}
+          onClick={() => {
+            if (active >= circle - 1) {
+              setActive(circle - 1);
+            } else setActive(active + 1);
+          }}
+        />
+      </ButtonsContainer>
     </StepperContainer>
   );
 };
