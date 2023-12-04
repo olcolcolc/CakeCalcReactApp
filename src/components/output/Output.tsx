@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { theme } from "../../styles/theme";
+import { Cake } from "../../classes/Cake";
 
 const OutputContainer = styled.div`
   display: flex;
@@ -19,26 +20,40 @@ const Sides = styled.div`
 
 interface OutputProps {
   cakeValues: {
-    portionsCount: number;
+    howManyPortions: number;
     cakesHigh: number;
-    pricePerPortion: number;
+    pricePerOnePerson: number;
     otherPrice: number;
   };
 }
 
 const Output: React.FC<OutputProps> = ({ cakeValues }) => {
+  const { howManyPortions, cakesHigh, pricePerOnePerson, otherPrice } =
+    cakeValues;
+
+  const cake = new Cake({
+    portionsCount: howManyPortions,
+    height: cakesHigh,
+    pricePerPerson: pricePerOnePerson,
+    extras: otherPrice,
+  });
+
+  const diameter = cake.calculateDiameter();
+  const totalPrice = cake.priceCalc();
+
   return (
     <>
       <OutputHeader>Twoje dane:</OutputHeader>
 
       <OutputContainer>
         <Sides>
-          <p>Na ile osób: {cakeValues.portionsCount}</p>
-          <p>Wysokość tortu: {cakeValues.cakesHigh}</p>
+          <p>Na ile osób: {howManyPortions}</p>
+          <p>Wysokość tortu: {cakesHigh}</p>
         </Sides>
         <Sides>
-          <p>Cena za osobę: {cakeValues.pricePerPortion}</p>
-          <p>Dodatkowe koszty: {cakeValues.otherPrice}</p>
+          <p>Cena tortu: {totalPrice}</p>
+          <p>Dodatkowe koszty: {otherPrice}</p>
+          <p>Średnica tortu: {diameter}</p>
         </Sides>
       </OutputContainer>
     </>

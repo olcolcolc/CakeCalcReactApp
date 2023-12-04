@@ -33,22 +33,22 @@ interface StepsProps {
 }
 
 const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
-  const [portionsCount, setPortionsCount] = useState(0);
+  const [howManyPortions, setHowManyPortions] = useState(0);
   const [cakesHigh, setCakesHigh] = useState(0);
-  const [pricePerPortion, setPricePerPortion] = useState(0);
+  const [pricePerOnePerson, setPricePerOnePerson] = useState(0);
   const [otherPrice, setOtherPrice] = useState(0);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
     switch (id) {
       case "portions-count":
-        setPortionsCount(Number(value));
+        setHowManyPortions(Number(value));
         break;
       case "cakes-high":
         setCakesHigh(Number(value));
         break;
       case "price-per-portion":
-        setPricePerPortion(Number(value));
+        setPricePerOnePerson(Number(value));
         break;
       case "other-price":
         setOtherPrice(Number(value));
@@ -58,9 +58,9 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     }
 
     setCakeValues({
-      portionsCount,
+      howManyPortions,
       cakesHigh,
-      pricePerPortion,
+      pricePerOnePerson,
       otherPrice,
     });
   };
@@ -75,7 +75,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <InputField
             type="number"
             id="portions-count"
-            value={portionsCount}
+            value={howManyPortions}
             onChange={handleInputChange}
           />
         </>
@@ -101,7 +101,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <InputField
             type="number"
             id="price-per-portion"
-            value={pricePerPortion}
+            value={pricePerOnePerson}
             onChange={handleInputChange}
           />
         </>
@@ -125,9 +125,9 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
         <>
           <Output
             cakeValues={{
-              portionsCount,
+              howManyPortions,
               cakesHigh,
-              pricePerPortion,
+              pricePerOnePerson,
               otherPrice,
             }}
           />
