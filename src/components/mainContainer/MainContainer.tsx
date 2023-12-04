@@ -7,7 +7,6 @@ const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 10px auto;
-  margin-top: 50px;
   background-color: white;
   height: 31rem;
   width: 100%;
@@ -17,6 +16,7 @@ const MainContainer = styled.div`
     theme.mixin.forDesktop(`
       border-radius: 50px;
       width: 31rem;
+      margin-top: 50px;
     `)}
 `;
 

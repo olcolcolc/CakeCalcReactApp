@@ -5,6 +5,12 @@ const mixin = {
     }
   `,
 
+  forMaxWidth450: (content: string) => `
+  @media screen and (max-width: 450px) {
+    ${content}
+  }
+`,
+
   defaultButton: () => `
     display: flex;
     all: unset;

@@ -84,7 +84,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     case 1:
       step = (
         <>
-          <StepHeader>Wysokosc tortu:</StepHeader>
+          <StepHeader>Wysokość tortu:</StepHeader>
           <InputField
             type="number"
             id="cakes-high"
