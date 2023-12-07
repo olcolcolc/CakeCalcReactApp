@@ -64,6 +64,8 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
   const diameter = cake.calculateDiameter();
   const totalPrice = cake.priceCalc();
   const advancePrice = ((totalPrice * advance) / 100).toFixed(2);
+  const validDiameter =
+    isNaN(diameter) || typeof diameter !== "number" ? 0 : diameter;
 
   return (
     <>
@@ -80,7 +82,7 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
         </Elements>
         <Elements>
           <p>średnica tortu:</p>
-          <Values> {diameter}ø</Values>
+          <Values> {validDiameter}ø</Values>
         </Elements>
       </OutputContainer>
     </>

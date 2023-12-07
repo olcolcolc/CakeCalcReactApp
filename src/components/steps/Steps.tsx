@@ -1,7 +1,25 @@
 import React, { useState } from "react";
-import styled from "@emotion/styled";
 import { theme } from "../../styles/theme";
 import Output from "../output/Output";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
 
 const StepContainer = styled.div`
   display: flex;
@@ -9,6 +27,7 @@ const StepContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 330px;
+  animation: ${fadeIn} 0.5s ease-in-out forwards;
 `;
 
 const StepHeader = styled.div`
@@ -31,17 +50,17 @@ const InputField = styled.input`
 `;
 
 const Slider = styled.input`
+  width: 180px;
+  margin-bottom: 20px;
+  cursor: pointer;
+`;
+
+const SliderLabel = styled.label`
   background-color: ${theme.colors.nextButtonHover};
   width: 180px;
   margin-bottom: 20px;
 `;
 
-const SliderLabel = styled.label`
-  color: ${theme.colors.nextButtonHover};
-  margin-bottom: 10px;
-  display: block;
-  text-align: center;
-`;
 
 interface StepsProps {
   number: number;
@@ -67,7 +86,11 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
         setPricePerOnePerson(Number(value));
         break;
       case "advance":
-        setAdvance(Number(value));
+        // eslint-disable-next-line no-case-declarations
+        const newValue = Number(value);
+        if (newValue >= 1 && newValue <= 100) {
+          setAdvance(newValue);
+        }
         break;
       default:
         break;
