@@ -32,6 +32,7 @@ const colors = {
   disabledButton: "#c4b3b3",
   white: "#ffffff",
   black: "#000000",
+  sprinkle: "#e569a0",
 };
 
 const fontSize = {
