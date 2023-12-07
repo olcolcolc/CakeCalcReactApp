@@ -64,7 +64,6 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
   const diameter = cake.calculateDiameter();
   const totalPrice = cake.priceCalc();
   const advancePrice = ((totalPrice * advance) / 100).toFixed(2);
-  // Warunek sprawdzający, czy średnica jest NaN lub niezdefiniowana
   const validDiameter =
     isNaN(diameter) || typeof diameter !== "number" ? 0 : diameter;
 

@@ -56,10 +56,11 @@ const Slider = styled.input`
 `;
 
 const SliderLabel = styled.label`
-  margin-bottom: 10px;
-  display: block;
-  text-align: center;
+  background-color: ${theme.colors.nextButtonHover};
+  width: 180px;
+  margin-bottom: 20px;
 `;
+
 
 interface StepsProps {
   number: number;
@@ -160,7 +161,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
             max="100"
             value={advance}
             id="advance-slider"
-            onChange={(e) => setAdvance(Number(e.target.value))}
+            onChange={handleInputChange}
           />
           <SliderLabel htmlFor="advance-slider">
             <span>{advance}</span>%
