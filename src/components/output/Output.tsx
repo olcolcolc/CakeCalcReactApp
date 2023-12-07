@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled, { keyframes } from "styled-components";
 import { theme } from "../../styles/theme";
 import { Cake } from "../../classes/Cake";
 
@@ -22,18 +22,23 @@ const Elements = styled.div`
   text-align: center;
 `;
 
-const blinkAnimation = `
-  @keyframes blink {
-    0% { color: red; }
-    25% { color: blue; }
-    50% { color: green; }
-    75% { color: orange; }
-    100% { color: red; }
+const rotateHue = keyframes`
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
   }
 `;
 
 const Values = styled.div`
-  animation: ${blinkAnimation} 2s infinite;
+  font-size: 50px;
+  font-weight: bold;
+  background-image: linear-gradient(62deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: ${rotateHue} 3s linear infinite;
 `;
 
 interface OutputProps {
