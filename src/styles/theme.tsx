@@ -17,7 +17,7 @@ const mixin = {
     border-style: none;
     border-radius: 40px;
     cursor: pointer;
-    padding: 10px 30px;
+    padding: 10px 40px;
   `,
 };
 

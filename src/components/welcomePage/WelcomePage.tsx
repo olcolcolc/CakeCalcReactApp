@@ -11,6 +11,7 @@ const WelcomePageDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   ${theme.mixin.forDesktop(`
         flex-direction: row;
     `)}
@@ -41,7 +42,6 @@ const Description = styled.div`
 const LeftWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-right: 30px;
   ${theme.mixin.forDesktop(`
         margin-top: 160px;
     `)}
