@@ -44,19 +44,9 @@ const fontFamily = {
   nunito: "'Nunito', sans-serif",
 };
 
-const padding = {
-  default: "20px",
-};
-
-const margin = {
-  default: "20px",
-};
-
 export const theme = {
   colors,
   fontSize,
-  padding,
-  margin,
   mixin,
   fontFamily,
 };

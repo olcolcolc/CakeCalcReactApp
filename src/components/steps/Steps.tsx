@@ -23,8 +23,8 @@ const InputField = styled.input`
   padding: 10px;
   border: 1px solid #131212;
   text-align: center;
-  border-radius: 5px;
-  font-size: 36px;
+  border-radius: 40px;
+  font-size: 50px;
   &:hover {
     cursor: pointer;
   }
@@ -77,6 +77,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <StepHeader>Na ile osób?</StepHeader>
           <InputField
             type="number"
+            inputMode="numeric"
             id="portions-count"
             value={howManyPortions || 6}
             onChange={handleInputChange}
@@ -91,6 +92,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <StepHeader>Wysokość tortu w cm:</StepHeader>
           <InputField
             type="number"
+            inputMode="numeric"
             id="cakes-high"
             value={cakesHigh || 7}
             onChange={handleInputChange}
@@ -105,6 +107,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <StepHeader>Ustal cenę za osobę:</StepHeader>
           <InputField
             type="number"
+            inputMode="numeric"
             id="price-per-portion"
             value={pricePerOnePerson}
             onChange={handleInputChange}
@@ -118,6 +121,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <StepHeader>Dodatkowe koszty:</StepHeader>
           <InputField
             type="number"
+            inputMode="numeric"
             id="other-price"
             value={otherPrice}
             onChange={handleInputChange}
