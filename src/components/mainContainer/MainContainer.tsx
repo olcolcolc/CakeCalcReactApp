@@ -16,7 +16,6 @@ const MainContainer = styled.div`
     theme.mixin.forDesktop(`
       border-radius: 50px;
       width: 31rem;
-      margin-top: 50px;
     `)}
 `;
 
