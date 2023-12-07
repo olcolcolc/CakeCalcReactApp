@@ -1,21 +1,44 @@
 import React from "react";
-import styled from "@emotion/styled";
+import styled, { keyframes } from "styled-components";
 import { theme } from "../../styles/theme";
 import { Cake } from "../../classes/Cake";
 
 const OutputContainer = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: row;
   align-items: center;
+  justify-content: space-around;
   margin: 0 auto;
 `;
 
 const OutputHeader = styled.div`
   font-size: ${theme.fontSize.base};
+  margin-top: -20px;
+  margin-bottom: 20px;
 `;
 
-const Sides = styled.div`
-  flex-direction: column;
+const Elements = styled.div`
+  text-align: center;
+`;
+
+const rotateHue = keyframes`
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(360deg);
+  }
+`;
+
+const Values = styled.div`
+  font-size: 50px;
+  font-weight: bold;
+  background-image: linear-gradient(62deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: ${rotateHue} 3s linear infinite;
 `;
 
 interface OutputProps {
@@ -43,18 +66,17 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
 
   return (
     <>
-      <OutputHeader>Twoje dane:</OutputHeader>
+      <OutputHeader>twój tort</OutputHeader>
 
       <OutputContainer>
-        <Sides>
-          <p>Na ile osób: {howManyPortions}</p>
-          <p>Wysokość tortu: {cakesHigh}</p>
-        </Sides>
-        <Sides>
-          <p>Cena tortu: {totalPrice}</p>
-          <p>Dodatkowe koszty: {otherPrice}</p>
-          <p>Średnica tortu: {diameter}</p>
-        </Sides>
+        <Elements>
+          <p>cena tortu:</p>
+          <Values>{totalPrice}$</Values>
+        </Elements>
+        <Elements>
+          <p>średnica tortu:</p>
+          <Values> {diameter}ø</Values>
+        </Elements>
       </OutputContainer>
     </>
   );

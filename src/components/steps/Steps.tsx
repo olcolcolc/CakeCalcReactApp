@@ -25,6 +25,9 @@ const InputField = styled.input`
   text-align: center;
   border-radius: 5px;
   font-size: 36px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 interface StepsProps {
@@ -75,8 +78,9 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <InputField
             type="number"
             id="portions-count"
-            value={howManyPortions}
+            value={howManyPortions || 6}
             onChange={handleInputChange}
+            min="6"
           />
         </>
       );
@@ -84,12 +88,13 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     case 1:
       step = (
         <>
-          <StepHeader>Wysokosc tortu:</StepHeader>
+          <StepHeader>Wysokość tortu w cm:</StepHeader>
           <InputField
             type="number"
             id="cakes-high"
-            value={cakesHigh}
+            value={cakesHigh || 7}
             onChange={handleInputChange}
+            min="7"
           />
         </>
       );

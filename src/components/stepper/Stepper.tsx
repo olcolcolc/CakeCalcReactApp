@@ -13,7 +13,7 @@ const StepperContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   flex-direction: column;
 `;
 
@@ -27,6 +27,10 @@ const ProgressBar = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
+  ${({ theme }) =>
+    theme.mixin.forMaxWidth450(`
+      display: none;
+    `)}
 
   &::before {
     content: "";
@@ -58,9 +62,13 @@ const Progress = styled.div`
 
 const ButtonsContainer = styled.div`
   display: flex;
-  width: 500px;
+  width: 100%;
   justify-content: space-between;
   flex-direction: row;
+  ${({ theme }) =>
+    theme.mixin.forMaxWidth450(`
+      width: 300px;
+    `)}
 `;
 
 const Stepper = () => {
@@ -93,7 +101,7 @@ const Stepper = () => {
           <Progress style={{ width: width + "%" }}></Progress>
           {arr}
         </ProgressBar>
-        <Steps number={active} setCakeValues={setCakeValues} />{" "}
+        <Steps number={active} setCakeValues={setCakeValues} />
       </Content>
       <ButtonsContainer>
         <Button
