@@ -38,6 +38,7 @@ const Values = styled.div`
   color: transparent;
   -webkit-background-clip: text;
   background-clip: text;
+  margin-top: -20px;
   animation: ${rotateHue} 3s linear infinite;
 `;
 
@@ -46,23 +47,26 @@ interface OutputProps {
     howManyPortions: number;
     cakesHigh: number;
     pricePerOnePerson: number;
-    otherPrice: number;
+    advance: number;
   };
 }
 
 const Output: React.FC<OutputProps> = ({ cakeValues }) => {
-  const { howManyPortions, cakesHigh, pricePerOnePerson, otherPrice } =
-    cakeValues;
+  const { howManyPortions, cakesHigh, pricePerOnePerson, advance } = cakeValues;
 
   const cake = new Cake({
     portionsCount: howManyPortions,
     height: cakesHigh,
     pricePerPerson: pricePerOnePerson,
-    extras: otherPrice,
+    advance: advance,
   });
 
   const diameter = cake.calculateDiameter();
   const totalPrice = cake.priceCalc();
+  const advancePrice = ((totalPrice * advance) / 100).toFixed(2);
+  // Warunek sprawdzający, czy średnica jest NaN lub niezdefiniowana
+  const validDiameter =
+    isNaN(diameter) || typeof diameter !== "number" ? 0 : diameter;
 
   return (
     <>
@@ -74,8 +78,12 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
           <Values>{totalPrice}$</Values>
         </Elements>
         <Elements>
+          <p>zaliczka:</p>
+          <Values> {advancePrice}$</Values>
+        </Elements>
+        <Elements>
           <p>średnica tortu:</p>
-          <Values> {diameter}ø</Values>
+          <Values> {validDiameter}ø</Values>
         </Elements>
       </OutputContainer>
     </>

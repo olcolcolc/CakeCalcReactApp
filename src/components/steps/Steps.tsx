@@ -1,7 +1,25 @@
 import React, { useState } from "react";
-import styled from "@emotion/styled";
 import { theme } from "../../styles/theme";
 import Output from "../output/Output";
+import styled, { keyframes } from "styled-components";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
 
 const StepContainer = styled.div`
   display: flex;
@@ -9,6 +27,7 @@ const StepContainer = styled.div`
   justify-content: center;
   align-items: center;
   height: 330px;
+  animation: ${fadeIn} 0.5s ease-in-out forwards;
 `;
 
 const StepHeader = styled.div`
@@ -30,6 +49,18 @@ const InputField = styled.input`
   }
 `;
 
+const Slider = styled.input`
+  width: 180px;
+  margin-bottom: 20px;
+  cursor: pointer;
+`;
+
+const SliderLabel = styled.label`
+  margin-bottom: 10px;
+  display: block;
+  text-align: center;
+`;
+
 interface StepsProps {
   number: number;
   setCakeValues: (values: any) => void;
@@ -39,7 +70,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
   const [howManyPortions, setHowManyPortions] = useState(0);
   const [cakesHigh, setCakesHigh] = useState(0);
   const [pricePerOnePerson, setPricePerOnePerson] = useState(0);
-  const [otherPrice, setOtherPrice] = useState(0);
+  const [advance, setAdvance] = useState(50);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
@@ -53,8 +84,12 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
       case "price-per-portion":
         setPricePerOnePerson(Number(value));
         break;
-      case "other-price":
-        setOtherPrice(Number(value));
+      case "advance":
+        // eslint-disable-next-line no-case-declarations
+        const newValue = Number(value);
+        if (newValue >= 1 && newValue <= 100) {
+          setAdvance(newValue);
+        }
         break;
       default:
         break;
@@ -64,7 +99,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
       howManyPortions,
       cakesHigh,
       pricePerOnePerson,
-      otherPrice,
+      advance,
     });
   };
 
@@ -118,14 +153,18 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     case 3:
       step = (
         <>
-          <StepHeader>Dodatkowe koszty:</StepHeader>
-          <InputField
-            type="number"
-            inputMode="numeric"
-            id="other-price"
-            value={otherPrice}
-            onChange={handleInputChange}
+          <StepHeader>Ustal zaliczkę</StepHeader>
+          <Slider
+            type="range"
+            min="1"
+            max="100"
+            value={advance}
+            id="advance-slider"
+            onChange={(e) => setAdvance(Number(e.target.value))}
           />
+          <SliderLabel htmlFor="advance-slider">
+            <span>{advance}</span>%
+          </SliderLabel>
         </>
       );
       break;
@@ -137,7 +176,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
               howManyPortions,
               cakesHigh,
               pricePerOnePerson,
-              otherPrice,
+              advance,
             }}
           />
         </>

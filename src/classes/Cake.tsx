@@ -8,7 +8,7 @@ export class Cake {
     portionsCount: number;
     height: number;
     pricePerPerson: number;
-    extras: number;
+    advance: number;
   }) {
     Object.assign(this, options);
   }
