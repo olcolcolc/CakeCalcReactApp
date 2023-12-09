@@ -48,8 +48,8 @@ interface StepsProps {
 }
 
 const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
-  const [howManyPortions, setHowManyPortions] = useState(0);
-  const [cakesHigh, setCakesHigh] = useState(0);
+  const [howManyPortions, setHowManyPortions] = useState(6);
+  const [cakesHigh, setCakesHigh] = useState(7);
   const [pricePerOnePerson, setPricePerOnePerson] = useState(0);
   const [advance, setAdvance] = useState(50);
 
