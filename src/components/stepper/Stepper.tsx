@@ -72,18 +72,21 @@ const ButtonsContainer = styled.div`
 `;
 
 const Stepper = () => {
-  const [circle] = useState(5); //How many steps
-  const [active, setActive] = useState(0);
+  const [circle] = useState(5); // Total number of steps
+  const [active, setActive] = useState(0); // Current active step
   const [width, setWidth] = useState(0);
 
-  // Funkcja do aktualizacji wartości w komponencie Stepper
+  // Function to update values in the Stepper component
   const setCakeValues = (values: number) => {
     console.log("Updated cake values:", values);
   };
 
+  // Update progress bar width based on active step
   useEffect(() => {
     setWidth((100 / (circle - 1)) * active);
   }, [circle, active]);
+
+  // Create an array of step circles based on total steps and active step
   const arr = [];
   console.log(active, "Current step");
   for (let i = 0; i < circle; i++) {
@@ -97,12 +100,15 @@ const Stepper = () => {
   return (
     <StepperContainer>
       <Content>
+        {/* Progress bar visualizing steps */}
         <ProgressBar>
           <Progress style={{ width: width + "%" }}></Progress>
           {arr}
         </ProgressBar>
+        {/* Render step-specific content */}
         <Steps number={active} setCakeValues={setCakeValues} />
       </Content>
+      {/* Navigation buttons */}
       <ButtonsContainer>
         <Button
           name="previous"

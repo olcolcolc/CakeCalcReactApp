@@ -84,8 +84,8 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     });
   };
 
+  // Logic to render different steps based on the 'number' prop
   let step;
-
   switch (number) {
     case 0:
       step = (

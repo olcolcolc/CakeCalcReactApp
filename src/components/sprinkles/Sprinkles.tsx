@@ -8,6 +8,7 @@ const SprinkleContainer = styled.div`
   z-index: -100;
 `;
 
+// Definition for the bounce-in sprinkle animation
 const bounceInSprinkles = keyframes`
   0% {
     opacity: 0;
@@ -39,7 +40,9 @@ const Sprinkle = styled.div`
   animation: ${bounceInSprinkles} 0.5s forwards;
 `;
 
+// Function to generate multiple sprinkle components with random positions and rotations
 const generateSprinkles = (count: number) => {
+  // Initialize an array to hold sprinkle components
   const sprinkles = [];
   for (let i = 0; i < count; i++) {
     const rotation = Math.random() * 360;

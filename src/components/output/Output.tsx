@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { keyframes } from "styled-components";
 import { theme } from "../../styles/theme";
 import { Cake } from "../../classes/Cake";
@@ -22,7 +21,8 @@ const Elements = styled.div`
   text-align: center;
 `;
 
-const rotateHue = keyframes`
+//Gradient Animation for Values div's
+const gradientAnimation = keyframes`
   0% {
     filter: hue-rotate(0deg);
   }
@@ -39,7 +39,7 @@ const Values = styled.div`
   -webkit-background-clip: text;
   background-clip: text;
   margin-top: -20px;
-  animation: ${rotateHue} 3s linear infinite;
+  animation: ${gradientAnimation} 3s linear infinite;
 `;
 
 interface OutputProps {
@@ -52,8 +52,10 @@ interface OutputProps {
 }
 
 const Output: React.FC<OutputProps> = ({ cakeValues }) => {
+  // Destructure values from cakeValues
   const { howManyPortions, cakesHigh, pricePerOnePerson, advance } = cakeValues;
 
+  // Create a Cake object based on the provided values
   const cake = new Cake({
     portionsCount: howManyPortions,
     height: cakesHigh,
@@ -61,28 +63,28 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
     advance: advance,
   });
 
+  // Calculate diameter, total price, and advance price values
   const diameter = cake.calculateDiameter();
-  const totalPrice = cake.priceCalc();
+  const totalPrice = parseFloat(cake.priceCalc().toFixed(2));
   const advancePrice = ((totalPrice * advance) / 100).toFixed(2);
-  const validDiameter =
-    isNaN(diameter) || typeof diameter !== "number" ? 0 : diameter;
+  const validDiameter = isNaN(diameter) ? 0 : diameter;
 
   return (
     <>
-      <OutputHeader>twój tort</OutputHeader>
+      <OutputHeader>Twój tort</OutputHeader>
 
       <OutputContainer>
         <Elements>
-          <p>cena tortu:</p>
+          <p>Cena tortu:</p>
           <Values>{totalPrice}$</Values>
         </Elements>
         <Elements>
-          <p>zaliczka:</p>
-          <Values> {advancePrice}$</Values>
+          <p>Zaliczka:</p>
+          <Values>{advancePrice}$</Values>
         </Elements>
         <Elements>
-          <p>średnica tortu:</p>
-          <Values> {validDiameter}ø</Values>
+          <p>Średnica tortu:</p>
+          <Values>{validDiameter}ø</Values>
         </Elements>
       </OutputContainer>
     </>
