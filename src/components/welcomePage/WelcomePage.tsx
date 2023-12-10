@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "@emotion/styled";
 import welcomeIcon from "../../assets/welcome_icon.png";
 import { theme } from "../../styles/theme";

@@ -1,5 +1,5 @@
-import React from "react";
 import styled from "@emotion/styled";
+import { theme } from "../../styles/theme";
 
 interface WelcomeIconProps {
   src: string;
@@ -10,8 +10,7 @@ const Image = styled.img`
   width: 200px;
   height: auto;
   margin: 20px;
-  ${(props) =>
-    props.theme.mixin.forDesktop(`
+  ${theme.mixin.forDesktop(`
     width: 300px;
   `)}
 `;

@@ -1,5 +1,4 @@
-import React from "react";
-
+// Define a set of icons as React components
 const icons: Record<string, React.FC> = {
   logo: () => (
     <svg
@@ -41,7 +40,8 @@ export interface IconProps {
   name: keyof typeof icons;
 }
 
+// Icon component that renders the specified icon
 export const Icon: React.FC<IconProps> = ({ name }) => {
-  const IconComponent = icons[name];
+  const IconComponent = icons[name]; // Get the corresponding icon component
   return <IconComponent />;
 };

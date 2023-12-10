@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import Stepper from "../stepper/Stepper";
+import { theme } from "../../styles/theme";
 
 const MainContainer = styled.div`
   display: flex;
@@ -12,8 +13,7 @@ const MainContainer = styled.div`
   width: 100%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  ${({ theme }) =>
-    theme.mixin.forDesktop(`
+  ${theme.mixin.forDesktop(`
       border-radius: 50px;
       width: 31rem;
     `)}

@@ -15,13 +15,14 @@ const NavbarContainer = styled.div`
 `;
 
 const Language = styled.button`
-  ${theme.mixin.defaultButton}; 
+  ${theme.mixin.defaultButton};
   padding: 10px;
 `;
 
 const Navbar: React.FC = () => {
   const [isEnglishLanguage, setIsEnglishLanguage] = useState(true);
 
+  // Function to toggle between English and Polish languages
   const toggleLanguage = () => {
     setIsEnglishLanguage(!isEnglishLanguage);
   };
