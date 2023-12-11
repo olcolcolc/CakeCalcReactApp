@@ -32,4 +32,4 @@ Optimal Cake Size: Discover the perfect cake diameter suited to the specified nu
 The app has been deployed and is accessible at: <a href="https://cakecalc.netlify.app/" target="_blank">https://cakecalc.netlify.app/</a>
 
 ## Contact
-If you have any questions or suggestions regarding this project, feel free to contact me at [aleksandra@czyrnek.net]. I appreciate your feedback and input.
+If you have any questions or suggestions regarding this project, feel free to contact me at <a href="mailto:aleksandra@czyrnek.net">aleksandra@czyrnek.net</a>. I appreciate your feedback and input.
