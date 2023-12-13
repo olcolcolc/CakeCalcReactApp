@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import { theme } from "../../styles/theme";
-import { Cake } from "../../classes/Cake";
+import { Cake } from "../../objects/Cake";
 
 const OutputContainer = styled.div`
   display: flex;

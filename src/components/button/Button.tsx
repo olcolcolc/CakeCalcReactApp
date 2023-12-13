@@ -55,15 +55,6 @@ const NextButton = styled(Button)`
   }
 `;
 
-const AgainButton = styled(Button)`
-  background: ${theme.colors.againButton};
-  color: ${theme.colors.white};
-
-  :hover {
-    background-color: ${theme.colors.againButtonHover};
-  }
-`;
-
 // Interface for button props
 interface IconProps {
   name: "start" | "next" | "previous" | "again";
@@ -93,9 +84,6 @@ const ButtonComponent: React.FC<IconProps> = ({ name, onClick, disabled }) => {
           wróć
         </NextButton>
       );
-      break;
-    case "again":
-      button = <AgainButton>jeszcze raz</AgainButton>;
       break;
     default:
       button = null;
