@@ -71,7 +71,7 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
   const validDiameter = isNaN(diameter) ? 0 : diameter;
 
   // Get the translation function 't' and the i18n instance from the useTranslation hook
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <>

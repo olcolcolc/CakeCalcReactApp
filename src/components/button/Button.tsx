@@ -66,7 +66,7 @@ interface IconProps {
 // Button component with different variations based on the name prop
 const ButtonComponent: React.FC<IconProps> = ({ name, onClick, disabled }) => {
   // Get the translation function 't' and the i18n instance from the useTranslation hook
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   let button;
 

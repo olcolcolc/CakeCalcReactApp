@@ -49,7 +49,7 @@ const ProgressBar = styled.div`
 
 const Progress = styled.div`
   position: absolute;
-  background: ${theme.colors.startButton};
+  background: ${theme.colors.stepper};
   top: 50%;
   left: 0;
   transform: translateY(-50%);
