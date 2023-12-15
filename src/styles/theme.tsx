@@ -35,8 +35,9 @@ const colors = {
 };
 
 const fontSize = {
-  base: "20px",
+  base: "26px",
   button: "30px",
+  annotation: "16px",
 };
 
 const fontFamily = {
