@@ -22,12 +22,12 @@ const mixin = {
 };
 
 const colors = {
-  mainBackground: "#ffafc4",
-  startButton: "#34A9D1",
-  startButtonHover: "#fd68a1",
-  nextButton: "#FFADCC",
-  nextButtonHover: "#34A9D1",
-  disabledButton: "#c4b3b3",
+  mainBackground: "#ffc782",
+  startButton: "#E30259",
+  startButtonHover: "#2583A2",
+  nextButton: "#B10245",
+  nextButtonHover: "#1A5E75",
+  disabledButton: "#575757",
   white: "#ffffff",
   black: "#000000",
   sprinkle: "#e569a0",
