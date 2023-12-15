@@ -5,6 +5,8 @@ import { ThemeProvider } from "@emotion/react";
 import { theme } from "./styles/theme.tsx";
 import { Theme as ThemeType } from "./styles/theme.tsx";
 import "./index.css";
+import "../i18n.js";
+
 declare module "@emotion/react" {
   // eslint-disable-next-line
   interface Theme extends ThemeType {}

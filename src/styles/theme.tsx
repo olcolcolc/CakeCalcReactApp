@@ -27,8 +27,6 @@ const colors = {
   startButtonHover: "#fd68a1",
   nextButton: "#FFADCC",
   nextButtonHover: "#34A9D1",
-  againButton: "#FF2272",
-  againButtonHover: "#c8ee98",
   disabledButton: "#c4b3b3",
   white: "#ffffff",
   black: "#000000",

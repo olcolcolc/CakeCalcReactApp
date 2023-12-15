@@ -3,6 +3,7 @@ import welcomeIcon from "../../assets/welcome_icon.png";
 import { theme } from "../../styles/theme";
 import Button from "../button/Button";
 import WelcomeIcon from "../welcome-icon/WelcomeIcon";
+import { useTranslation } from "react-i18next";
 
 const WelcomePageDiv = styled.div`
   margin: 20px;
@@ -56,11 +57,14 @@ interface WelcomePageProps {
 }
 
 const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
+  // Get the translation function 't' and the i18n instance from the useTranslation hook
+  const { t, i18n } = useTranslation();
+
   return (
     <WelcomePageDiv>
       <LeftWrapper>
-        <Label>cześć!</Label>
-        <Description>oblicz cenę i wielkość swojego tortu</Description>
+        <Label>{t("welcomePage.label")}</Label>
+        <Description>{t("welcomePage.description")}</Description>
       </LeftWrapper>
       <RightWrapper>
         <WelcomeIcon src={welcomeIcon} alt="Welcome Icon" />

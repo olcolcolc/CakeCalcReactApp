@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Icon } from "../icon/Icon";
 import { theme } from "../../styles/theme";
+import i18n from "i18next";
 
 const NavbarContainer = styled.div`
   display: flex;
@@ -22,19 +23,23 @@ const Language = styled.button`
 const Navbar: React.FC = () => {
   const [isEnglishLanguage, setIsEnglishLanguage] = useState(true);
 
-  // Function to toggle between English and Polish languages
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+  };
+
   const toggleLanguage = () => {
     setIsEnglishLanguage(!isEnglishLanguage);
+    const currentLanguage = i18n.language;
+    const newLanguage = currentLanguage === "pl" ? "en" : "pl";
+    changeLanguage(newLanguage);
   };
 
   return (
     <NavbarContainer className="navbar">
       <Icon name="logo" />
-      {isEnglishLanguage ? (
-        <Language onClick={toggleLanguage}>en</Language>
-      ) : (
-        <Language onClick={toggleLanguage}>pl</Language>
-      )}
+      <Language onClick={toggleLanguage}>
+        {i18n.language === "pl" ? "en" : "pl"}
+      </Language>
     </NavbarContainer>
   );
 };

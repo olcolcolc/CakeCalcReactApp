@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { theme } from "../../styles/theme";
 import Output from "../output/Output";
 import styled from "styled-components";
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 const StepContainer = styled.div`
   display: flex;
@@ -53,6 +55,9 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
   const [pricePerOnePerson, setPricePerOnePerson] = useState(0);
   const [advance, setAdvance] = useState(50);
 
+  // Get the translation function 't' and the i18n instance from the useTranslation hook
+  const { t, i18n } = useTranslation();
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
     switch (id) {
@@ -90,7 +95,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     case 0:
       step = (
         <>
-          <StepHeader>Na ile osób?</StepHeader>
+          <StepHeader>{t("steps.0")}</StepHeader>
           <InputField
             type="number"
             inputMode="numeric"
@@ -105,7 +110,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     case 1:
       step = (
         <>
-          <StepHeader>Wysokość tortu w cm:</StepHeader>
+          <StepHeader>{t("steps.1")}</StepHeader>
           <InputField
             type="number"
             inputMode="numeric"
@@ -120,7 +125,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     case 2:
       step = (
         <>
-          <StepHeader>Ustal cenę za osobę:</StepHeader>
+          <StepHeader>{t("steps.2")}</StepHeader>
           <InputField
             type="number"
             inputMode="numeric"
@@ -134,7 +139,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     case 3:
       step = (
         <>
-          <StepHeader>Ustal zaliczkę</StepHeader>
+          <StepHeader>{t("steps.3")}</StepHeader>
           <Slider
             type="range"
             min="1"
