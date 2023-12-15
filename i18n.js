@@ -13,4 +13,5 @@ i18n
         fallbackLang: 'pl'
     })
 
+
 export default i18n;

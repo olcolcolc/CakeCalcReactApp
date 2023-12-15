@@ -4,6 +4,7 @@
         "return": "wróć"
       },
       "output": {
+        "header": "twój tort",
         "cakePrice": "cena tortu",
         "deposit": "zaliczka",
         "cakeDiameter": "średnica tortu"

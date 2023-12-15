@@ -75,7 +75,7 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
 
   return (
     <>
-      <OutputHeader>Twój tort</OutputHeader>
+      <OutputHeader>{t("output.header")}</OutputHeader>
 
       <OutputContainer>
         <Elements>
