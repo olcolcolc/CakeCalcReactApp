@@ -1,0 +1,22 @@
+{
+    "button": {
+      "next": "next",
+      "return": "return"
+    },
+    "output": {
+      "cakePrice": "cake price",
+      "deposit": "deposit",
+      "cakeDiameter": "cake diameter"
+    },
+    "steps": {
+      "0": "How many portions?",
+      "1": "Cake height in cm:",
+      "2": "Set the price per person:",
+      "3": "Set the deposit percentage"
+    },
+    "welcomePage": {
+      "label": "hello!",
+      "description": "calculate the price and size of your cake"
+    }
+  }
+  
