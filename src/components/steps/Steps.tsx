@@ -3,7 +3,6 @@ import { theme } from "../../styles/theme";
 import Output from "../output/Output";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import { t } from "i18next";
 
 const StepContainer = styled.div`
   display: flex;
@@ -56,7 +55,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
   const [advance, setAdvance] = useState(50);
 
   // Get the translation function 't' and the i18n instance from the useTranslation hook
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;

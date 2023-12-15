@@ -17,7 +17,7 @@ const CircleDiv = styled.div`
   transition: 0.4s ease;
 
   &.active {
-    border-color: ${theme.colors.startButton};
+    border-color: ${theme.colors.stepper};
   }
 `;
 
