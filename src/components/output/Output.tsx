@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { theme } from "../../styles/theme";
 import { Cake } from "../../objects/Cake";
+import { useTranslation } from "react-i18next";
 
 const OutputContainer = styled.div`
   display: flex;
@@ -69,21 +70,24 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
   const advancePrice = ((totalPrice * advance) / 100).toFixed(2);
   const validDiameter = isNaN(diameter) ? 0 : diameter;
 
+  // Get the translation function 't' and the i18n instance from the useTranslation hook
+  const { t, i18n } = useTranslation();
+
   return (
     <>
       <OutputHeader>Twój tort</OutputHeader>
 
       <OutputContainer>
         <Elements>
-          <p>Cena tortu:</p>
+          <p>{t("output.cakePrice")}</p>
           <Values>{totalPrice}$</Values>
         </Elements>
         <Elements>
-          <p>Zaliczka:</p>
+          <p>{t("output.deposit")}</p>
           <Values>{advancePrice}$</Values>
         </Elements>
         <Elements>
-          <p>Średnica tortu:</p>
+          <p>{t("output.cakeDiameter")}</p>
           <Values>{validDiameter}ø</Values>
         </Elements>
       </OutputContainer>

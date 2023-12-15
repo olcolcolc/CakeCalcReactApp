@@ -4,7 +4,6 @@ import WelcomePage from "./components/welcomePage/WelcomePage";
 import MainContainerComponent from "./components/mainContainer/MainContainer";
 import Sprinkles from "./components/sprinkles/Sprinkles";
 import { Suspense } from "react";
-import { useTranslation } from "react-i18next";
 
 function App() {
   const [showWelcomePage, setShowWelcomePage] = useState(true);

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { theme } from "../../styles/theme";
+import { useTranslation } from "react-i18next";
 
 // Styled components for different button types
 const Button = styled.button`
@@ -64,6 +65,9 @@ interface IconProps {
 
 // Button component with different variations based on the name prop
 const ButtonComponent: React.FC<IconProps> = ({ name, onClick, disabled }) => {
+  // Get the translation function 't' and the i18n instance from the useTranslation hook
+  const { t, i18n } = useTranslation();
+
   let button;
 
   // Switch case to render different buttons based on the name prop
@@ -74,14 +78,14 @@ const ButtonComponent: React.FC<IconProps> = ({ name, onClick, disabled }) => {
     case "next":
       button = (
         <NextButton onClick={onClick} disabled={disabled}>
-          dalej
+          {t("button.next")}
         </NextButton>
       );
       break;
     case "previous":
       button = (
         <NextButton onClick={onClick} disabled={disabled}>
-          wróć
+          {t("button.return")}
         </NextButton>
       );
       break;
