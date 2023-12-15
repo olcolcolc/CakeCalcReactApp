@@ -1,4 +1,7 @@
-{
+{   "annotation": {
+      "step0": "the cake can be for a minimum of 6 people",
+      "step1": "The cake can have a minimum height of 7 cm"
+    },
     "button": {
       "next": "next",
       "return": "return"
@@ -10,10 +13,10 @@
       "cakeDiameter": "cake diameter"
     },
     "steps": {
-      "0": "How many portions?",
-      "1": "Cake height in cm:",
-      "2": "Set the price per person:",
-      "3": "Set the deposit percentage"
+      "0": "how many portions?",
+      "1": "cake height in cm:",
+      "2": "set the price per person:",
+      "3": "set the deposit percentage"
     },
     "welcomePage": {
       "label": "hello!",

@@ -3,6 +3,7 @@ import { theme } from "../../styles/theme";
 import Output from "../output/Output";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import Annotation from "../../annotation/Annotation";
 
 const StepContainer = styled.div`
   display: flex;
@@ -15,6 +16,9 @@ const StepContainer = styled.div`
 const StepHeader = styled.div`
   margin-bottom: 20px;
   font-size: ${theme.fontSize.base};
+  &::first-letter {
+    text-transform: uppercase;
+  }
 `;
 
 const InputField = styled.input`
@@ -103,6 +107,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
             min="6"
             id="portions-count"
           />
+          <Annotation step="0" />
         </>
       );
       break;
@@ -118,6 +123,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
             min="7"
             id="cakes-high"
           />
+          <Annotation step="1" />
         </>
       );
       break;
