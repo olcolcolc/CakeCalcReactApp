@@ -21,6 +21,7 @@
     "welcomePage": {
       "label": "hello!",
       "description": "calculate the price and size of your cake"
-    }
+    },
+    "currency": "$"
   }
   
