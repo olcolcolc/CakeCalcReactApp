@@ -51,11 +51,11 @@ const SliderLabel = styled.label`
 `;
 
 interface StepsProps {
-  number: number;
+  stepNumber: number;
   setCakeValues: (values: any) => void;
 }
 
-const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
+const Steps: React.FC<StepsProps> = ({ stepNumber, setCakeValues }) => {
   // These values are strings so that the entire input can be deleted.
   const [howManyPortions, setHowManyPortions] = useState("6");
   const [cakesHigh, setCakesHigh] = useState("7");
@@ -98,7 +98,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
 
   // Logic to render different steps based on the 'number' prop
   let step;
-  switch (number) {
+  switch (stepNumber) {
     case 0:
       step = (
         <>

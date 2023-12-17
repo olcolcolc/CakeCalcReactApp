@@ -106,7 +106,7 @@ const Stepper = () => {
           {arr}
         </ProgressBar>
         {/* Render step-specific content */}
-        <Steps number={active} setCakeValues={setCakeValues} />
+        <Steps stepNumber={active} setCakeValues={setCakeValues} />
       </Content>
       {/* Navigation buttons */}
       <ButtonsContainer>
