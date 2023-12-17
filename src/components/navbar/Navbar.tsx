@@ -20,7 +20,8 @@ const LogoLink = styled.a`
   }
   &:focus {
     border-radius: 20px;
-    outline: solid 1px ${theme.colors.input};
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
+    outline: none;
   }
 `;
 
@@ -28,8 +29,8 @@ const Language = styled.button`
   ${theme.mixin.defaultButton};
   padding: 10px;
   &:focus {
-    border-radius: 20px;
-    outline: solid 1px ${theme.colors.input};
+    border-radius: 50%;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
   }
 `;
 

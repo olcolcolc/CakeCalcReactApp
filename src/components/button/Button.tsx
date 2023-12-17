@@ -25,7 +25,7 @@ const StartButton = styled(Button)`
   }
 
   :focus {
-    border: solid 2px ${theme.colors.startButtonFocus};
+    box-shadow: 0 0 5px 3px ${theme.colors.startButtonFocus};
   }
 
   ${theme.mixin.forDesktop(`
@@ -39,7 +39,7 @@ const NextButton = styled(Button)`
   color: ${theme.colors.white};
   font-size: 26px;
   :focus {
-    border: solid 2px ${theme.colors.nextButtonFocus};
+    box-shadow: 0 0 5px 3px ${theme.colors.nextButtonFocus};
   }
 
   :hover {

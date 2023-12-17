@@ -9,7 +9,7 @@ const MainContainer = styled.div`
   align-items: center;
   margin: 10px auto;
   background-color: white;
-  height: 29rem;
+  height: 30rem;
   width: 100%;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;

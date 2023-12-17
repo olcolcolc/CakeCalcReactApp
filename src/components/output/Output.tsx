@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 const OutputContainer = styled.div`
   display: flex;
   width: 100%;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
@@ -14,12 +14,12 @@ const OutputContainer = styled.div`
 
 const OutputHeader = styled.div`
   font-size: ${theme.fontSize.base};
-  margin-top: -20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 const Elements = styled.div`
   text-align: center;
+  margin: -12px;
 `;
 
 //Gradient Animation for Values div's
@@ -35,6 +35,7 @@ const gradientAnimation = keyframes`
 const Values = styled.div`
   font-size: 50px;
   font-weight: bold;
+  padding-bottom: 12px;
   background-image: linear-gradient(62deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   color: transparent;
   -webkit-background-clip: text;
