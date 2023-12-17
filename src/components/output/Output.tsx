@@ -45,10 +45,10 @@ const Values = styled.div`
 
 interface OutputProps {
   cakeValues: {
-    howManyPortions: number;
-    cakesHigh: number;
-    pricePerOnePerson: number;
-    advance: number;
+    howManyPortions: string;
+    cakesHigh: string;
+    pricePerOnePerson: string;
+    advance: string;
   };
 }
 
@@ -56,18 +56,19 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
   // Destructure values from cakeValues
   const { howManyPortions, cakesHigh, pricePerOnePerson, advance } = cakeValues;
 
-  // Create a Cake object based on the provided values
+  // Create a Cake object based on the provided values after converting them to numeric types.
   const cake = new Cake({
-    portionsCount: howManyPortions,
-    height: cakesHigh,
-    pricePerPerson: pricePerOnePerson,
-    advance: advance,
+    portionsCount: parseInt(howManyPortions, 10),
+    height: parseInt(cakesHigh, 10),
+    pricePerPerson: parseFloat(pricePerOnePerson),
+    advance: parseFloat(advance),
   });
 
   // Calculate diameter, total price, and advance price values
   const diameter = cake.calculateDiameter();
   const totalPrice = parseFloat(cake.priceCalc().toFixed(2));
-  const advancePrice = ((totalPrice * advance) / 100).toFixed(2);
+  const advanceValue = parseFloat(advance); // Parsing advance again as a number
+  const advancePrice = ((totalPrice * advanceValue) / 100).toFixed(2);
   const validDiameter = isNaN(diameter) ? 0 : diameter;
 
   // Get the translation function 't' and the i18n instance from the useTranslation hook

@@ -56,10 +56,11 @@ interface StepsProps {
 }
 
 const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
-  const [howManyPortions, setHowManyPortions] = useState(6);
-  const [cakesHigh, setCakesHigh] = useState(7);
-  const [pricePerOnePerson, setPricePerOnePerson] = useState(0);
-  const [advance, setAdvance] = useState(50);
+  // These values are strings so that the entire input can be deleted.
+  const [howManyPortions, setHowManyPortions] = useState("6");
+  const [cakesHigh, setCakesHigh] = useState("7");
+  const [pricePerOnePerson, setPricePerOnePerson] = useState("0");
+  const [advance, setAdvance] = useState("50");
 
   // Get the translation function 't' and the i18n instance from the useTranslation hook
   const { t } = useTranslation();
@@ -68,19 +69,19 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     const { id, value } = event.target;
     switch (id) {
       case "portions-count":
-        setHowManyPortions(Number(value));
+        setHowManyPortions(value);
         break;
       case "cakes-high":
-        setCakesHigh(Number(value));
+        setCakesHigh(value);
         break;
       case "price-per-portion":
-        setPricePerOnePerson(Number(value));
+        setPricePerOnePerson(value);
         break;
       case "advance":
         // eslint-disable-next-line no-case-declarations
         const newValue = Number(value);
-        if (newValue >= 1 && newValue <= 100) {
-          setAdvance(newValue);
+        if (!isNaN(newValue) && newValue >= 1 && newValue <= 100) {
+          setAdvance(value);
         }
         break;
       default:
@@ -105,9 +106,8 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <InputField
             type="number"
             inputMode="numeric"
-            value={howManyPortions || 6}
+            value={howManyPortions}
             onChange={handleInputChange}
-            min="6"
             id="portions-count"
           />
           <Annotation step="0" />
@@ -121,9 +121,8 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <InputField
             type="number"
             inputMode="numeric"
-            value={cakesHigh || 7}
+            value={cakesHigh}
             onChange={handleInputChange}
-            min="7"
             id="cakes-high"
           />
           <Annotation step="1" />
@@ -136,7 +135,6 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           <StepHeader>{t("steps.2")}</StepHeader>
           <InputField
             type="number"
-            inputMode="numeric"
             value={pricePerOnePerson}
             onChange={handleInputChange}
             id="price-per-portion"
