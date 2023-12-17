@@ -16,7 +16,6 @@ const StartButton = styled(Button)`
   color: ${theme.colors.white};
 
   :hover {
-    background-color: ${theme.colors.startButtonHover};
     transform: scale(0.9);
     transition: transform 0.2s ease;
   }
@@ -25,29 +24,31 @@ const StartButton = styled(Button)`
     transform: scale(1.2);
   }
 
+  :focus {
+    border: solid 2px ${theme.colors.startButtonFocus};
+  }
+
   ${theme.mixin.forDesktop(`
     font-size: 60px;
     padding: 10px 70px;
-  `)}
+  `)};
 `;
 
 const NextButton = styled(Button)`
   background-color: ${theme.colors.nextButton};
   color: ${theme.colors.white};
   font-size: 26px;
+  :focus {
+    border: solid 2px ${theme.colors.nextButtonFocus};
+  }
 
   :hover {
-    background-color: ${theme.colors.nextButtonHover};
     transform: scale(0.9);
     transition: transform 0.2s ease;
   }
 
   :active {
     transform: scale(0.98);
-  }
-
-  :focus {
-    outline: none;
   }
 
   :disabled {

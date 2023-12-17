@@ -26,12 +26,15 @@ const InputField = styled.input`
   max-width: 100px;
   height: 60px;
   padding: 10px;
-  border: 1px solid #131212;
+  border: 1px solid ${theme.colors.input};
   text-align: center;
   border-radius: 40px;
   font-size: 50px;
   &:hover {
     cursor: pointer;
+  }
+  &:focus {
+    border: solid 2px ${theme.colors.input};
   }
 `;
 
