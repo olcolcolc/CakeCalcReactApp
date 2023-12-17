@@ -31,5 +31,13 @@ Optimal Cake Size: Discover the perfect cake diameter suited to the specified nu
 ## Deployment
 The app has been deployed and is accessible at: <a href="https://cakecalc.netlify.app/" target="_blank">https://cakecalc.netlify.app/</a>
 
+## How to Run Locally
+To run this project locally using Yarn:
+1. Clone the repository: Clone the CakeCalc project repository from GitHub using git clone or download the ZIP archive and extract it.
+2. Open a terminal: Navigate to the project's main directory using the terminal.
+3. Install dependencies: Run yarn install in the terminal to install all the necessary project dependencies.
+4. Start the local server: Once the installation is complete, start the project locally by typing yarn start in the terminal. This will run the application in development mode and open it in your default browser.
+5. After completing these steps, the application should run locally, ready for use and testing on your computer.
+
 ## Contact
 If you have any questions or suggestions regarding this project, feel free to contact me at <a href="mailto:aleksandra@czyrnek.net">aleksandra@czyrnek.net</a>. I appreciate your feedback and input.
