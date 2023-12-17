@@ -81,11 +81,17 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
       <OutputContainer>
         <Elements>
           <p>{t("output.cakePrice")}</p>
-          <Values>{totalPrice}$</Values>
+          <Values>
+            {totalPrice}
+            {t("currency")}
+          </Values>
         </Elements>
         <Elements>
           <p>{t("output.deposit")}</p>
-          <Values>{advancePrice}$</Values>
+          <Values>
+            {advancePrice}
+            {t("currency")}
+          </Values>
         </Elements>
         <Elements>
           <p>{t("output.cakeDiameter")}</p>

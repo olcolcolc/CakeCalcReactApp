@@ -22,6 +22,7 @@
       "welcomePage": {
         "label": "cześć!",
         "description": "oblicz cenę i wielkość swojego tortu"
-      }
+      },
+      "currency": "zł"
   }
   

@@ -28,7 +28,11 @@ interface CircleProps {
 }
 
 const Circle: React.FC<CircleProps> = ({ children, classname }) => {
-  return <CircleDiv className={classname}>{children}</CircleDiv>;
+  return (
+    <CircleDiv className={classname}>
+      {(Number(children) + 1).toString()}
+    </CircleDiv>
+  );
 };
 
 export default Circle;
