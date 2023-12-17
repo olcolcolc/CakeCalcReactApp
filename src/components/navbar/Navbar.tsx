@@ -12,12 +12,25 @@ const NavbarContainer = styled.div`
   align-items: center;
   height: 80px;
   justify-content: space-between;
-  cursor: pointer;
+`;
+
+const LogoLink = styled.a`
+  &:hover {
+    cursor: pointer;
+  }
+  &:focus {
+    border-radius: 20px;
+    outline: solid 1px ${theme.colors.input};
+  }
 `;
 
 const Language = styled.button`
   ${theme.mixin.defaultButton};
   padding: 10px;
+  &:focus {
+    border-radius: 20px;
+    outline: solid 1px ${theme.colors.input};
+  }
 `;
 
 const Navbar: React.FC = () => {
@@ -36,7 +49,9 @@ const Navbar: React.FC = () => {
 
   return (
     <NavbarContainer className="navbar">
-      <Icon name="logo" />
+      <LogoLink href="/">
+        <Icon name="logo" />
+      </LogoLink>
       <Language onClick={toggleLanguage}>
         {i18n.language === "pl" ? "en" : "pl"}
       </Language>

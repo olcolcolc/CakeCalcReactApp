@@ -24,14 +24,17 @@ const mixin = {
 const colors = {
   mainBackground: "#ffc782",
   startButton: "#E30259",
+  startButtonFocus: "#b50042",
   startButtonHover: "#2583A2",
   nextButton: "#2583A2",
   nextButtonHover: "#E30259",
+  nextButtonFocus: "#145377",
   stepper: "#2583A2",
   disabledButton: "#575757",
   white: "#ffffff",
   black: "#000000",
   sprinkle: "#e569a0",
+  input: "#464141",
 };
 
 const fontSize = {
