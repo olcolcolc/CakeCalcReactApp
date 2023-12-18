@@ -75,6 +75,7 @@ const Stepper = () => {
   const [circle] = useState(5); // Total number of steps
   const [active, setActive] = useState(0); // Current active step
   const [width, setWidth] = useState(0);
+  const [disableNextButton, setDisableNextButton] = useState(false);
 
   // Function to update values in the Stepper component
   const setCakeValues = (values: number) => {
@@ -106,7 +107,11 @@ const Stepper = () => {
           {arr}
         </ProgressBar>
         {/* Render step-specific content */}
-        <Steps number={active} setCakeValues={setCakeValues} />
+        <Steps
+          stepNumber={active}
+          setCakeValues={setCakeValues}
+          setDisableNextButton={setDisableNextButton}
+        />
       </Content>
       {/* Navigation buttons */}
       <ButtonsContainer>
@@ -121,7 +126,7 @@ const Stepper = () => {
         />
         <Button
           name="next"
-          disabled={active >= circle - 1}
+          disabled={active >= circle - 1 || disableNextButton}
           onClick={() => {
             if (active >= circle - 1) {
               setActive(circle - 1);

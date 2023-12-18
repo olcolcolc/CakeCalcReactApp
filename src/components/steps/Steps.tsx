@@ -51,11 +51,16 @@ const SliderLabel = styled.label`
 `;
 
 interface StepsProps {
-  number: number;
+  stepNumber: number;
   setCakeValues: (values: any) => void;
+  setDisableNextButton: (isDisabled: boolean) => void;
 }
 
-const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
+const Steps: React.FC<StepsProps> = ({
+  stepNumber,
+  setCakeValues,
+  setDisableNextButton,
+}) => {
   // These values are strings so that the entire input can be deleted.
   const [howManyPortions, setHowManyPortions] = useState("6");
   const [cakesHigh, setCakesHigh] = useState("7");
@@ -70,9 +75,13 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
     switch (id) {
       case "portions-count":
         setHowManyPortions(value);
+        // Disable button when the user enters less than 6 in the input.
+        setDisableNextButton(parseInt(value, 10) < 6);
         break;
       case "cakes-high":
         setCakesHigh(value);
+        // Disable button when the user enters less than 7 in the input.
+        setDisableNextButton(parseInt(value, 10) < 7);
         break;
       case "price-per-portion":
         setPricePerOnePerson(value);
@@ -98,7 +107,7 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
 
   // Logic to render different steps based on the 'number' prop
   let step;
-  switch (number) {
+  switch (stepNumber) {
     case 0:
       step = (
         <>
@@ -173,6 +182,9 @@ const Steps: React.FC<StepsProps> = ({ number, setCakeValues }) => {
           />
         </>
       );
+      break;
+    default:
+      break;
   }
 
   return <StepContainer>{step}</StepContainer>;
