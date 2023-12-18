@@ -35,7 +35,7 @@ The app has been deployed and is accessible at: <a href="https://cakecalc.netlif
 To run this project locally using Yarn:
 1. Clone the repository: Clone the CakeCalc project repository from GitHub using git clone or download the ZIP archive and extract it.
 2. Open a terminal: Navigate to the project's main directory using the terminal.
-3. Install dependencies: Run yarn install in the terminal to install all the necessary project dependencies.
+3. Install dependencies: Run <b>yarn install</b> in the terminal to install all the necessary project dependencies.
 4. Start the local server: Once the installation is complete, start the project locally by typing <b>yarn run dev</b> in the terminal. This will run the application in development mode and open it in your default browser.
 5. After completing these steps, the application should run locally, ready for use and testing on your computer.
 
