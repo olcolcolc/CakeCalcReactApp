@@ -89,13 +89,8 @@ const Stepper = () => {
 
   // Create an array of step circles based on total steps and active step
   const arr = [];
-  console.log(active, "Current step");
   for (let i = 0; i < circle; i++) {
-    arr.push(
-      <Circle classname={i <= active ? "active" : ""} key={i}>
-        {i}
-      </Circle>
-    );
+    arr.push(<Circle key={i}>{i}</Circle>);
   }
 
   return (
