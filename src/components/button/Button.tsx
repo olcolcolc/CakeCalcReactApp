@@ -78,14 +78,22 @@ const ButtonComponent: React.FC<IconProps> = ({ name, onClick, disabled }) => {
       break;
     case "next":
       button = (
-        <NextButton onClick={onClick} disabled={disabled}>
+        <NextButton
+          data-testid="next-button"
+          onClick={onClick}
+          disabled={disabled}
+        >
           {t("button.next")}
         </NextButton>
       );
       break;
     case "previous":
       button = (
-        <NextButton onClick={onClick} disabled={disabled}>
+        <NextButton
+          data-testid="previous-button"
+          onClick={onClick}
+          disabled={disabled}
+        >
           {t("button.return")}
         </NextButton>
       );

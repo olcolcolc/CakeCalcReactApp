@@ -15,16 +15,13 @@ function App() {
 
   return (
     <>
-      {/* <Navbar />
+      <Navbar />
       <Sprinkles />
       {showWelcomePage ? (
         <WelcomePage onStartClick={handleStartClick} />
       ) : (
         <MainContainerComponent />
-      )} */}
-      <div className="App">
-        <h1>Hello World</h1>
-      </div>
+      )}
     </>
   );
 }
