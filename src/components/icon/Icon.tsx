@@ -1,5 +1,5 @@
 // Define a set of icons as React components
-const icons: Record<string, React.FC> = {
+export const icons: Record<string, React.FC> = {
   logo: () => (
     <svg
       width="115"
