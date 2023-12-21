@@ -59,7 +59,7 @@ const NextButton = styled(Button)`
 
 // Interface for button props
 interface IconProps {
-  name: "start" | "next" | "previous" | "again";
+  name: "start" | "next" | "previous";
   onClick?: React.MouseEventHandler;
   disabled?: boolean;
 }

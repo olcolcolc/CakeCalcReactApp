@@ -3,7 +3,7 @@ import { theme } from "../../styles/theme";
 import Output from "../output/Output";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
-import Annotation from "../../annotation/Annotation";
+import Annotation from "../annotation/Annotation";
 
 const StepContainer = styled.div`
   display: flex;

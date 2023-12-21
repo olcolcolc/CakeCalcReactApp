@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { useTranslation } from "react-i18next";
-import { theme } from "../styles/theme";
+import { theme } from "../../styles/theme";
 
 type AnnotationProps = {
   step: "0" | "1";
