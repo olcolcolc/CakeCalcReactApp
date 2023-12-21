@@ -24,10 +24,15 @@ const CircleDiv = styled.div`
 // Interface for Circle props
 interface CircleProps {
   children: ReactNode;
+  classname: string;
 }
 
-const Circle: React.FC<CircleProps> = ({ children }) => {
-  return <CircleDiv>{(Number(children) + 1).toString()}</CircleDiv>;
+const Circle: React.FC<CircleProps> = ({ children, classname }) => {
+  return (
+    <CircleDiv className={classname}>
+      {(Number(children) + 1).toString()}
+    </CircleDiv>
+  );
 };
 
 export default Circle;
