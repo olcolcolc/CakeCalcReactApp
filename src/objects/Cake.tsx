@@ -3,7 +3,6 @@ export class Cake {
   private portionsCount = 0; // Number of portions
   private height = 0; // Height of the cake
   private pricePerPerson = 0; // Price per person
-  private advance = 0; // Advance percentage
 
   constructor(options: {
     portionsCount: number;
