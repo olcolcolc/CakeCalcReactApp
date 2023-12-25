@@ -17,7 +17,7 @@ export class Cake {
   // Calculates the total price of the cake including the advance charge
   public priceCalc(): number {
     const price: number = this.portionsCount * this.pricePerPerson; // Base price
-    return price + this.advance; // Adds the advance charge to the base price
+    return price; // Adds the advance charge to the base price
   }
 
   // Calculates the diameter of the cake based on its volume and height

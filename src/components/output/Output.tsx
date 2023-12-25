@@ -77,26 +77,28 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
 
   return (
     <>
-      <OutputHeader>{t("output.header")}</OutputHeader>
+      <OutputHeader data-testid="output-header">
+        {t("output.header")}
+      </OutputHeader>
 
-      <OutputContainer>
-        <Elements>
+      <OutputContainer data-testid="output-container">
+        <Elements data-testid="cake-price-element">
           <p>{t("output.cakePrice")}</p>
-          <Values>
+          <Values data-testid="cake-price-value">
             {totalPrice}
             {t("currency")}
           </Values>
         </Elements>
-        <Elements>
+        <Elements data-testid="deposit-element">
           <p>{t("output.deposit")}</p>
-          <Values>
+          <Values data-testid="deposit-value">
             {advancePrice}
             {t("currency")}
           </Values>
         </Elements>
-        <Elements>
+        <Elements data-testid="cake-diameter-element">
           <p>{t("output.cakeDiameter")}</p>
-          <Values>{validDiameter}ø</Values>
+          <Values data-testid="cake-diameter-value">{validDiameter}ø</Values>
         </Elements>
       </OutputContainer>
     </>
