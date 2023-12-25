@@ -101,7 +101,7 @@ const Stepper = () => {
     <StepperContainer>
       <Content>
         {/* Progress bar visualizing steps */}
-        <ProgressBar>
+        <ProgressBar data-testid="progress-bar">
           <Progress style={{ width: width + "%" }}></Progress>
           {arr}
         </ProgressBar>
@@ -110,12 +110,14 @@ const Stepper = () => {
           stepNumber={active}
           setCakeValues={setCakeValues}
           setDisableNextButton={setDisableNextButton}
+          data-testid="steps-component"
         />
       </Content>
       {/* Navigation buttons */}
-      <ButtonsContainer>
+      <ButtonsContainer data-testid="buttons-container">
         <Button
           name="previous"
+          data-testid="previous-button"
           disabled={active <= 0}
           onClick={() => {
             if (active <= 0) {
@@ -125,6 +127,7 @@ const Stepper = () => {
         />
         <Button
           name="next"
+          data-testid="next-button"
           disabled={active >= circle - 1 || disableNextButton}
           onClick={() => {
             if (active >= circle - 1) {
