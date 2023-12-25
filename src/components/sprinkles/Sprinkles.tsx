@@ -62,7 +62,7 @@ const SprinkleAnimation = () => {
   return (
     <SprinkleContainer>
       {SprinkleComponents.map((SprinkleComponent, index) => (
-        <SprinkleComponent key={index} />
+        <SprinkleComponent key={index} className="sprinkle" />
       ))}
     </SprinkleContainer>
   );
