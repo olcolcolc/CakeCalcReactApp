@@ -85,6 +85,7 @@ const Stepper = () => {
   // Update progress bar width based on active step
   useEffect(() => {
     setWidth((100 / (circle - 1)) * active);
+    console.log(width);
   }, [circle, active]);
 
   // Create an array of step circles based on total steps and active step
@@ -102,7 +103,10 @@ const Stepper = () => {
       <Content>
         {/* Progress bar visualizing steps */}
         <ProgressBar data-testid="progress-bar">
-          <Progress style={{ width: width + "%" }}></Progress>
+          <Progress
+            data-testid="progress"
+            style={{ width: width + "%" }}
+          ></Progress>
           {arr}
         </ProgressBar>
         {/* Render step-specific content */}
@@ -110,7 +114,6 @@ const Stepper = () => {
           stepNumber={active}
           setCakeValues={setCakeValues}
           setDisableNextButton={setDisableNextButton}
-          data-testid="steps-component"
         />
       </Content>
       {/* Navigation buttons */}

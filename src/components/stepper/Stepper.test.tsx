@@ -13,26 +13,30 @@ describe("Stepper Component", () => {
 
     const progressBar = getByTestId("progress-bar");
     const buttonsContainer = getByTestId("buttons-container");
+    const previousButton = getByTestId("previous-button");
 
     expect(progressBar).toBeInTheDocument();
     expect(buttonsContainer).toBeInTheDocument();
+    expect(previousButton).toBeDisabled();
   });
 
-  //   it("increases progress bar width when 'Next' button is clicked", () => {
-  //     const { getByTestId } = render(
-  //       <ThemeProvider theme={theme}>
-  //         <Stepper />
-  //       </ThemeProvider>
-  //     );
+  it("increases circle content when 'Next' button is clicked", () => {
+    const { getByTestId } = render(
+      <ThemeProvider theme={theme}>
+        <Stepper />
+      </ThemeProvider>
+    );
 
-  //     const progressBar = getByTestId("progress-bar");
-  //     const nextButton = getByTestId("next-button");
-  //     const initialTextContent = parseInt(progressBar.textContent ?? "0", 10);
+    const progress = getByTestId("progress");
+    const nextButton = getByTestId("next-button");
+    const activeCircle = document.querySelector(".active");
 
-  //     fireEvent.click(nextButton);
-
-  //     expect(progressBar.textContent).toBe((initialTextContent + 1).toString());
-  //   });
+    fireEvent.click(nextButton);
+    // Check if Circle content increased from 0 to 1
+    expect(activeCircle).toHaveTextContent("1");
+    // Check if progress has width 25%
+    expect(progress).toHaveStyle("width: 25%");
+  });
 
   it("disables 'Next' button when active step reaches the last step", () => {
     const { getByTestId } = render(
@@ -43,16 +47,19 @@ describe("Stepper Component", () => {
 
     const nextButton = getByTestId("next-button");
     const progressBar = getByTestId("progress-bar");
+    const progress = getByTestId("progress");
+    expect(progress).toHaveStyle("width: 0%");
 
-    // Go throught every step
-    fireEvent.click(nextButton); // Step 1
-    fireEvent.click(nextButton); // Step 2
-    fireEvent.click(nextButton); // Step 3
-    fireEvent.click(nextButton); // Step 4
+    // Go throught every step to be at the last step
+    for (let i = 0; i < 4; i++) {
+      fireEvent.click(nextButton);
+    }
 
     // Check if next button is disabled
     expect(nextButton).toBeDisabled();
     // Check if progress bar reached last step
     expect(progressBar).toHaveTextContent("12345");
+    // Check if progress has width 100%
+    expect(progress).toHaveStyle("width: 100%");
   });
 });
