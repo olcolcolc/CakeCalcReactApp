@@ -20,9 +20,9 @@ const Annotation: React.FC<AnnotationProps> = ({ step }) => {
   return (
     <AnnotationDiv>
       {step === "0" ? (
-        <p>{t("annotation.step0")}</p>
+        <p data-testid="annotation-step0">{t("annotation.step0")}</p>
       ) : (
-        <p>{t("annotation.step1")}</p>
+        <p data-testid="annotation-step1">{t("annotation.step1")}</p>
       )}
     </AnnotationDiv>
   );

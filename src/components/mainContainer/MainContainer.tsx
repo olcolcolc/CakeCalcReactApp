@@ -21,10 +21,8 @@ const MainContainer = styled.div`
 
 const MainContainerComponent: React.FC = () => {
   return (
-    <MainContainer>
-      <div data-testid="stepper-component">
-        <Stepper />
-      </div>
+    <MainContainer data-testid="main-container">
+      <Stepper />
     </MainContainer>
   );
 };
