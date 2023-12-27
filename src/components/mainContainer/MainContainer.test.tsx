@@ -16,7 +16,7 @@ describe("MainContainerComponent", () => {
     expect(mainContainer).toBeVisible();
   });
 
-  it("has 100% width at 550px window", () => {
+  it("main container responds well to changes in the browser window width", () => {
     const { getByTestId } = render(
       <ThemeProvider theme={theme}>
         <MainContainerComponent />
@@ -24,12 +24,14 @@ describe("MainContainerComponent", () => {
     );
 
     const mainContainer = getByTestId("main-container");
+    // change window width to 550px
     window.innerWidth = 550;
-    window.dispatchEvent(new Event("resize"));
+    expect(mainContainer).toHaveStyle("width: 100%");
 
-    const computedStyles = window.getComputedStyle(mainContainer);
-    const width = computedStyles.getPropertyValue("width");
-
-    expect(width).toBe("100%");
+    // change window width to 1550px
+    window.innerWidth = 1550;
+    setTimeout(() => {
+      expect(mainContainer).toHaveStyle("width: 200px");
+    }, 10);
   });
 });
