@@ -61,10 +61,12 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
   const { t } = useTranslation();
 
   return (
-    <WelcomePageDiv>
+    <WelcomePageDiv data-testid="welcome-page-div">
       <LeftWrapper>
-        <Label>{t("welcomePage.label")}</Label>
-        <Description>{t("welcomePage.description")}</Description>
+        <Label data-testit="label">{t("welcomePage.label")}</Label>
+        <Description data-testit="description">
+          {t("welcomePage.description")}
+        </Description>
       </LeftWrapper>
       <RightWrapper>
         <WelcomeIcon src={welcomeIcon} alt="Welcome Icon" />
