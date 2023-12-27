@@ -111,13 +111,14 @@ const Steps: React.FC<StepsProps> = ({
     case 0:
       step = (
         <>
-          <StepHeader>{t("steps.0")}</StepHeader>
+          <StepHeader data-testid="step-0-header">{t("steps.0")}</StepHeader>
           <InputField
             type="number"
             inputMode="numeric"
             value={howManyPortions}
             onChange={handleInputChange}
             id="portions-count"
+            data-testid="step-0-input"
           />
           <Annotation step="0" />
         </>
@@ -126,13 +127,14 @@ const Steps: React.FC<StepsProps> = ({
     case 1:
       step = (
         <>
-          <StepHeader>{t("steps.1")}</StepHeader>
+          <StepHeader data-testid="step-1-header">{t("steps.1")}</StepHeader>
           <InputField
             type="number"
             inputMode="numeric"
             value={cakesHigh}
             onChange={handleInputChange}
             id="cakes-high"
+            data-testid="step-1-input"
           />
           <Annotation step="1" />
         </>
@@ -141,12 +143,13 @@ const Steps: React.FC<StepsProps> = ({
     case 2:
       step = (
         <>
-          <StepHeader>{t("steps.2")}</StepHeader>
+          <StepHeader data-testid="step-2-header">{t("steps.2")}</StepHeader>
           <InputField
             type="number"
             value={pricePerOnePerson}
             onChange={handleInputChange}
             id="price-per-portion"
+            data-testid="step-2-input"
           />
         </>
       );
@@ -154,7 +157,7 @@ const Steps: React.FC<StepsProps> = ({
     case 3:
       step = (
         <>
-          <StepHeader>{t("steps.3")}</StepHeader>
+          <StepHeader data-testid="step-3-header">{t("steps.3")}</StepHeader>
           <Slider
             type="range"
             min="1"
@@ -162,16 +165,17 @@ const Steps: React.FC<StepsProps> = ({
             value={advance}
             onChange={handleInputChange}
             id="advance"
+            data-testid="step-3-slider"
           />
           <SliderLabel htmlFor="advance">
-            <span>{advance}</span>%
+            <span data-testid="advance-value">{advance}</span>%
           </SliderLabel>
         </>
       );
       break;
     case 4:
       step = (
-        <>
+        <div data-testid="step-4-output">
           <Output
             cakeValues={{
               howManyPortions,
@@ -180,7 +184,7 @@ const Steps: React.FC<StepsProps> = ({
               advance,
             }}
           />
-        </>
+        </div>
       );
       break;
     default:
