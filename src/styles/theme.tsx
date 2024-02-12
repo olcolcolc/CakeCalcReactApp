@@ -35,6 +35,9 @@ const colors = {
   black: "#000000",
   sprinkle: "#e569a0",
   input: "#464141",
+  yellow: "#F9D644",
+  pink: "#F88B9E",
+  grey: "#F7F7F7",
 };
 
 const fontSize = {

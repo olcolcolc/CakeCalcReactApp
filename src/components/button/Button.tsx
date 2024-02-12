@@ -12,8 +12,8 @@ const Button = styled.button`
 `;
 
 const StartButton = styled(Button)`
-  background: ${theme.colors.startButton};
-  color: ${theme.colors.white};
+  background: ${theme.colors.pink};
+  color: ${theme.colors.black};
 
   :hover {
     transform: scale(0.9);
