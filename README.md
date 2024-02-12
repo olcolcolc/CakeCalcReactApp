@@ -39,5 +39,8 @@ To run this project locally using Yarn:
 4. Start the local server: Once the installation is complete, start the project locally by typing <b>yarn run dev</b> in the terminal. This will run the application in development mode and open it in your default browser.
 5. After completing these steps, the application should run locally, ready for use and testing on your computer.
 
+## Unit Testing
+The application has been unit tested using ViteTest. To run the tests using the appropriate testing tool command `yarn test`, and analyze the results to identify any errors or issues.
+
 ## Contact
 If you have any questions or suggestions regarding this project, feel free to contact me at <a href="mailto:aleksandra@czyrnek.net">aleksandra@czyrnek.net</a>. I appreciate your feedback and input.
