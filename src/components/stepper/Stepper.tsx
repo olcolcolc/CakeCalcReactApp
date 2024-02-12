@@ -65,6 +65,7 @@ const ButtonsContainer = styled.div`
   width: 100%;
   justify-content: space-between;
   flex-direction: row;
+  gap: 20px;
   ${({ theme }) =>
     theme.mixin.forMaxWidth450(`
       width: 300px;

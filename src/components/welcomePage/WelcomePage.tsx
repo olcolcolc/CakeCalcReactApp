@@ -17,9 +17,9 @@ const WelcomePageDiv = styled.div`
     `)}
 `;
 
-const Label = styled.div`
+const Label = styled.h1`
   text-align: center;
-  font-family: ${theme.fontFamily.nunito};
+  font-family: ${theme.fontStyle.favorit};
   font-size: 50px;
   font-weight: 900;
   ${theme.mixin.forDesktop(`

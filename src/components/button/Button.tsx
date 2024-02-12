@@ -5,10 +5,19 @@ import { useTranslation } from "react-i18next";
 // Styled components for different button types
 const Button = styled.button`
   ${theme.mixin.defaultButton};
-  margin: 0 auto;
   text-align: center;
-  font-size: ${theme.fontSize.button};
+  font-size: ${theme.fontSize.startButton};
   font-family: ${theme.fontFamily.nunito};
+  border-radius: 50px;
+  padding: 12px 50px;
+
+  :hover {
+    transform: scale(0.9);
+    transition: transform 0.2s ease;
+  }
+  :active {
+    transform: scale(0.98);
+  }
 `;
 
 const StartButton = styled(Button)`
@@ -16,16 +25,13 @@ const StartButton = styled(Button)`
   color: ${theme.colors.black};
 
   :hover {
-    transform: scale(0.9);
-    transition: transform 0.2s ease;
+    background: ${theme.colors.lightPink};
   }
 
-  :active {
-    transform: scale(1.2);
-  }
-
+  :active,
   :focus {
-    box-shadow: 0 0 5px 3px ${theme.colors.startButtonFocus};
+    background-color: ${theme.colors.black};
+    color: ${theme.colors.white};
   }
 
   ${theme.mixin.forDesktop(`
@@ -35,26 +41,64 @@ const StartButton = styled(Button)`
 `;
 
 const NextButton = styled(Button)`
-  background-color: ${theme.colors.nextButton};
+  background: ${theme.colors.black};
   color: ${theme.colors.white};
-  font-size: 26px;
-  :focus {
-    box-shadow: 0 0 5px 3px ${theme.colors.nextButtonFocus};
-  }
+  font-size: ${theme.fontSize.nextButton};
 
   :hover {
-    transform: scale(0.9);
-    transition: transform 0.2s ease;
+    background: ${theme.colors.lightPink};
+    color: ${theme.colors.black};
   }
 
   :active {
-    transform: scale(0.98);
+    background-color: ${theme.colors.pink};
+    color: ${theme.colors.black};
+  }
+
+  :focus {
+    box-shadow: 0 0 10px 3px ${theme.colors.black};
+  }
+
+  :focus:active {
+    box-shadow: 0 0 10px 3px ${theme.colors.pink};
+  }
+
+  :focus:hover {
+    box-shadow: 0 0 10px 3px ${theme.colors.lightPink};
   }
 
   :disabled {
     background-color: ${theme.colors.disabledButton};
-    pointer-events: none;
+    color: ${theme.colors.white};
+    cursor: not-allowed;
+    transform: none;
   }
+`;
+
+const PreviousButton = styled.button`
+  ${theme.mixin.defaultButton}
+  color: ${theme.colors.black};
+  font-size: ${theme.fontSize.nextButton};
+  border-radius: 0px;
+  cursor: pointer;
+  padding: 0px 8px;
+  height: 35px;
+  border-bottom: 1.5px solid ${theme.colors.white};
+  :hover,
+  :active,
+  :focus {
+    border-bottom: 1.5px solid ${theme.colors.black};
+    transform: none;
+  }
+  :disabled {
+    border-bottom: 1.5px solid ${theme.colors.white};
+    cursor: not-allowed;
+  }
+`;
+
+const PreviousButtonWrapper = styled.div`
+  margin: 0 auto;
+  padding: 10px 40px;
 `;
 
 // Interface for button props
@@ -89,13 +133,15 @@ const ButtonComponent: React.FC<IconProps> = ({ name, onClick, disabled }) => {
       break;
     case "previous":
       button = (
-        <NextButton
-          data-testid="previous-button"
-          onClick={onClick}
-          disabled={disabled}
-        >
-          {t("button.return")}
-        </NextButton>
+        <PreviousButtonWrapper>
+          <PreviousButton
+            data-testid="previous-button"
+            onClick={onClick}
+            disabled={disabled}
+          >
+            {t("button.return")}
+          </PreviousButton>
+        </PreviousButtonWrapper>
       );
       break;
     default:

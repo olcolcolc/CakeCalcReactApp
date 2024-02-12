@@ -14,21 +14,14 @@ const mixin = {
   defaultButton: () => `
     display: flex;
     all: unset;
+    margin: 0 auto;
     border-style: none;
-    border-radius: 40px;
     cursor: pointer;
-    padding: 10px 40px;
+    text-transform: capitalize; 
   `,
 };
 
 const colors = {
-  mainBackground: "#ffc782",
-  startButton: "#E30259",
-  startButtonFocus: "#b50042",
-  startButtonHover: "#2583A2",
-  nextButton: "#2583A2",
-  nextButtonHover: "#E30259",
-  nextButtonFocus: "#145377",
   stepper: "#2583A2",
   disabledButton: "#575757",
   white: "#ffffff",
@@ -37,12 +30,14 @@ const colors = {
   input: "#464141",
   yellow: "#F9D644",
   pink: "#F88B9E",
+  lightPink: "#F8A4B3",
   grey: "#F7F7F7",
 };
 
 const fontSize = {
   base: "26px",
-  button: "30px",
+  startButton: "30px",
+  nextButton: "22px",
   annotation: "16px",
 };
 
