@@ -10,11 +10,11 @@ const StepContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 330px;
+  height: 360px;
 `;
 
 const StepHeader = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 65px;
   font-size: ${theme.fontSize.base};
   &::first-letter {
     text-transform: uppercase;
@@ -23,7 +23,7 @@ const StepHeader = styled.div`
 
 const InputField = styled.input`
   width: 100%;
-  max-width: 100px;
+  max-width: 200px;
   height: 60px;
   padding: 10px;
   border: 1px solid ${theme.colors.input};
@@ -87,7 +87,6 @@ const Steps: React.FC<StepsProps> = ({
         setPricePerOnePerson(value);
         break;
       case "advance":
-        // eslint-disable-next-line no-case-declarations
         const newValue = Number(value);
         if (!isNaN(newValue) && newValue >= 1 && newValue <= 100) {
           setAdvance(value);

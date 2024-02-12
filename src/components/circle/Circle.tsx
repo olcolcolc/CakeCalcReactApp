@@ -7,17 +7,19 @@ const CircleDiv = styled.div`
   display: flex;
   z-index: 1;
   background-color: ${theme.colors.white};
+  border: 4px solid ${theme.colors.yellow};
   color: ${theme.colors.black};
+  font-size: ${theme.fontSize.stepper};
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
+  height: 72px;
+  width: 72px;
   justify-content: center;
   align-items: center;
-  border: 3px solid #e0e0e0;
   transition: 0.4s ease;
 
   &.active {
-    border-color: ${theme.colors.stepper};
+    background-color: ${theme.colors.pink};
+    border: 3px solid ${theme.colors.pink};
   }
 `;
 

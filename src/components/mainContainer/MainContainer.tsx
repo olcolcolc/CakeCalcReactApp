@@ -7,15 +7,13 @@ const MainContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 10px auto;
-  background-color: white;
-  height: 30rem;
+  margin: 120px auto 0px auto;
+  background-color: ${theme.colors.yellow};
+  height: 26rem;
   width: 100%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   ${theme.mixin.forDesktop(`
       border-radius: 50px;
-      width: 31rem;
+      width: 46rem;
     `)}
 `;
 

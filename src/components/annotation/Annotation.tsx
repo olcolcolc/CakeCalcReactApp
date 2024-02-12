@@ -9,7 +9,7 @@ type AnnotationProps = {
 const AnnotationDiv = styled.div`
   display: flex;
   position: absolute;
-  top: 385px;
+  top: 440px;
   text-align: center;
   font-size: ${theme.fontSize.annotation};
 `;

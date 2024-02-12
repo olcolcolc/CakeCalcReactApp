@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "@emotion/styled";
 import { Icon } from "../icon/Icon";
-import { theme } from "../../styles/theme";
 import i18n from "i18next";
 
 const NavbarContainer = styled.div`
@@ -26,8 +25,8 @@ const LogoLink = styled.a`
 `;
 
 const Language = styled.button`
-  ${theme.mixin.defaultButton};
-  padding: 10px;
+  border-style: none;
+  padding: 15px;
   &:focus {
     border-radius: 50%;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);

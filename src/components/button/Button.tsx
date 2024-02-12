@@ -83,7 +83,7 @@ const PreviousButton = styled.button`
   cursor: pointer;
   padding: 0px 8px;
   height: 35px;
-  border-bottom: 1.5px solid ${theme.colors.white};
+  border-bottom: 1.5px solid transparent;
   :hover,
   :active,
   :focus {
@@ -91,7 +91,7 @@ const PreviousButton = styled.button`
     transform: none;
   }
   :disabled {
-    border-bottom: 1.5px solid ${theme.colors.white};
+    border-bottom: 1.5px solid transparent;
     cursor: not-allowed;
   }
 `;

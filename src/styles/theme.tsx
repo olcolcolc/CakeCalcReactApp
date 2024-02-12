@@ -22,7 +22,6 @@ const mixin = {
 };
 
 const colors = {
-  stepper: "#2583A2",
   disabledButton: "#575757",
   white: "#ffffff",
   black: "#000000",
@@ -39,6 +38,7 @@ const fontSize = {
   startButton: "30px",
   nextButton: "22px",
   annotation: "16px",
+  stepper: "29px",
 };
 
 const fontFamily = {

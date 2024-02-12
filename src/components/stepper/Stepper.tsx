@@ -7,19 +7,19 @@ import Steps from "../steps/Steps";
 
 const StepperContainer = styled.div`
   display: flex;
-  margin: 0;
+  margin: 0 0 150px 0;
   padding: 0;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
   flex-direction: column;
 `;
 
 const Content = styled.div`
   align-items: center;
-  width: 400px;
+  width: 46rem;
 `;
 
 const ProgressBar = styled.div`
@@ -27,37 +27,25 @@ const ProgressBar = styled.div`
   justify-content: space-between;
   align-items: center;
   position: relative;
+
   ${({ theme }) =>
     theme.mixin.forMaxWidth450(`
       display: none;
     `)}
 
   &::before {
+    background: ${theme.colors.black};
     content: "";
     position: absolute;
-    background: #e0e0e0;
     top: 50%;
     left: 0;
     transform: translateY(-50%);
     border-radius: 5px;
     width: 100%;
-    height: 4px;
+    height: 1px;
     z-index: 0;
     transition: 0.4s ease;
   }
-`;
-
-const Progress = styled.div`
-  position: absolute;
-  background: ${theme.colors.stepper};
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  border-radius: 5px;
-  width: 50%;
-  height: 4px;
-  z-index: 0;
-  transition: 0.4s ease;
 `;
 
 const ButtonsContainer = styled.div`
@@ -103,13 +91,7 @@ const Stepper = () => {
     <StepperContainer>
       <Content>
         {/* Progress bar visualizing steps */}
-        <ProgressBar data-testid="progress-bar">
-          <Progress
-            data-testid="progress"
-            style={{ width: width + "%" }}
-          ></Progress>
-          {arr}
-        </ProgressBar>
+        <ProgressBar data-testid="progress-bar">{arr}</ProgressBar>
         {/* Render step-specific content */}
         <Steps
           stepNumber={active}
