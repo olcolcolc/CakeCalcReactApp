@@ -50,11 +50,16 @@ const fontFamily = {
   nunito: "'Nunito', sans-serif",
 };
 
+const fontStyle = {
+  favorit: "'Favorit', sans-serif",
+  ogg: "'Ogg', serif",
+};
 export const theme = {
   colors,
   fontSize,
   mixin,
   fontFamily,
+  fontStyle,
 };
 
 export type Theme = typeof theme;
