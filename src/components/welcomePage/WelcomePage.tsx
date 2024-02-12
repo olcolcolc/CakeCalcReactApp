@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import welcomeIcon from "../../assets/welcome_icon.png";
+import welcomeIcon from "../../assets/beforeUpdate/welcome_icon.png";
 import { theme } from "../../styles/theme";
 import Button from "../button/Button";
 import WelcomeIcon from "../welcomeIcon/WelcomeIcon";
