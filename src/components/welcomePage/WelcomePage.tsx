@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 import welcomeIcon from "../../assets/welcome_icon.png";
 import { theme } from "../../styles/theme";
 import Button from "../button/Button";
-import WelcomeIcon from "../welcome-icon/WelcomeIcon";
+import WelcomeIcon from "../welcomeIcon/WelcomeIcon";
 import { useTranslation } from "react-i18next";
 
 const WelcomePageDiv = styled.div`
