@@ -50,7 +50,7 @@ const Navbar: React.FC = () => {
   return (
     <NavbarContainer className="navbar">
       <LogoLink href="/" data-testid="logo-container">
-        <Icon name="logo" />
+        {/* <Icon name="logo" /> */}
       </LogoLink>
       <Language onClick={toggleLanguage}>
         {i18n.language === "pl" ? "en" : "pl"}

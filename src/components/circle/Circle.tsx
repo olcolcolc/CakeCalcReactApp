@@ -3,35 +3,32 @@ import React, { ReactNode } from "react";
 import { theme } from "../../styles/theme";
 
 // Styled component for stepper's circles
-const CircleDiv = styled.div`
+const CircleDiv = styled.div<{ isActive: boolean }>`
   display: flex;
   z-index: 1;
-  background-color: ${theme.colors.white};
-  border: 4px solid ${theme.colors.yellow};
+  background-color: ${(props) =>
+    props.isActive ? theme.colors.pink : theme.colors.white};
+  border: 4px solid
+    ${(props) => (props.isActive ? theme.colors.pink : theme.colors.yellow)};
   color: ${theme.colors.black};
   font-size: ${theme.fontSize.stepper};
   border-radius: 50%;
-  height: 72px;
-  width: 72px;
+  height: 62px;
+  width: 62px;
   justify-content: center;
   align-items: center;
   transition: 0.4s ease;
-
-  &.active {
-    background-color: ${theme.colors.pink};
-    border: 3px solid ${theme.colors.pink};
-  }
 `;
 
 // Interface for Circle props
 interface CircleProps {
+  isActive: boolean;
   children: ReactNode;
-  classname: string;
 }
 
-const Circle: React.FC<CircleProps> = ({ children, classname }) => {
+const Circle: React.FC<CircleProps> = ({ children, isActive }) => {
   return (
-    <CircleDiv className={classname}>
+    <CircleDiv isActive={isActive}>
       {(Number(children) + 1).toString()}
     </CircleDiv>
   );

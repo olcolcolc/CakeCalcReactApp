@@ -12,8 +12,8 @@ const MainContainer = styled.div`
   height: 26rem;
   width: 100%;
   ${theme.mixin.forDesktop(`
-      border-radius: 50px;
-      width: 46rem;
+      border-radius: 30px;
+      width: 40rem;
     `)}
 `;
 

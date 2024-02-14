@@ -7,19 +7,18 @@ import Steps from "../steps/Steps";
 
 const StepperContainer = styled.div`
   display: flex;
-  margin: 0 0 150px 0;
+  margin: 0 0 120px 0;
   padding: 0;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
   width: 100%;
   flex-direction: column;
 `;
 
 const Content = styled.div`
   align-items: center;
-  width: 46rem;
+  width: 40rem;
 `;
 
 const ProgressBar = styled.div`
@@ -81,7 +80,7 @@ const Stepper = () => {
   const arr = [];
   for (let i = 0; i < circle; i++) {
     arr.push(
-      <Circle classname={i <= active ? "active" : ""} key={i}>
+      <Circle isActive={i === active} key={i}>
         {i}
       </Circle>
     );
