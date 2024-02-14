@@ -1,9 +1,10 @@
 import styled from "@emotion/styled";
-import welcomeIcon from "../../assets/beforeUpdate/welcome_icon.png";
+import darkCake from "../../assets/illustrations/darkCake.png";
 import { theme } from "../../styles/theme";
 import Button from "../button/Button";
 import WelcomeIcon from "../welcomeIcon/WelcomeIcon";
 import { useTranslation } from "react-i18next";
+import "../../styles/fonts.css";
 
 const WelcomePageDiv = styled.div`
   margin: 20px;
@@ -22,6 +23,7 @@ const Label = styled.h1`
   font-family: ${theme.fontStyle.favorit};
   font-size: 50px;
   font-weight: 900;
+  font-family: "Black_BasisGrotesqueArabicPro";
   ${theme.mixin.forDesktop(`
         text-align: right;
         font-size: 80px;
@@ -32,7 +34,7 @@ const Description = styled.div`
   display: flex;
   text-align: center;
   font-size: 25px;
-  font-family: ${theme.fontFamily.nunito};
+  font-family: "OggRoman";
   ${theme.mixin.forDesktop(`
         text-align: right;
         font-size: 40px;
@@ -69,7 +71,7 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
         </Description>
       </LeftWrapper>
       <RightWrapper>
-        <WelcomeIcon src={welcomeIcon} alt="Welcome Icon" />
+        <WelcomeIcon src={darkCake} alt="Chocolate cake" />
         <Button name="start" onClick={onStartClick} />
       </RightWrapper>
     </WelcomePageDiv>
