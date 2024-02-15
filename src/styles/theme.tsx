@@ -19,6 +19,12 @@ const mixin = {
     cursor: pointer;
     text-transform: capitalize; 
   `,
+
+  buttonFocus: () => `
+    border-radius: 30px;
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.3);
+    outline: none;
+    `,
 };
 
 const colors = {
@@ -39,6 +45,8 @@ const fontSize = {
   nextButton: "22px",
   annotation: "16px",
   stepper: "29px",
+  logoLink: "28px",
+  languageButtons: "22px",
 };
 
 const fontFamily = {
@@ -49,6 +57,7 @@ const fontStyle = {
   favorit: "'Favorit', sans-serif",
   ogg: "'Ogg', serif",
 };
+
 export const theme = {
   colors,
   fontSize,
