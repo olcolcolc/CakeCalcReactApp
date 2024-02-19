@@ -18,6 +18,7 @@ const CircleDiv = styled.div<{ isActive: boolean }>`
   justify-content: center;
   align-items: center;
   transition: 0.4s ease;
+  font-family: "Medium_BasisGrotesqueArabicPro";
 `;
 
 // Interface for Circle props

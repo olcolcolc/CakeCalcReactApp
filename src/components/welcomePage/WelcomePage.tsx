@@ -3,8 +3,7 @@ import { theme } from "../../styles/theme";
 import Button from "../button/Button";
 import { useTranslation } from "react-i18next";
 import "../../styles/fonts.css";
-import darkCake from "../../assets/illustrations/darkCake.png";
-import lightCake from "../../assets/illustrations/lightCake.png";
+import { Icon } from "../icon/Icon";
 
 const WelcomePageDiv = styled.div`
   display: flex;
@@ -31,27 +30,23 @@ const Description = styled.h1`
   &::first-letter {
     text-transform: uppercase;
   }
-  ${theme.mixin.forMinWidth950(`
-      font-size: ${theme.fontSize.welcomePage_description_tablet};
-      margin-right: 30px;
-    `)}
   ${theme.mixin.forMinWidth650(`
       font-size: ${theme.fontSize.welcomePage_description_desktop};
-      margin-right: 30px;
     `)}
 `;
 
-const DarkCakeIcon = styled.img`
-  width: 200px;
+const DarkCakeIcon = styled.div`
+  width: 40%;
+
   ${theme.mixin.forMinWidth650(`
-      width: 300px;
+    width: 373px;
     `)}
 `;
 
-const LightCakeIcon = styled.img`
-  width: 240px;
+const LightCakeIcon = styled.div`
   display: none;
   ${theme.mixin.forMinWidth950(`
+      margin-left: 30px;
       display: flex;
   `)}
 `;
@@ -66,22 +61,18 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
 
   return (
     <WelcomePageDiv data-testid="welcome-page-div">
-      <DarkCakeIcon
-        src={darkCake}
-        alt="chocolate cake icon"
-        aria-label="chocolate cake icon"
-      />
+      <DarkCakeIcon>
+        <Icon name="darkCake" aria-label="chocolate cake with candles" />
+      </DarkCakeIcon>
       <CenterWrapper>
         <Description data-testit="description">
           {t("welcomePage.description")}
         </Description>
         <Button name="start" onClick={onStartClick} />
       </CenterWrapper>
-      <LightCakeIcon
-        src={lightCake}
-        alt="cream cake icon"
-        aria-label="cream cake icon"
-      />
+      <LightCakeIcon>
+        <Icon name="lightCake" aria-label="cream cake with candles" />
+      </LightCakeIcon>
     </WelcomePageDiv>
   );
 };

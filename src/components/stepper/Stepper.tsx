@@ -12,7 +12,6 @@ const StepperContainer = styled.div`
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
-  width: 100%;
   flex-direction: column;
 `;
 
@@ -22,15 +21,14 @@ const Content = styled.div`
 `;
 
 const ProgressBar = styled.div`
-  display: flex;
+  display: none;
   justify-content: space-between;
+  margin-top: -25px;
   align-items: center;
   position: relative;
-
-  ${({ theme }) =>
-    theme.mixin.forMinWidth450(`
-      display: none;
-    `)}
+  ${theme.mixin.forMinWidth650(`
+    display: flex;
+`)}
 
   &::before {
     background: ${theme.colors.black};
@@ -48,15 +46,16 @@ const ProgressBar = styled.div`
 `;
 
 const ButtonsContainer = styled.div`
+  position: absolute;
+  top: 440px;
   display: flex;
   width: 100%;
   justify-content: space-between;
   flex-direction: row;
-  gap: 20px;
-  ${({ theme }) =>
-    theme.mixin.forMinWidth450(`
-      width: 300px;
-    `)}
+  ${theme.mixin.forMinWidth650(`
+    top: 540px;
+    width: 590px;
+`)}
 `;
 
 const Stepper = () => {

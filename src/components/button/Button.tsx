@@ -36,7 +36,7 @@ const StartButton = styled(Button)`
   }
 
   ${theme.mixin.forMinWidth650(`
-    font-size: ${theme.fontSize.button_next};
+    font-size: ${theme.fontSize.base};
     padding: 10px 70px;
     margin-top: 28px;
   `)};
@@ -45,7 +45,7 @@ const StartButton = styled(Button)`
 const NextButton = styled(Button)`
   background: ${theme.colors.black};
   color: ${theme.colors.white};
-  font-size: ${theme.fontSize.button_next};
+  font-size: ${theme.fontSize.base};
 
   :hover {
     background: ${theme.colors.lightPink};
@@ -80,7 +80,8 @@ const NextButton = styled(Button)`
 const PreviousButton = styled.button`
   ${theme.mixin.defaultButton}
   color: ${theme.colors.black};
-  font-size: ${theme.fontSize.button_next};
+  font-size: ${theme.fontSize.base};
+  font-family: "Medium_BasisGrotesqueArabicPro";
   border-radius: 0px;
   cursor: pointer;
   padding: 0px 8px;

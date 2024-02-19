@@ -13,7 +13,7 @@
       "cakeDiameter": "cake diameter"
     },
     "steps": {
-      "0": "how many portions?",
+      "0": "how many guests will the cake serve?",
       "1": "cake height in cm:",
       "2": "set the price per person:",
       "3": "set the deposit percentage"

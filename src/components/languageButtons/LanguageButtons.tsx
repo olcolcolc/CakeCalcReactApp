@@ -6,7 +6,7 @@ import { useState } from "react";
 const LanguagesContainer = styled.div`
   text-decoration: none;
   color: ${theme.colors.black};
-  font-size: ${theme.fontSize.languageButtons};
+  font-size: ${theme.fontSize.base};
   padding: 0;
   position: absolute;
   right: 0px;

@@ -49,15 +49,13 @@ const colors = {
 
 const fontSize = {
   logoLink: "28px",
-  languageButtons: "22px",
+  base: "22px",
   languageButtons_active: "26px",
   button_start: "30px",
-  button_next: "22px",
   stepper: "29px",
-  welcomePage_description_desktop: "60px",
-  welcomePage_description_tablet: "50px",
+  welcomePage_description_desktop: "50px",
   welcomePage_description_mobile: "36px",
-  annotation: "16px",
+  stepHeader: "52px",
 };
 
 const fontFamily = {

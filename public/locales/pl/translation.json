@@ -14,7 +14,7 @@
         "cakeDiameter": "średnica tortu"
       },
       "steps": {
-        "0": "ile porcji?",
+        "0": "na ile gości będzie tort?",
         "1": "wysokość tortu w cm:",
         "2": "ustal cenę za osobę:",
         "3": "ustal procent zaliczki"

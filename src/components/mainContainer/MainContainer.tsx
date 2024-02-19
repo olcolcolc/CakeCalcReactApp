@@ -7,11 +7,12 @@ const MainContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 120px auto 0px auto;
+  margin: 20px auto 0px auto;
   background-color: ${theme.colors.yellow};
   height: 26rem;
   width: 100%;
   ${theme.mixin.forMinWidth650(`
+      margin: 120px auto 0px auto;
       border-radius: 30px;
       width: 40rem;
     `)}

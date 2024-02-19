@@ -13,29 +13,46 @@ const StepContainer = styled.div`
   height: 360px;
 `;
 
-const StepHeader = styled.div`
-  margin-bottom: 65px;
-  font-size: 16px;
+const StepHeader = styled.p`
+  position: absolute;
+  top: 70px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
+  height: 200px;
+  max-width: 500px;
+  font-size: ${theme.fontSize.stepHeader};
+  text-align: center;
+  font-family: "OggRoman";
   &::first-letter {
     text-transform: uppercase;
   }
+  ${theme.mixin.forMinWidth650(`
+    top: 160px;
+`)}
 `;
 
 const InputField = styled.input`
-  width: 100%;
-  max-width: 200px;
-  height: 60px;
-  padding: 10px;
-  border: 1px solid ${theme.colors.input};
+  position: absolute;
+  top: 300px;
+  max-width: 339px;
+  height: 33px;
+  padding: 12px 50px;
+  background-color: inherit;
+  border: 1px solid ${theme.colors.black};
+  font-family: "Medium_BasisGrotesqueArabicPro";
   text-align: center;
-  border-radius: 40px;
-  font-size: 50px;
+  border-radius: 50px;
+  font-size: 22px;
   &:hover {
     cursor: pointer;
   }
   &:focus {
     border: solid 2px ${theme.colors.input};
   }
+  ${theme.mixin.forMinWidth650(`
+    top: 385px;
+`)}
 `;
 
 const Slider = styled.input`
@@ -133,7 +150,7 @@ const Steps: React.FC<StepsProps> = ({
             value={cakesHigh}
             onChange={handleInputChange}
             id="cakes-high"
-            data-testid="step-1-input"
+            data-testid="step-1w-input"
           />
           <Annotation step="1" />
         </>
