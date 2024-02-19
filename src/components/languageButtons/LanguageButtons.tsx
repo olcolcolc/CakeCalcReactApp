@@ -10,14 +10,17 @@ const LanguagesContainer = styled.div`
   padding: 0;
   position: absolute;
   right: 0px;
+  margin: 0 10px 4px 0;
 `;
 
 const Language = styled.button<{ isActive: boolean }>`
   ${theme.mixin.defaultButton};
-  padding: 5px 10px;
+  padding: 6px;
   font-family: "Medium_BasisGrotesqueArabicPro";
   text-transform: uppercase;
   font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
+  font-size: ${(props) =>
+    props.isActive ? theme.fontSize.languageButtons_active : ""};
   &:focus {
     ${theme.mixin.buttonFocus}
   }

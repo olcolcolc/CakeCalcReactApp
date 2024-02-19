@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import Logo from "../logo/Logo";
 import LanguageButtons from "../languageButtons/LanguageButtons";
+import { theme } from "../../styles/theme";
 
 const NavbarContainer = styled.div`
   margin: 0;
@@ -12,6 +13,9 @@ const NavbarContainer = styled.div`
   align-items: center;
   height: 80px;
   justify-content: center;
+  ${theme.mixin.forMaxWidth450(`
+        justify-content: start;
+  `)}
 `;
 
 const Navbar: React.FC = () => {

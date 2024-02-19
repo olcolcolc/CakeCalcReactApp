@@ -31,7 +31,6 @@ const colors = {
   disabledButton: "#575757",
   white: "#ffffff",
   black: "#000000",
-  sprinkle: "#e569a0",
   input: "#464141",
   yellow: "#F9D644",
   pink: "#F88B9E",
@@ -47,6 +46,7 @@ const fontSize = {
   stepper: "29px",
   logoLink: "28px",
   languageButtons: "22px",
+  languageButtons_active: "26px",
 };
 
 const fontFamily = {
