@@ -11,7 +11,7 @@ const MainContainer = styled.div`
   background-color: ${theme.colors.yellow};
   height: 26rem;
   width: 100%;
-  ${theme.mixin.forDesktop(`
+  ${theme.mixin.forMinWidth650(`
       border-radius: 30px;
       width: 40rem;
     `)}

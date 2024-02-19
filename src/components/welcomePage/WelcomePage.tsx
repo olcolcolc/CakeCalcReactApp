@@ -1,58 +1,59 @@
 import styled from "@emotion/styled";
-import darkCake from "../../assets/illustrations/darkCake.png";
 import { theme } from "../../styles/theme";
 import Button from "../button/Button";
-import WelcomeIcon from "../welcomeIcon/WelcomeIcon";
 import { useTranslation } from "react-i18next";
 import "../../styles/fonts.css";
-import { Icon } from "../icon/Icon";
+import darkCake from "../../assets/illustrations/darkCake.png";
+import lightCake from "../../assets/illustrations/lightCake.png";
 
 const WelcomePageDiv = styled.div`
-  margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  ${theme.mixin.forDesktop(`
+  ${theme.mixin.forMinWidth650(`
         flex-direction: row;
+        margin-right: 30px;
     `)}
 `;
 
-const Label = styled.h1`
-  text-align: center;
-  font-family: ${theme.fontStyle.favorit};
-  font-size: 50px;
-  font-weight: 900;
-  font-family: "Black_BasisGrotesqueArabicPro";
-  ${theme.mixin.forDesktop(`
-        text-align: right;
-        font-size: 80px;
-    `)}
+const CenterWrapper = styled.div`
+  flex-direction: column;
 `;
 
-const Description = styled.div`
+const Description = styled.h1`
   display: flex;
   text-align: center;
-  font-size: 25px;
+  font-size: ${theme.fontSize.welcomePage_description_mobile};
   font-family: "OggRoman";
-  ${theme.mixin.forDesktop(`
-        text-align: right;
-        font-size: 40px;
+  margin: 0;
+  &::first-letter {
+    text-transform: uppercase;
+  }
+  ${theme.mixin.forMinWidth950(`
+      font-size: ${theme.fontSize.welcomePage_description_tablet};
+      margin-right: 30px;
+    `)}
+  ${theme.mixin.forMinWidth650(`
+      font-size: ${theme.fontSize.welcomePage_description_desktop};
+      margin-right: 30px;
     `)}
 `;
 
-const LeftWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  ${theme.mixin.forDesktop(`
-        margin-top: 160px;
+const DarkCakeIcon = styled.img`
+  width: 200px;
+  ${theme.mixin.forMinWidth650(`
+      width: 300px;
     `)}
 `;
 
-const RightWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+const LightCakeIcon = styled.img`
+  width: 240px;
+  display: none;
+  ${theme.mixin.forMinWidth950(`
+      display: flex;
+  `)}
 `;
 
 interface WelcomePageProps {
@@ -65,16 +66,22 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
 
   return (
     <WelcomePageDiv data-testid="welcome-page-div">
-      <LeftWrapper>
-        <Label data-testit="label">{t("welcomePage.label")}</Label>
+      <DarkCakeIcon
+        src={darkCake}
+        alt="chocolate cake icon"
+        aria-label="chocolate cake icon"
+      />
+      <CenterWrapper>
         <Description data-testit="description">
           {t("welcomePage.description")}
         </Description>
-      </LeftWrapper>
-      <RightWrapper>
-        <Icon name="cakes" />
         <Button name="start" onClick={onStartClick} />
-      </RightWrapper>
+      </CenterWrapper>
+      <LightCakeIcon
+        src={lightCake}
+        alt="cream cake icon"
+        aria-label="cream cake icon"
+      />
     </WelcomePageDiv>
   );
 };

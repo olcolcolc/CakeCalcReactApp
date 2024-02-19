@@ -1,14 +1,23 @@
 const mixin = {
-  forDesktop: (content: string) => `
-    @media screen and (min-width: 601px) {
-      ${content}
-    }
-  `,
-
-  forMaxWidth450: (content: string) => `
-  @media screen and (max-width: 450px) {
+  forMinWidth450: (content: string) => `
+  @media screen and (min-width: 450px) {
     ${content}
   }
+`,
+  forMinWidth650: (content: string) => `
+@media screen and (min-width: 650px) {
+  ${content}
+}
+`,
+  forMinWidth750: (content: string) => `
+@media screen and (min-width: 750px) {
+  ${content}
+}
+`,
+  forMinWidth950: (content: string) => `
+@media screen and (min-width: 950px) {
+  ${content}
+}
 `,
 
   defaultButton: () => `
@@ -39,14 +48,16 @@ const colors = {
 };
 
 const fontSize = {
-  base: "26px",
-  startButton: "30px",
-  nextButton: "22px",
-  annotation: "16px",
-  stepper: "29px",
   logoLink: "28px",
   languageButtons: "22px",
   languageButtons_active: "26px",
+  button_start: "30px",
+  button_next: "22px",
+  stepper: "29px",
+  welcomePage_description_desktop: "60px",
+  welcomePage_description_tablet: "50px",
+  welcomePage_description_mobile: "36px",
+  annotation: "16px",
 };
 
 const fontFamily = {

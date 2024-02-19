@@ -28,7 +28,7 @@ const ProgressBar = styled.div`
   position: relative;
 
   ${({ theme }) =>
-    theme.mixin.forMaxWidth450(`
+    theme.mixin.forMinWidth450(`
       display: none;
     `)}
 
@@ -54,7 +54,7 @@ const ButtonsContainer = styled.div`
   flex-direction: row;
   gap: 20px;
   ${({ theme }) =>
-    theme.mixin.forMaxWidth450(`
+    theme.mixin.forMinWidth450(`
       width: 300px;
     `)}
 `;

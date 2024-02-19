@@ -6,7 +6,7 @@ export const icons: Record<string, React.FC> = {
       alt="chocolate cake"
       aria-label="chocolate cake"
       width="300"
-      height="300"
+      height="auto"
     />
   ),
   lightCake: () => (
@@ -14,8 +14,8 @@ export const icons: Record<string, React.FC> = {
       src="/src/assets/illustrations/lightCake.png"
       alt="vanilla cake"
       aria-label="vanilla cake"
-      width="300"
-      height="300"
+      width="240"
+      height="auto"
     />
   ),
   cakes: () => (
@@ -23,7 +23,7 @@ export const icons: Record<string, React.FC> = {
       src="/src/assets/illustrations/cakes.png"
       alt="two cakes"
       aria-label="two cakes"
-      width="100%"
+      width="80%"
     />
   ),
   cakesHorizontal: () => (
@@ -31,7 +31,7 @@ export const icons: Record<string, React.FC> = {
       src="/src/assets/illustrations/cakesHorizontal.png"
       alt="two cakes"
       aria-label="two cakes"
-      width="100%"
+      width="80%"
     />
   ),
   donut: () => (

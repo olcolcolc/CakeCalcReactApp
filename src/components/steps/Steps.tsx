@@ -15,7 +15,7 @@ const StepContainer = styled.div`
 
 const StepHeader = styled.div`
   margin-bottom: 65px;
-  font-size: ${theme.fontSize.base};
+  font-size: 16px;
   &::first-letter {
     text-transform: uppercase;
   }

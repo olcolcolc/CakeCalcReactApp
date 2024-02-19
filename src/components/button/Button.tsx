@@ -6,8 +6,8 @@ import { useTranslation } from "react-i18next";
 const Button = styled.button`
   ${theme.mixin.defaultButton};
   text-align: center;
-  font-size: ${theme.fontSize.startButton};
-  font-family: ${theme.fontFamily.nunito};
+  font-size: ${theme.fontSize.button_start};
+  font-family: "Regular_BasisGrotesqueArabicPro";
   border-radius: 50px;
   padding: 12px 50px;
 
@@ -23,6 +23,7 @@ const Button = styled.button`
 const StartButton = styled(Button)`
   background: ${theme.colors.pink};
   color: ${theme.colors.black};
+  margin-top: 22px;
 
   :hover {
     background: ${theme.colors.lightPink};
@@ -34,16 +35,17 @@ const StartButton = styled(Button)`
     color: ${theme.colors.white};
   }
 
-  ${theme.mixin.forDesktop(`
-    font-size: 60px;
+  ${theme.mixin.forMinWidth650(`
+    font-size: ${theme.fontSize.button_next};
     padding: 10px 70px;
+    margin-top: 28px;
   `)};
 `;
 
 const NextButton = styled(Button)`
   background: ${theme.colors.black};
   color: ${theme.colors.white};
-  font-size: ${theme.fontSize.nextButton};
+  font-size: ${theme.fontSize.button_next};
 
   :hover {
     background: ${theme.colors.lightPink};
@@ -78,7 +80,7 @@ const NextButton = styled(Button)`
 const PreviousButton = styled.button`
   ${theme.mixin.defaultButton}
   color: ${theme.colors.black};
-  font-size: ${theme.fontSize.nextButton};
+  font-size: ${theme.fontSize.button_next};
   border-radius: 0px;
   cursor: pointer;
   padding: 0px 8px;

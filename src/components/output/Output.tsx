@@ -13,7 +13,7 @@ const OutputContainer = styled.div`
 `;
 
 const OutputHeader = styled.div`
-  font-size: ${theme.fontSize.base};
+  font-size: 16px;
   margin-bottom: 10px;
 `;
 
