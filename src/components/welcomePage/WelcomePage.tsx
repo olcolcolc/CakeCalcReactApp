@@ -5,6 +5,7 @@ import Button from "../button/Button";
 import WelcomeIcon from "../welcomeIcon/WelcomeIcon";
 import { useTranslation } from "react-i18next";
 import "../../styles/fonts.css";
+import { Icon } from "../icon/Icon";
 
 const WelcomePageDiv = styled.div`
   margin: 20px;
@@ -71,7 +72,7 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
         </Description>
       </LeftWrapper>
       <RightWrapper>
-        <WelcomeIcon src={darkCake} alt="Chocolate cake" />
+        <Icon name="cakes" />
         <Button name="start" onClick={onStartClick} />
       </RightWrapper>
     </WelcomePageDiv>
