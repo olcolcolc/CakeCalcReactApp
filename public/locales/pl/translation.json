@@ -1,7 +1,7 @@
 {
       "annotation":{
-        "step0": "tort może być na minimum 6 osób",
-        "step1": "tort może mieć wysokość minimum 7 cm"
+        "step0": "Tort może być na minimum 6 osób",
+        "step1": "Tort może mieć wysokość minimum 7 cm"
       },
       "button": {
         "next": "dalej",
@@ -20,7 +20,7 @@
         "3": "ustal procent zaliczki"
       },
       "welcomePage": {
-        "description": "oblicz cenę i wielkość swojego tortu"
+        "description": "Oblicz cenę i wielkość swojego tortu"
       },
       "currency": "zł"
   }
