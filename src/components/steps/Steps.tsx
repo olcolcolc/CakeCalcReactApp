@@ -32,7 +32,7 @@ const StepHeader = styled.p`
 
 const InputField = styled.input`
   position: absolute;
-  /* top: 300px; */
+  top: 300px;
   max-width: 250px;
   margin: 10px;
   height: 33px;

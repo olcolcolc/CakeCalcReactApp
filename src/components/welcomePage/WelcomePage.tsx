@@ -13,7 +13,6 @@ const WelcomePageDiv = styled.div`
   text-align: center;
   ${theme.mixin.forMinWidth650(`
         flex-direction: row;
-        margin-right: 30px;
     `)}
 `;
 

@@ -8,7 +8,7 @@ type AnnotationProps = {
 
 const AnnotationDiv = styled.p`
   position: absolute;
-  top: 360px;
+  top: 340px;
   text-align: center;
   font-size: ${theme.fontSize.base};
   font-family: "Medium_BasisGrotesqueArabicPro";
