@@ -7,7 +7,7 @@ import Steps from "../steps/Steps";
 
 const StepperContainer = styled.div`
   display: flex;
-  margin: 0 0 120px 0;
+  margin: 0 0 140px 0;
   padding: 0;
   box-sizing: border-box;
   justify-content: center;
@@ -82,7 +82,8 @@ const Stepper: React.FC<StepperProps> = ({ isLastStep, setIsLastStep }) => {
     } else {
       setIsLastStep(false);
     }
-  }, [totalSteps, active, setIsLastStep]);
+    console.log(width, isLastStep);
+  }, [totalSteps, active, setIsLastStep, width, isLastStep]);
 
   // Create an array of step circles based on total steps and active step
   const arr = [];

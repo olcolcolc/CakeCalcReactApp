@@ -45,8 +45,8 @@ const StartButton = styled(Button)`
 const NextButton = styled(Button)`
   background: ${theme.colors.black};
   color: ${theme.colors.white};
+  padding: 12px 40px;
   font-size: ${theme.fontSize.base};
-
   :hover {
     background: ${theme.colors.lightPink};
     color: ${theme.colors.black};
@@ -101,7 +101,7 @@ const PreviousButton = styled.button`
 
 const PreviousButtonWrapper = styled.div`
   margin: 0 auto;
-  padding: 10px 40px;
+  padding: 10px 30px;
 `;
 
 // Interface for button props

@@ -8,15 +8,14 @@ type AnnotationProps = {
 
 const AnnotationDiv = styled.p`
   position: absolute;
-  top: 340px;
+  top: 355px;
+  font-size: ${theme.fontSize.annotation_mobile};
   text-align: center;
-  font-size: ${theme.fontSize.base};
   font-family: "Medium_BasisGrotesqueArabicPro";
-  &::first-letter {
-    text-transform: uppercase;
-  }
+  padding: 0 10px;
   ${theme.mixin.forMinWidth650(`
     top: 430px;
+    font-size: ${theme.fontSize.annotation_desktop};
 `)}
 `;
 

@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { theme } from "../../styles/theme";
 import { Cake } from "../../objects/Cake";
 import { useTranslation } from "react-i18next";
@@ -15,11 +15,14 @@ const OutputContainer = styled.div`
 `;
 
 const OutputHeader = styled.div`
-  font-size: ${theme.fontSize.stepHeader};
+  font-size: ${theme.fontSize.stepHeader_mobile};
   color: ${theme.colors.white};
   font-family: "OggRoman";
   margin-bottom: 16px;
   text-align: center;
+  ${theme.mixin.forMinWidth650(`
+    font-size: ${theme.fontSize.stepHeader_desktop};
+`)}
 `;
 
 const Elements = styled.div`

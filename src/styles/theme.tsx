@@ -50,12 +50,15 @@ const colors = {
 const fontSize = {
   logoLink: "28px",
   base: "22px",
+  annotation_desktop: "22px",
+  annotation_mobile: "16px",
   languageButtons_active: "26px",
   button_start: "30px",
   stepper: "29px",
   welcomePage_description_desktop: "50px",
   welcomePage_description_mobile: "36px",
-  stepHeader: "52px",
+  stepHeader_desktop: "52px",
+  stepHeader_mobile: "32px",
 };
 
 const fontFamily = {

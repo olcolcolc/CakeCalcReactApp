@@ -16,24 +16,26 @@ const StepContainer = styled.div`
 
 const StepHeader = styled.p`
   position: absolute;
-  top: 70px;
+  top: 80px;
+  padding: 0 20px;
   line-height: 70px;
   display: flex;
   align-items: center;
   height: 200px;
   max-width: 500px;
-  font-size: ${theme.fontSize.stepHeader};
+  font-size: ${theme.fontSize.stepHeader_mobile};
   text-align: center;
   font-family: "OggRoman";
   ${theme.mixin.forMinWidth650(`
     top: 160px;
+    font-size: ${theme.fontSize.stepHeader_desktop};
 `)}
 `;
 
 const InputField = styled.input`
   position: absolute;
   top: 300px;
-  max-width: 250px;
+  max-width: 160px;
   margin: 10px;
   height: 33px;
   padding: 8px 40px;
@@ -51,20 +53,28 @@ const InputField = styled.input`
   }
   ${theme.mixin.forMinWidth650(`
     top: 385px;
+    max-width: 250px;
 `)}
 `;
 
 const SliderContainer = styled.div`
   position: absolute;
-  margin-top: 70px;
+  top: 300px;
   cursor: pointer;
+  ${theme.mixin.forMinWidth650(`
+    top: 395px;
+`)}
 `;
 
 const SliderLabel = styled.p`
+  position: absolute;
+  top: 360px;
   font-size: ${theme.fontSize.base};
   font-family: "Medium_BasisGrotesqueArabicPro";
   position: absolute;
-  top: 450px;
+  ${theme.mixin.forMinWidth650(`
+    top: 450px;
+`)}
 `;
 
 // CircularSlider is styled inside component
