@@ -1,5 +1,5 @@
+import React from "react";
 import styled, { keyframes } from "styled-components";
-import { theme } from "../../styles/theme";
 
 const SprinkleContainer = styled.div`
   position: fixed;
@@ -8,64 +8,48 @@ const SprinkleContainer = styled.div`
   z-index: -100;
 `;
 
-// Definition for the bounce-in sprinkle animation
-const bounceInSprinkles = keyframes`
+const sprinkleAnimation = keyframes`
   0% {
+    transform: translateY(-100px) rotate(0deg);
     opacity: 0;
-    height: 0;
-    width: 0;
-  }
-  20% {
-    opacity: 1;
-  }
-  80% {
-    height: 3vh;
-    width: 1vh;
   }
   100% {
-    height: 2.5vh;
-    width: 0.8vh;
+    transform: translateY(100%) rotate(360deg);
     opacity: 1;
   }
 `;
 
-const Sprinkle = styled.div`
+const SprinkleImage = styled.img`
   position: absolute;
-  border-radius: 100vh;
-  box-shadow: 0.5vh 0.5vh 0 rgba(0, 0, 0, 0.25);
-  background: ${theme.colors.sprinkle};
+  width: 10px;
   opacity: 0;
-  height: 0;
-  width: 0;
-  animation: ${bounceInSprinkles} 0.5s forwards;
+  animation: ${sprinkleAnimation} linear forwards 0.5s;
 `;
 
-// Function to generate multiple sprinkle components with random positions and rotations
-const generateSprinkles = (count: number) => {
-  // Initialize an array to hold sprinkle components
-  const sprinkles = [];
-  for (let i = 0; i < count; i++) {
-    const rotation = Math.random() * 360;
-    sprinkles.push(styled(Sprinkle)`
-      top: ${Math.random() * 100}%;
-      left: ${Math.random() * 100}%;
-      transform: rotate(${rotation}deg);
-      animation-delay: ${Math.random() * 2}s;
-    `);
-  }
-  return sprinkles;
-};
+const Sprinkle: React.FC = () => {
+  // Get sprinkles img paths from folder
+  const sprinkles = Object.keys(
+    import.meta.glob("/src/assets/illustrations/sprinkles/*.png")
+  );
 
-const SprinkleComponents = generateSprinkles(50); // Generate 50 sprinkles
+  // Combine sprinkles array with itself to double the elements
+  const doubledSprinkles = [...sprinkles, ...sprinkles];
 
-const SprinkleAnimation = () => {
   return (
-    <SprinkleContainer>
-      {SprinkleComponents.map((SprinkleComponent, index) => (
-        <SprinkleComponent key={index} className="sprinkle" />
+    <SprinkleContainer aria-label="sprikles decoration">
+      {doubledSprinkles.map((sprinklePath, index) => (
+        <SprinkleImage
+          key={index}
+          src={sprinklePath}
+          style={{
+            top: `${Math.random() * 100}%`,
+            left: `${Math.random() * 100}%`,
+            animationDelay: `${Math.random() * 700}ms`,
+          }}
+        />
       ))}
     </SprinkleContainer>
   );
 };
 
-export default SprinkleAnimation;
+export default Sprinkle;

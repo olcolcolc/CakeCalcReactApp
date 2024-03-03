@@ -1,27 +1,26 @@
 {
       "annotation":{
-        "step0": "tort może być na minimum 6 osób",
-        "step1": "tort może mieć wysokość minimum 7 cm"
+        "step0": "Tort może być na minimum 6 osób",
+        "step1": "Tort może mieć wysokość minimum 7 cm"
       },
       "button": {
         "next": "dalej",
         "return": "wróć"
       },
       "output": {
-        "header": "twój tort",
+        "header": "Podsumowanie",
         "cakePrice": "cena tortu",
         "deposit": "zaliczka",
-        "cakeDiameter": "średnica tortu"
+        "cakeDiameter": "średnica"
       },
       "steps": {
-        "0": "ile porcji?",
-        "1": "wysokość tortu w cm:",
-        "2": "ustal cenę za osobę:",
-        "3": "ustal procent zaliczki"
+        "0": "Na ile gości będzie tort?",
+        "1": "Wysokość tortu w cm:",
+        "2": "Ustal cenę za osobę:",
+        "3": "Ustal procent zaliczki"
       },
       "welcomePage": {
-        "label": "cześć!",
-        "description": "oblicz cenę i wielkość swojego tortu"
+        "description": "Oblicz cenę i wielkość swojego tortu"
       },
       "currency": "zł"
   }

@@ -6,12 +6,17 @@ type AnnotationProps = {
   step: "0" | "1";
 };
 
-const AnnotationDiv = styled.div`
-  display: flex;
+const AnnotationDiv = styled.p`
   position: absolute;
-  top: 385px;
+  top: 355px;
+  font-size: ${theme.fontSize.annotation_mobile};
   text-align: center;
-  font-size: ${theme.fontSize.annotation};
+  font-family: "Medium_BasisGrotesqueArabicPro";
+  padding: 0 10px;
+  ${theme.mixin.forMinWidth650(`
+    top: 430px;
+    font-size: ${theme.fontSize.annotation_desktop};
+`)}
 `;
 
 const Annotation: React.FC<AnnotationProps> = ({ step }) => {

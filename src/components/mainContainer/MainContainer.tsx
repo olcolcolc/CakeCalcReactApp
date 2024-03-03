@@ -1,28 +1,31 @@
 import styled from "@emotion/styled";
 import Stepper from "../stepper/Stepper";
 import { theme } from "../../styles/theme";
+import { useState } from "react";
 
-const MainContainer = styled.div`
+const MainContainer = styled.div<{ isLastStep: boolean }>`
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin: 10px auto;
-  background-color: white;
-  height: 30rem;
+  margin: 20px auto 0px auto;
+  background-color: ${(props) =>
+    props.isLastStep ? theme.colors.pink : theme.colors.yellow};
+  height: 26rem;
   width: 100%;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
-    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  ${theme.mixin.forDesktop(`
-      border-radius: 50px;
-      width: 31rem;
+  ${theme.mixin.forMinWidth650(`
+      margin: 120px auto 0px auto;
+      border-radius: 30px;
+      width: 40rem;
     `)}
 `;
 
 const MainContainerComponent: React.FC = () => {
+  const [isLastStep, setIsLastStep] = useState(false);
+
   return (
-    <MainContainer data-testid="main-container">
-      <Stepper />
+    <MainContainer data-testid="main-container" isLastStep={isLastStep}>
+      <Stepper isLastStep={isLastStep} setIsLastStep={setIsLastStep} />
     </MainContainer>
   );
 };

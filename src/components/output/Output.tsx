@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { theme } from "../../styles/theme";
 import { Cake } from "../../objects/Cake";
 import { useTranslation } from "react-i18next";
@@ -6,15 +6,23 @@ import { useTranslation } from "react-i18next";
 const OutputContainer = styled.div`
   display: flex;
   width: 100%;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: space-around;
   margin: 0 auto;
+  font-size: ${theme.fontSize.base};
+  font-family: "Medium_BasisGrotesqueArabicPro";
 `;
 
 const OutputHeader = styled.div`
-  font-size: ${theme.fontSize.base};
-  margin-bottom: 10px;
+  font-size: ${theme.fontSize.stepHeader_mobile};
+  color: ${theme.colors.white};
+  font-family: "OggRoman";
+  margin-bottom: 16px;
+  text-align: center;
+  ${theme.mixin.forMinWidth650(`
+    font-size: ${theme.fontSize.stepHeader_desktop};
+`)}
 `;
 
 const Elements = styled.div`
@@ -22,26 +30,14 @@ const Elements = styled.div`
   margin: -12px;
 `;
 
-//Gradient Animation for Values div's
-const gradientAnimation = keyframes`
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(360deg);
-  }
-`;
-
-const Values = styled.div`
+const Values = styled.p`
   font-size: 50px;
-  font-weight: bold;
+  font-family: "OggRoman";
   padding-bottom: 12px;
-  background-image: linear-gradient(62deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  color: transparent;
+  color: ${theme.colors.white};
   -webkit-background-clip: text;
   background-clip: text;
-  margin-top: -20px;
-  animation: ${gradientAnimation} 3s linear infinite;
+  margin: 0 50px;
 `;
 
 interface OutputProps {

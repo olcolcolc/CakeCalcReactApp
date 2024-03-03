@@ -4,51 +4,80 @@ import Output from "../output/Output";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
 import Annotation from "../annotation/Annotation";
+import CircularSlider from "@fseehawer/react-circular-slider";
 
 const StepContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 330px;
+  height: 360px;
 `;
 
-const StepHeader = styled.div`
-  margin-bottom: 20px;
-  font-size: ${theme.fontSize.base};
-  &::first-letter {
-    text-transform: uppercase;
-  }
+const StepHeader = styled.p`
+  position: absolute;
+  top: 80px;
+  padding: 0 20px;
+  line-height: 70px;
+  display: flex;
+  align-items: center;
+  height: 200px;
+  max-width: 500px;
+  font-size: ${theme.fontSize.stepHeader_mobile};
+  text-align: center;
+  font-family: "OggRoman";
+  ${theme.mixin.forMinWidth650(`
+    top: 160px;
+    font-size: ${theme.fontSize.stepHeader_desktop};
+`)}
 `;
 
 const InputField = styled.input`
-  width: 100%;
-  max-width: 100px;
-  height: 60px;
-  padding: 10px;
-  border: 1px solid ${theme.colors.input};
+  position: absolute;
+  top: 300px;
+  max-width: 160px;
+  margin: 10px;
+  height: 33px;
+  padding: 8px 40px;
+  background-color: inherit;
+  border: 1px solid ${theme.colors.black};
+  font-family: "Medium_BasisGrotesqueArabicPro";
   text-align: center;
-  border-radius: 40px;
-  font-size: 50px;
+  border-radius: 50px;
+  font-size: 26px;
   &:hover {
     cursor: pointer;
   }
   &:focus {
     border: solid 2px ${theme.colors.input};
   }
+  ${theme.mixin.forMinWidth650(`
+    top: 385px;
+    max-width: 250px;
+`)}
 `;
 
-const Slider = styled.input`
-  width: 180px;
-  margin-bottom: 20px;
+const SliderContainer = styled.div`
+  position: absolute;
+  top: 300px;
   cursor: pointer;
+  ${theme.mixin.forMinWidth650(`
+    top: 395px;
+`)}
 `;
 
-const SliderLabel = styled.label`
-  width: 180px;
-  margin-bottom: 20px;
-  text-align: center;
+const SliderLabel = styled.p`
+  position: absolute;
+  top: 360px;
+  font-size: ${theme.fontSize.base};
+  font-family: "Medium_BasisGrotesqueArabicPro";
+  position: absolute;
+  ${theme.mixin.forMinWidth650(`
+    top: 450px;
+`)}
 `;
+
+// CircularSlider is styled inside component
 
 interface StepsProps {
   stepNumber: number;
@@ -65,7 +94,7 @@ const Steps: React.FC<StepsProps> = ({
   const [howManyPortions, setHowManyPortions] = useState("6");
   const [cakesHigh, setCakesHigh] = useState("7");
   const [pricePerOnePerson, setPricePerOnePerson] = useState("0");
-  const [advance, setAdvance] = useState("50");
+  const [advance, setAdvance] = useState("0");
 
   // Get the translation function 't' and the i18n instance from the useTranslation hook
   const { t } = useTranslation();
@@ -86,13 +115,9 @@ const Steps: React.FC<StepsProps> = ({
       case "price-per-portion":
         setPricePerOnePerson(value);
         break;
-      case "advance":
-        // eslint-disable-next-line no-case-declarations
-        const newValue = Number(value);
-        if (!isNaN(newValue) && newValue >= 1 && newValue <= 100) {
-          setAdvance(value);
-        }
-        break;
+      // case "advance":
+      // In CircularSlider, it is impossible to assign an id to the component,
+      // so the handleChange function is written directly in the onchange attribute
       default:
         break;
     }
@@ -134,7 +159,7 @@ const Steps: React.FC<StepsProps> = ({
             value={cakesHigh}
             onChange={handleInputChange}
             id="cakes-high"
-            data-testid="step-1-input"
+            data-testid="step-1w-input"
           />
           <Annotation step="1" />
         </>
@@ -158,18 +183,28 @@ const Steps: React.FC<StepsProps> = ({
       step = (
         <>
           <StepHeader data-testid="step-3-header">{t("steps.3")}</StepHeader>
-          <Slider
-            type="range"
-            min="1"
-            max="100"
-            value={advance}
-            onChange={handleInputChange}
-            id="advance"
-            data-testid="step-3-slider"
-          />
-          <SliderLabel htmlFor="advance">
-            <span data-testid="advance-value">{advance}</span>%
-          </SliderLabel>
+          <SliderContainer>
+            <CircularSlider
+              width={50}
+              hideKnob={true}
+              min={0}
+              max={100}
+              direction={-1}
+              progressColorFrom="#F88B9E"
+              progressColorTo="#F88B9E"
+              trackColor="black"
+              data-testid="step-3-slider"
+              labelColor="#F9D644"
+              label=" "
+              onChange={(value: number) => {
+                setAdvance(value.toString());
+              }}
+              progressSize={5}
+              trackSize={5}
+              trackDraggable={true}
+            ></CircularSlider>
+          </SliderContainer>
+          <SliderLabel>{advance}%</SliderLabel>
         </>
       );
       break;

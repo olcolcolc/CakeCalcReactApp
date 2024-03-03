@@ -1,5 +1,5 @@
 {   "annotation": {
-      "step0": "the cake can be for a minimum of 6 people",
+      "step0": "The cake can be for a minimum of 6 people",
       "step1": "The cake can have a minimum height of 7 cm"
     },
     "button": {
@@ -7,20 +7,19 @@
       "return": "return"
     },
     "output": {
-      "header": "your cake",
+      "header": "summary",
       "cakePrice": "cake price",
       "deposit": "deposit",
-      "cakeDiameter": "cake diameter"
+      "cakeDiameter": "diameter"
     },
     "steps": {
-      "0": "how many portions?",
-      "1": "cake height in cm:",
-      "2": "set the price per person:",
-      "3": "set the deposit percentage"
+      "0": "How many guests will the cake serve?",
+      "1": "Cake height in cm:",
+      "2": "Set the price per person:",
+      "3": "Set the deposit percentage"
     },
     "welcomePage": {
-      "label": "hello!",
-      "description": "calculate the price and size of your cake"
+      "description": "Calculate the price and size of your cake"
     },
     "currency": "$"
   }

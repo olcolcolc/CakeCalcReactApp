@@ -1,55 +1,50 @@
 import styled from "@emotion/styled";
-import welcomeIcon from "../../assets/welcome_icon.png";
 import { theme } from "../../styles/theme";
 import Button from "../button/Button";
-import WelcomeIcon from "../welcomeIcon/WelcomeIcon";
 import { useTranslation } from "react-i18next";
+import "../../styles/fonts.css";
+import { Icon } from "../icon/Icon";
 
 const WelcomePageDiv = styled.div`
-  margin: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  ${theme.mixin.forDesktop(`
+  ${theme.mixin.forMinWidth650(`
         flex-direction: row;
     `)}
 `;
 
-const Label = styled.div`
-  text-align: center;
-  font-family: ${theme.fontFamily.nunito};
-  font-size: 50px;
-  font-weight: 900;
-  ${theme.mixin.forDesktop(`
-        text-align: right;
-        font-size: 80px;
-    `)}
+const CenterWrapper = styled.div`
+  flex-direction: column;
 `;
 
-const Description = styled.div`
+const Description = styled.h1`
   display: flex;
   text-align: center;
-  font-size: 25px;
-  font-family: ${theme.fontFamily.nunito};
-  ${theme.mixin.forDesktop(`
-        text-align: right;
-        font-size: 40px;
+  font-size: ${theme.fontSize.welcomePage_description_mobile};
+  font-family: "OggRoman";
+  margin: 0;
+  ${theme.mixin.forMinWidth650(`
+      font-size: ${theme.fontSize.welcomePage_description_desktop};
     `)}
 `;
 
-const LeftWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  ${theme.mixin.forDesktop(`
-        margin-top: 160px;
+const DarkCakeIcon = styled.div`
+  width: 40%;
+
+  ${theme.mixin.forMinWidth650(`
+    width: 373px;
     `)}
 `;
 
-const RightWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+const LightCakeIcon = styled.div`
+  display: none;
+  ${theme.mixin.forMinWidth950(`
+      margin-left: 30px;
+      display: flex;
+  `)}
 `;
 
 interface WelcomePageProps {
@@ -62,16 +57,18 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
 
   return (
     <WelcomePageDiv data-testid="welcome-page-div">
-      <LeftWrapper>
-        <Label data-testit="label">{t("welcomePage.label")}</Label>
+      <DarkCakeIcon>
+        <Icon name="darkCake" aria-label="chocolate cake with candles" />
+      </DarkCakeIcon>
+      <CenterWrapper>
         <Description data-testit="description">
           {t("welcomePage.description")}
         </Description>
-      </LeftWrapper>
-      <RightWrapper>
-        <WelcomeIcon src={welcomeIcon} alt="Welcome Icon" />
         <Button name="start" onClick={onStartClick} />
-      </RightWrapper>
+      </CenterWrapper>
+      <LightCakeIcon>
+        <Icon name="lightCake" aria-label="cream cake with candles" />
+      </LightCakeIcon>
     </WelcomePageDiv>
   );
 };
