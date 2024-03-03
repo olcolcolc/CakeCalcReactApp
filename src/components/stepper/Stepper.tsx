@@ -58,8 +58,13 @@ const ButtonsContainer = styled.div`
 `)}
 `;
 
-const Stepper = () => {
-  const [circle] = useState(5); // Total number of steps
+interface StepperProps {
+  isLastStep: boolean;
+  setIsLastStep: (isLastStep: boolean) => void; // Fix the type declaration here
+}
+
+const Stepper: React.FC<StepperProps> = ({ isLastStep, setIsLastStep }) => {
+  const [totalSteps] = useState(5); // Total number of steps
   const [active, setActive] = useState(0); // Current active step
   const [width, setWidth] = useState(0);
   const [disableNextButton, setDisableNextButton] = useState(false);
@@ -71,13 +76,17 @@ const Stepper = () => {
 
   // Update progress bar width based on active step
   useEffect(() => {
-    setWidth((100 / (circle - 1)) * active);
-    console.log(width);
-  }, [circle, active]);
+    setWidth((100 / (totalSteps - 1)) * active);
+    if (active === totalSteps - 1) {
+      setIsLastStep(true); // Set isLastStep to true when it's the last step (active is equal to totalSteps - 1)
+    } else {
+      setIsLastStep(false);
+    }
+  }, [totalSteps, active, setIsLastStep]);
 
   // Create an array of step circles based on total steps and active step
   const arr = [];
-  for (let i = 0; i < circle; i++) {
+  for (let i = 0; i < totalSteps; i++) {
     arr.push(
       <Circle isActive={i === active} key={i}>
         {i}
@@ -112,10 +121,10 @@ const Stepper = () => {
         <Button
           name="next"
           data-testid="next-button"
-          disabled={active >= circle - 1 || disableNextButton}
+          disabled={active >= totalSteps - 1 || disableNextButton}
           onClick={() => {
-            if (active >= circle - 1) {
-              setActive(circle - 1);
+            if (active >= totalSteps - 1) {
+              setActive(totalSteps - 1);
             } else setActive(active + 1);
           }}
         />

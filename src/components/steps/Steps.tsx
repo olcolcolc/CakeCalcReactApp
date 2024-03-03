@@ -70,7 +70,7 @@ const SliderLabel = styled.p`
   top: 450px;
 `;
 
-// CircularSlider inside component
+// CircularSlider is styled inside component
 
 interface StepsProps {
   stepNumber: number;
