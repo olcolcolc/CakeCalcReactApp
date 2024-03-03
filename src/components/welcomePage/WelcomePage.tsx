@@ -27,9 +27,6 @@ const Description = styled.h1`
   font-size: ${theme.fontSize.welcomePage_description_mobile};
   font-family: "OggRoman";
   margin: 0;
-  &::first-letter {
-    text-transform: uppercase;
-  }
   ${theme.mixin.forMinWidth650(`
       font-size: ${theme.fontSize.welcomePage_description_desktop};
     `)}

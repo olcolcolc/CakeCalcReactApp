@@ -8,16 +8,16 @@
         "return": "wróć"
       },
       "output": {
-        "header": "twój tort",
+        "header": "Podsumowanie",
         "cakePrice": "cena tortu",
         "deposit": "zaliczka",
-        "cakeDiameter": "średnica tortu"
+        "cakeDiameter": "średnica"
       },
       "steps": {
-        "0": "na ile gości będzie tort?",
-        "1": "wysokość tortu w cm:",
-        "2": "ustal cenę za osobę:",
-        "3": "ustal procent zaliczki"
+        "0": "Na ile gości będzie tort?",
+        "1": "Wysokość tortu w cm:",
+        "2": "Ustal cenę za osobę:",
+        "3": "Ustal procent zaliczki"
       },
       "welcomePage": {
         "description": "Oblicz cenę i wielkość swojego tortu"

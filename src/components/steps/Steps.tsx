@@ -25,9 +25,6 @@ const StepHeader = styled.p`
   font-size: ${theme.fontSize.stepHeader};
   text-align: center;
   font-family: "OggRoman";
-  &::first-letter {
-    text-transform: uppercase;
-  }
   ${theme.mixin.forMinWidth650(`
     top: 160px;
 `)}
