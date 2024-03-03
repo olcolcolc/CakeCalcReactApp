@@ -40,7 +40,6 @@ const colors = {
   disabledButton: "#575757",
   white: "#ffffff",
   black: "#000000",
-  input: "#464141",
   yellow: "#F9D644",
   pink: "#F88B9E",
   lightPink: "#F8A4B3",

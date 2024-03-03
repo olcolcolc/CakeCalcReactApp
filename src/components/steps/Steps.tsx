@@ -49,7 +49,16 @@ const InputField = styled.input`
     cursor: pointer;
   }
   &:focus {
-    border: solid 2px ${theme.colors.input};
+    border: solid 2px ${theme.colors.black};
+  }
+  /* Hide arrows for input */
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  &[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
   }
   ${theme.mixin.forMinWidth650(`
     top: 385px;
