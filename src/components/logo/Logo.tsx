@@ -13,7 +13,7 @@ const LogoContainer = styled.a`
 
 const CakeSpan = styled.span`
   font-family: "OggRoman";
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 const CalcSpan = styled.span`
