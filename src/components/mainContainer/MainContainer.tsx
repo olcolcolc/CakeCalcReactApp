@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import Stepper from "../stepper/Stepper";
 import { theme } from "../../styles/theme";
 import { useState } from "react";
+import { Icon } from "../icon/Icon";
 
 const MainContainer = styled.div<{ isLastStep: boolean }>`
   display: flex;
@@ -20,13 +21,28 @@ const MainContainer = styled.div<{ isLastStep: boolean }>`
     `)}
 `;
 
+const Donut = styled.div`
+  display: none;
+  ${theme.mixin.forMinWidth650(`
+    display: flex;
+    position: absolute;
+    margin: 80px 660px 0 0;
+    z-index: 100;
+    `)}
+`;
+
 const MainContainerComponent: React.FC = () => {
   const [isLastStep, setIsLastStep] = useState(false);
 
   return (
-    <MainContainer data-testid="main-container" isLastStep={isLastStep}>
-      <Stepper isLastStep={isLastStep} setIsLastStep={setIsLastStep} />
-    </MainContainer>
+    <>
+      <MainContainer data-testid="main-container" isLastStep={isLastStep}>
+        <Donut>
+          <Icon name="donut" />
+        </Donut>
+        <Stepper isLastStep={isLastStep} setIsLastStep={setIsLastStep} />
+      </MainContainer>
+    </>
   );
 };
 

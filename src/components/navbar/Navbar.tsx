@@ -22,7 +22,7 @@ const NavbarContainer = styled.div`
     margin-bottom: 20px;
   `)}
   ${theme.mixin.forMinWidth950(`
-    margin-bottom: 60px;
+    margin-bottom: 30px;
   `)}
 `;
 
