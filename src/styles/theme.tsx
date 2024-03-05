@@ -51,7 +51,6 @@ const fontSize = {
   base: "22px",
   annotation_desktop: "22px",
   annotation_mobile: "16px",
-  languageButtons_active: "26px",
   button_start: "30px",
   stepper: "29px",
   welcomePage_description_desktop: "50px",
@@ -60,21 +59,10 @@ const fontSize = {
   stepHeader_mobile: "32px",
 };
 
-const fontFamily = {
-  nunito: "'Nunito', sans-serif",
-};
-
-const fontStyle = {
-  favorit: "'Favorit', sans-serif",
-  ogg: "'Ogg', serif",
-};
-
 export const theme = {
   colors,
   fontSize,
   mixin,
-  fontFamily,
-  fontStyle,
 };
 
 export type Theme = typeof theme;

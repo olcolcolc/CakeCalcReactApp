@@ -23,6 +23,8 @@ const Button = styled.button`
 const StartButton = styled(Button)`
   background: ${theme.colors.pink};
   color: ${theme.colors.black};
+  padding: 12px 40px;
+  font-size: ${theme.fontSize.base};
   margin-top: 22px;
 
   :hover {
@@ -36,8 +38,6 @@ const StartButton = styled(Button)`
   }
 
   ${theme.mixin.forMinWidth650(`
-    font-size: ${theme.fontSize.base};
-    padding: 10px 70px;
     margin-top: 28px;
   `)};
 `;

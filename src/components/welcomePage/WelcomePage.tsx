@@ -26,7 +26,7 @@ const CenterWrapper = styled.div`
 
 const Description = styled.p`
   display: flex;
-  margin: 0 20px;
+  margin: 0 15px;
   line-height: 78px;
   font-size: ${theme.fontSize.welcomePage_description_mobile};
   font-family: "OggRoman";
