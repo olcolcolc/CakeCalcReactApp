@@ -19,8 +19,7 @@ const Language = styled.button<{ isActive: boolean }>`
   font-family: "Medium_BasisGrotesqueArabicPro";
   text-transform: uppercase;
   font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
-  font-size: ${(props) =>
-    props.isActive ? theme.fontSize.languageButtons_active : ""};
+  font-size: ${theme.fontSize.base};
   &:focus {
     ${theme.mixin.buttonFocus}
   }

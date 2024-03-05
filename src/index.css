@@ -2,7 +2,3 @@
   background: #fefefe;
   box-sizing: border-box;
 }
-
-::first-letter {
-  text-transform: uppercase;
-}

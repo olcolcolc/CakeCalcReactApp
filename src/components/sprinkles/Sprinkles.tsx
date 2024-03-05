@@ -1,7 +1,8 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
+import { Icon } from "../icon/Icon";
 
-const SprinkleContainer = styled.div`
+const SprinklesContainer = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
@@ -19,7 +20,7 @@ const sprinkleAnimation = keyframes`
   }
 `;
 
-const SprinkleImage = styled.img`
+const SprinkleDiv = styled.div`
   position: absolute;
   width: 10px;
   opacity: 0;
@@ -27,28 +28,32 @@ const SprinkleImage = styled.img`
 `;
 
 const Sprinkle: React.FC = () => {
-  // Get sprinkles img paths from folder
-  const sprinkles = Object.keys(
-    import.meta.glob("/src/assets/illustrations/sprinkles/*.png")
-  );
+  const sprinkleIconNames = [];
+
+  // Get array with sprinkles names strings
+  for (let i = 1; i <= 10; i++) {
+    const iconName = `sprinkle${i}`;
+    sprinkleIconNames.push(iconName);
+  }
 
   // Combine sprinkles array with itself to double the elements
-  const doubledSprinkles = [...sprinkles, ...sprinkles];
+  const doubledSprinkles = [...sprinkleIconNames, ...sprinkleIconNames];
 
   return (
-    <SprinkleContainer aria-label="sprikles decoration">
-      {doubledSprinkles.map((sprinklePath, index) => (
-        <SprinkleImage
+    <SprinklesContainer aria-label="sprikles decoration">
+      {doubledSprinkles.map((sprinkleName, index) => (
+        <SprinkleDiv
           key={index}
-          src={sprinklePath}
           style={{
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
             animationDelay: `${Math.random() * 700}ms`,
           }}
-        />
+        >
+          <Icon name={sprinkleName} />
+        </SprinkleDiv>
       ))}
-    </SprinkleContainer>
+    </SprinklesContainer>
   );
 };
 

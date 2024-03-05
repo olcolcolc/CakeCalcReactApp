@@ -13,19 +13,23 @@ const WelcomePageDiv = styled.div`
   text-align: center;
   ${theme.mixin.forMinWidth650(`
         flex-direction: row;
+        margin: 0 20px;
     `)}
 `;
 
 const CenterWrapper = styled.div`
   flex-direction: column;
+  ${theme.mixin.forMinWidth650(`
+      margin: 0 10px;
+    `)}
 `;
 
-const Description = styled.h1`
+const Description = styled.p`
   display: flex;
-  text-align: center;
+  margin: 0 15px;
+  line-height: 78px;
   font-size: ${theme.fontSize.welcomePage_description_mobile};
   font-family: "OggRoman";
-  margin: 0;
   ${theme.mixin.forMinWidth650(`
       font-size: ${theme.fontSize.welcomePage_description_desktop};
     `)}
@@ -33,17 +37,16 @@ const Description = styled.h1`
 
 const DarkCakeIcon = styled.div`
   width: 40%;
-
   ${theme.mixin.forMinWidth650(`
-    width: 373px;
+    width: 440px;
     `)}
 `;
 
 const LightCakeIcon = styled.div`
   display: none;
   ${theme.mixin.forMinWidth950(`
-      margin-left: 30px;
       display: flex;
+      width: 450px;
   `)}
 `;
 
