@@ -8,12 +8,11 @@ const NavbarContainer = styled.div`
   margin: 0;
   display: flex;
   width: 100%;
-  background-color: inherit;
+  background-color: transparent;
   flex-direction: row;
   align-items: center;
   height: 100px;
   justify-content: start;
-
   ${theme.mixin.forMinWidth450(`
     justify-content: center;
   `)}
