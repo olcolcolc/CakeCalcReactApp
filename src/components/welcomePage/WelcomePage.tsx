@@ -39,7 +39,7 @@ const Description = styled.p`
 const DarkCakeIcon = styled.div`
   width: 40%;
   ${theme.mixin.forMinWidth650(`
-    width: 300px;
+    width: 310px;
     `)}
 `;
 
