@@ -52,7 +52,6 @@ const fontSize = {
   annotation_desktop: "22px",
   annotation_mobile: "16px",
   button_start: "30px",
-  stepper: "29px",
   welcomePage_description_desktop: "50px",
   welcomePage_description_mobile: "36px",
   stepHeader_desktop: "52px",

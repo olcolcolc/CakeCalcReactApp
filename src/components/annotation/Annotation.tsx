@@ -11,7 +11,7 @@ const AnnotationDiv = styled.p`
   top: 355px;
   font-size: ${theme.fontSize.annotation_mobile};
   text-align: center;
-  font-family: "Medium_BasisGrotesqueArabicPro";
+  font-family: "Regular_BasisGrotesqueArabicPro";
   padding: 0 10px;
   ${theme.mixin.forMinWidth650(`
     top: 430px;
