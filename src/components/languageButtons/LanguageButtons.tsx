@@ -10,7 +10,7 @@ const LanguagesContainer = styled.div`
   padding: 0;
   position: absolute;
   right: 0px;
-  margin: 0 10px 4px 0;
+  margin: 0 90px 4px 0;
 `;
 
 const Language = styled.button<{ isActive: boolean }>`
@@ -46,7 +46,7 @@ const LanguageButtons = () => {
         onClick={() => changeLanguage("en")}
         isActive={currentLanguage === "en"}
       >
-        en
+        eng
       </Language>
     </LanguagesContainer>
   );

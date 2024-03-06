@@ -11,10 +11,10 @@ const CircleDiv = styled.div<{ isActive: boolean }>`
   border: 4px solid
     ${(props) => (props.isActive ? theme.colors.pink : theme.colors.yellow)};
   color: ${theme.colors.black};
-  font-size: ${theme.fontSize.stepper};
+  font-size: ${theme.fontSize.base};
   border-radius: 50%;
-  height: 62px;
-  width: 62px;
+  height: 52px;
+  width: 52px;
   justify-content: center;
   align-items: center;
   transition: 0.4s ease;

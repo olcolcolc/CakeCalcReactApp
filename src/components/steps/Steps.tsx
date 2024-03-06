@@ -17,8 +17,8 @@ const StepContainer = styled.div`
 const StepHeader = styled.p`
   position: absolute;
   top: 80px;
+  line-height: 55px;
   padding: 0 20px;
-  line-height: 70px;
   display: flex;
   align-items: center;
   height: 200px;

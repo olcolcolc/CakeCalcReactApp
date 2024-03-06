@@ -11,18 +11,11 @@ const NavbarContainer = styled.div`
   background-color: inherit;
   flex-direction: row;
   align-items: center;
-  height: 80px;
+  height: 100px;
   justify-content: start;
-  margin-bottom: 0px;
 
   ${theme.mixin.forMinWidth450(`
     justify-content: center;
-  `)}
-  ${theme.mixin.forMinWidth650(`
-    margin-bottom: 20px;
-  `)}
-  ${theme.mixin.forMinWidth950(`
-    margin-bottom: 30px;
   `)}
 `;
 

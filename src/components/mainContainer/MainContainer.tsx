@@ -15,7 +15,7 @@ const MainContainer = styled.div<{ isLastStep: boolean }>`
   height: 26rem;
   width: 100%;
   ${theme.mixin.forMinWidth650(`
-      margin: 120px auto 0px auto;
+      margin: 100px auto 0px auto;
       border-radius: 30px;
       width: 40rem;
     `)}

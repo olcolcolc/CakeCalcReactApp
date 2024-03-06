@@ -11,6 +11,7 @@ const WelcomePageDiv = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
+  padding: 0 20px;
   ${theme.mixin.forMinWidth650(`
         flex-direction: row;
         margin: 0 20px;
@@ -27,7 +28,7 @@ const CenterWrapper = styled.div`
 const Description = styled.p`
   display: flex;
   margin: 0 15px;
-  line-height: 78px;
+  line-height: 60px;
   font-size: ${theme.fontSize.welcomePage_description_mobile};
   font-family: "OggRoman";
   ${theme.mixin.forMinWidth650(`
@@ -38,7 +39,7 @@ const Description = styled.p`
 const DarkCakeIcon = styled.div`
   width: 40%;
   ${theme.mixin.forMinWidth650(`
-    width: 440px;
+    width: 300px;
     `)}
 `;
 
@@ -46,7 +47,7 @@ const LightCakeIcon = styled.div`
   display: none;
   ${theme.mixin.forMinWidth950(`
       display: flex;
-      width: 450px;
+      width: 320px;
   `)}
 `;
 
