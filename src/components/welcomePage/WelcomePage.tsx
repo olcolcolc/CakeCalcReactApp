@@ -14,7 +14,7 @@ const WelcomePageDiv = styled.div`
   padding: 0 20px;
   ${theme.mixin.forMinWidth650(`
         flex-direction: row;
-        margin: 0 20px;
+        margin: 30px;
     `)}
 `;
 
@@ -39,7 +39,7 @@ const Description = styled.p`
 const DarkCakeIcon = styled.div`
   width: 40%;
   ${theme.mixin.forMinWidth650(`
-    width: 300px;
+    width: 310px;
     `)}
 `;
 

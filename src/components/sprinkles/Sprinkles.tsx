@@ -11,20 +11,19 @@ const SprinklesContainer = styled.div`
 
 const sprinkleAnimation = keyframes`
   0% {
-    transform: translateY(-100px) rotate(0deg);
-    opacity: 0;
+    transform: translateY(-110vh) rotate(0deg);
+    opacity: 0.5;
   }
   100% {
-    transform: translateY(100%) rotate(360deg);
-    opacity: 1;
+    transform: translateY(110vh) rotate(360deg);
   }
 `;
 
 const SprinkleDiv = styled.div`
   position: absolute;
   width: 10px;
-  opacity: 0;
-  animation: ${sprinkleAnimation} linear forwards 0.5s;
+  opacity: 1;
+  animation: ${sprinkleAnimation} linear infinite 5.5s;
 `;
 
 const Sprinkle: React.FC = () => {
@@ -48,6 +47,7 @@ const Sprinkle: React.FC = () => {
             top: `${Math.random() * 100}%`,
             left: `${Math.random() * 100}%`,
             animationDelay: `${Math.random() * 700}ms`,
+            animationDuration: `${Math.random() * 2 + 5}s`,
           }}
         >
           <Icon name={sprinkleName} />
