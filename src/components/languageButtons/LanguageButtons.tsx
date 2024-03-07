@@ -7,10 +7,13 @@ const LanguagesContainer = styled.div`
   text-decoration: none;
   color: ${theme.colors.black};
   font-size: ${theme.fontSize.base};
-  padding: 0;
+  padding-right: 20px;
   position: absolute;
   right: 0px;
-  margin: 0 90px 4px 0;
+  margin: 4px;
+  ${theme.mixin.forMinWidth950(`
+        margin-right: 80px;
+  `)}
 `;
 
 const Language = styled.button<{ isActive: boolean }>`

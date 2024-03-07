@@ -13,7 +13,6 @@ const NavbarContainer = styled.div`
   align-items: center;
   height: 100px;
   justify-content: start;
-
   ${theme.mixin.forMinWidth450(`
     justify-content: center;
   `)}

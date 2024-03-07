@@ -21,6 +21,7 @@ const StepHeader = styled.p`
   padding: 0 20px;
   display: flex;
   align-items: center;
+  text-align: center;
   height: 200px;
   max-width: 500px;
   font-size: ${theme.fontSize.stepHeader_mobile};
