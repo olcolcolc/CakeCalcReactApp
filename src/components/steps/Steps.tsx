@@ -16,19 +16,20 @@ const StepContainer = styled.div`
 
 const StepHeader = styled.p`
   position: absolute;
-  top: 80px;
+  top: 152px;
   line-height: 55px;
   padding: 0 20px;
   display: flex;
   align-items: center;
-  text-align: center;
-  height: 200px;
-  max-width: 500px;
+  height: 110px;
   font-size: ${theme.fontSize.stepHeader_mobile};
   text-align: center;
   font-family: "OggRoman";
+  flex-direction: column;
   ${theme.mixin.forMinWidth650(`
-    top: 160px;
+    flex-direction: row;
+    top: 195px;
+    max-width: 500px;
     font-size: ${theme.fontSize.stepHeader_desktop};
 `)}
 `;

@@ -4,40 +4,60 @@ import { Cake } from "../../objects/Cake";
 import { useTranslation } from "react-i18next";
 
 const OutputContainer = styled.div`
+  margin-top: 50px;
+`;
+
+const ValuesContainer = styled.div`
   display: flex;
   width: 100%;
-  flex-direction: row;
   align-items: center;
+  flex-direction: column;
   justify-content: space-around;
   margin: 0 auto;
   font-size: ${theme.fontSize.base};
   font-family: "Medium_BasisGrotesqueArabicPro";
+  ${theme.mixin.forMinWidth450(`
+    flex-direction: row;
+`)}
+  ${theme.mixin.forMinWidth650(`
+    margin: 0 auto;
+`)}
 `;
 
 const OutputHeader = styled.div`
   font-size: ${theme.fontSize.stepHeader_mobile};
   color: ${theme.colors.white};
   font-family: "OggRoman";
-  margin-bottom: 16px;
   text-align: center;
   ${theme.mixin.forMinWidth650(`
     font-size: ${theme.fontSize.stepHeader_desktop};
+    margin-bottom: 30px;
 `)}
 `;
 
-const Elements = styled.div`
+const Element = styled.div`
   text-align: center;
   margin: -12px;
 `;
 
+const ElementHeader = styled.div`
+  margin: 10px;
+`;
+
 const Values = styled.p`
-  font-size: 50px;
+  font-size: ${theme.fontSize.outputValues_mobile};
   font-family: "OggRoman";
-  padding-bottom: 12px;
+  padding-bottom: 1px;
   color: ${theme.colors.white};
   -webkit-background-clip: text;
   background-clip: text;
-  margin: 0 50px;
+  margin: 10px 50px;
+  ${theme.mixin.forMinWidth450(`
+    padding-bottom: 12px;
+`)}
+  ${theme.mixin.forMinWidth650(`
+    font-size: 50px;
+`)}
 `;
 
 interface OutputProps {
@@ -72,32 +92,32 @@ const Output: React.FC<OutputProps> = ({ cakeValues }) => {
   const { t } = useTranslation();
 
   return (
-    <>
+    <OutputContainer>
       <OutputHeader data-testid="output-header">
         {t("output.header")}
       </OutputHeader>
 
-      <OutputContainer data-testid="output-container">
-        <Elements data-testid="cake-price-element">
-          <p>{t("output.cakePrice")}</p>
+      <ValuesContainer data-testid="output-container">
+        <Element data-testid="cake-price-element">
+          <ElementHeader>{t("output.cakePrice")}</ElementHeader>
           <Values data-testid="cake-price-value">
             {totalPrice}
             {t("currency")}
           </Values>
-        </Elements>
-        <Elements data-testid="deposit-element">
-          <p>{t("output.deposit")}</p>
+        </Element>
+        <Element data-testid="deposit-element">
+          <ElementHeader>{t("output.deposit")}</ElementHeader>
           <Values data-testid="deposit-value">
             {advancePrice}
             {t("currency")}
           </Values>
-        </Elements>
-        <Elements data-testid="cake-diameter-element">
-          <p>{t("output.cakeDiameter")}</p>
+        </Element>
+        <Element data-testid="cake-diameter-element">
+          <ElementHeader>{t("output.cakeDiameter")}</ElementHeader>
           <Values data-testid="cake-diameter-value">{validDiameter}ø</Values>
-        </Elements>
-      </OutputContainer>
-    </>
+        </Element>
+      </ValuesContainer>
+    </OutputContainer>
   );
 };
 
