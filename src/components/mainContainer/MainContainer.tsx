@@ -12,8 +12,8 @@ const MainContainer = styled.div<{ isLastStep: boolean }>`
   margin: 20px auto 0px auto;
   background-color: ${(props) =>
     props.isLastStep ? theme.colors.pink : theme.colors.yellow};
+  height: 100%;
   height: 26rem;
-  width: 100%;
   ${theme.mixin.forMinWidth650(`
       margin: 100px auto 0px auto;
       border-radius: 30px;

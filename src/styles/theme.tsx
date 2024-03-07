@@ -56,6 +56,7 @@ const fontSize = {
   welcomePage_description_mobile: "36px",
   stepHeader_desktop: "52px",
   stepHeader_mobile: "38px",
+  outputValues_mobile: "30px",
 };
 
 export const theme = {
