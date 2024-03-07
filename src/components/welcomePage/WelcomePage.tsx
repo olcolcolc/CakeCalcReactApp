@@ -14,7 +14,7 @@ const WelcomePageDiv = styled.div`
   padding: 0 20px;
   ${theme.mixin.forMinWidth650(`
         flex-direction: row;
-        margin: 0 20px;
+        margin: 30px;
     `)}
 `;
 
