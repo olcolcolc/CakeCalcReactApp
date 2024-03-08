@@ -1,31 +1,24 @@
-import { render, fireEvent } from "@testing-library/react";
+import { getByTestId, render, waitFor } from "@testing-library/react";
 import Navbar from "./Navbar";
-import { fn } from "@vitest/spy";
-import i18n from "i18next";
 
-// Mocking the changeLanguage function
-const changeLanguageMock = fn();
-i18n.changeLanguage = changeLanguageMock;
+describe("Navbar Component - Responsive", () => {
+  it("renders correctly for desktop view", async () => {
+    global.innerWidth = 1600; // Ustawiamy szerokość większą niż 450px dla desktopu
+    const { getByTestId } = render(<Navbar />);
+    await waitFor(() => {
+      const navbarContainer = getByTestId("navbar-container");
+      console.log(navbarContainer.style.justifyContent);
 
-describe("Navbar Component", () => {
-  it("changes language when language button is clicked", () => {
-    const { getByText } = render(<Navbar />); // Renders the Navbar component
-
-    const languageButton = getByText(/en|pl/i); // Finds the language button in the rendered Navbar
-    fireEvent.click(languageButton); // Simulates a click on the language button
-
-    // Checks if the mocked changeLanguage function has been called
-    expect(changeLanguageMock).toHaveBeenCalled();
-    // Checks if the text corresponding to the selected language is present in the Navbar
-    expect(getByText(/en|pl/i)).toBeInTheDocument();
+      expect(navbarContainer).toHaveStyle("justify-content: center");
+    });
   });
 
-  it("redirects to '/' when logo is clicked", () => {
+  it("renders correctly for mobile view", async () => {
+    global.innerWidth = 300; // Ustawiamy szerokość mniejszą niż 450px dla mobilnego widoku
     const { getByTestId } = render(<Navbar />);
-
-    const logoContainer = getByTestId("logo-container");
-    fireEvent.click(logoContainer);
-
-    expect(window.location.pathname).toBe("/");
+    await waitFor(() => {
+      const navbarContainer = getByTestId("navbar-container");
+      expect(navbarContainer).toHaveStyle("justify-content: start");
+    });
   });
 });

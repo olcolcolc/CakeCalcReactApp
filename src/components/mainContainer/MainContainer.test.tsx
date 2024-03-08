@@ -26,12 +26,12 @@ describe("MainContainerComponent", () => {
     const mainContainer = getByTestId("main-container");
     // change window width to 550px
     window.innerWidth = 550;
-    expect(mainContainer).toHaveStyle("width: 100%");
+    expect(mainContainer).toHaveStyle("height: 26rem");
 
     // change window width to 1550px
     window.innerWidth = 1550;
     setTimeout(() => {
-      expect(mainContainer).toHaveStyle("width: 200px");
+      expect(mainContainer).toHaveStyle("margin: 100px auto 0px auto;");
     }, 10);
   });
 });

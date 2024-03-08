@@ -16,12 +16,12 @@ const LanguagesContainer = styled.div`
   `)}
 `;
 
-const Language = styled.button<{ isActive: boolean }>`
+const Language = styled.button<{ isactive: boolean }>`
   ${theme.mixin.defaultButton};
   padding: 6px;
   font-family: "Medium_BasisGrotesqueArabicPro";
   text-transform: uppercase;
-  font-weight: ${(props) => (props.isActive ? "bold" : "normal")};
+  font-weight: ${(props) => (props.isactive ? "bold" : "normal")};
   font-size: ${theme.fontSize.base};
   &:focus {
     ${theme.mixin.buttonFocus}
@@ -40,14 +40,14 @@ const LanguageButtons = () => {
     <LanguagesContainer>
       <Language
         onClick={() => changeLanguage("pl")}
-        isActive={currentLanguage === "pl"}
+        isactive={currentLanguage === "pl"}
       >
         pl
       </Language>
       <span>/ </span>
       <Language
         onClick={() => changeLanguage("en")}
-        isActive={currentLanguage === "en"}
+        isactive={currentLanguage === "en"}
       >
         eng
       </Language>

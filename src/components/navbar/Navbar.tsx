@@ -20,7 +20,7 @@ const NavbarContainer = styled.div`
 
 const Navbar: React.FC = () => {
   return (
-    <NavbarContainer className="navbar">
+    <NavbarContainer data-testid="navbar-container">
       <Logo data-testid="logo-container" />
       <LanguageButtons />
     </NavbarContainer>
