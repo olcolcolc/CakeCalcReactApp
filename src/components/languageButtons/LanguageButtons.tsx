@@ -37,7 +37,7 @@ const LanguageButtons = () => {
   };
 
   return (
-    <LanguagesContainer>
+    <LanguagesContainer data-testid="language-container">
       <Language
         onClick={() => changeLanguage("pl")}
         isactive={currentLanguage === "pl"}

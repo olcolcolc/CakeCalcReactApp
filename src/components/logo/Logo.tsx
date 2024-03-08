@@ -25,7 +25,11 @@ const CalcSpan = styled.span`
 
 const Logo = () => {
   return (
-    <LogoContainer href="/" aria-label="Cake calc logo link">
+    <LogoContainer
+      href="/"
+      aria-label="Cake calc logo link"
+      data-testid="logo-container"
+    >
       <CakeSpan>cake </CakeSpan>
       <CalcSpan>.calc</CalcSpan>
     </LogoContainer>

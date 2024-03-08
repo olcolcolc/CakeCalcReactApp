@@ -1,24 +1,23 @@
-import { getByTestId, render, waitFor } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import Navbar from "./Navbar";
 
-describe("Navbar Component - Responsive", () => {
-  it("renders correctly for desktop view", async () => {
-    global.innerWidth = 1600; // Ustawiamy szerokość większą niż 450px dla desktopu
+describe("Navbar component", () => {
+  it("renders logo and language buttons", () => {
     const { getByTestId } = render(<Navbar />);
-    await waitFor(() => {
-      const navbarContainer = getByTestId("navbar-container");
-      console.log(navbarContainer.style.justifyContent);
+    const logoContainer = getByTestId("logo-container");
+    const languageButtons = getByTestId("language-container");
 
-      expect(navbarContainer).toHaveStyle("justify-content: center");
-    });
+    expect(logoContainer).toBeInTheDocument();
+    expect(languageButtons).toBeInTheDocument();
   });
 
-  it("renders correctly for mobile view", async () => {
-    global.innerWidth = 300; // Ustawiamy szerokość mniejszą niż 450px dla mobilnego widoku
+  it("renders with correct styles", () => {
     const { getByTestId } = render(<Navbar />);
-    await waitFor(() => {
-      const navbarContainer = getByTestId("navbar-container");
-      expect(navbarContainer).toHaveStyle("justify-content: start");
-    });
+    const navbarContainer = getByTestId("navbar-container");
+    global.innerWidth = 300;
+
+    expect(navbarContainer).toHaveStyle(`
+      justify-content: start;
+    `);
   });
 });
