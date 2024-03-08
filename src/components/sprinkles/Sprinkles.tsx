@@ -42,6 +42,7 @@ const Sprinkle: React.FC = () => {
     <SprinklesContainer aria-label="sprikles decoration">
       {doubledSprinkles.map((sprinkleName, index) => (
         <SprinkleDiv
+          data-testid="sprinkle-div"
           key={index}
           style={{
             top: `${Math.random() * 100}%`,
