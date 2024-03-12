@@ -27,6 +27,7 @@ Optimal Cake Size: Discover the perfect cake diameter suited to the specified nu
 - ReactJs
 - Styled Components
 - Emotion
+- i18next
 
 ## Deployment
 The app has been deployed and is accessible at: <a href="https://cakecalc.netlify.app/" target="_blank">https://cakecalc.netlify.app/</a>
