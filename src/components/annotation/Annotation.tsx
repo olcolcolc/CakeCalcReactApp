@@ -6,15 +6,15 @@ type AnnotationProps = {
   step: "0" | "1";
 };
 
-const AnnotationDiv = styled.p`
+const AnnotationDiv = styled.div`
   position: absolute;
-  top: 355px;
+  top: 375px;
   font-size: ${theme.fontSize.annotation_mobile};
   text-align: center;
   font-family: "Regular_BasisGrotesqueArabicPro";
   padding: 0 10px;
   ${theme.mixin.forMinWidth650(`
-    top: 430px;
+    top: 460px;
     font-size: ${theme.fontSize.annotation_desktop};
 `)}
 `;
@@ -25,9 +25,9 @@ const Annotation: React.FC<AnnotationProps> = ({ step }) => {
   return (
     <AnnotationDiv>
       {step === "0" ? (
-        <p data-testid="annotation-step0">{t("annotation.step0")}</p>
+        <span data-testid="annotation-step0">{t("annotation.step0")}</span>
       ) : (
-        <p data-testid="annotation-step1">{t("annotation.step1")}</p>
+        <span data-testid="annotation-step1">{t("annotation.step1")}</span>
       )}
     </AnnotationDiv>
   );

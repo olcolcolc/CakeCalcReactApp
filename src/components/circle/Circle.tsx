@@ -29,7 +29,7 @@ interface CircleProps {
 
 const Circle: React.FC<CircleProps> = ({ children, isActive }) => {
   return (
-    <CircleDiv isActive={isActive}>
+    <CircleDiv isActive={isActive} data-testid={"circle-" + children}>
       {(Number(children) + 1).toString()}
     </CircleDiv>
   );

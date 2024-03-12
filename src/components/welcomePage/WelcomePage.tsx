@@ -14,14 +14,14 @@ const WelcomePageDiv = styled.div`
   padding: 0 20px;
   ${theme.mixin.forMinWidth650(`
         flex-direction: row;
-        margin: 30px;
+        margin: 50px 35px 30px 35px;
     `)}
 `;
 
 const CenterWrapper = styled.div`
   flex-direction: column;
   ${theme.mixin.forMinWidth650(`
-      margin: 0 10px;
+      margin: 0 30px;
     `)}
 `;
 
@@ -29,6 +29,7 @@ const Description = styled.p`
   display: flex;
   margin: 0 15px;
   line-height: 60px;
+  max-width: 700px;
   font-size: ${theme.fontSize.welcomePage_description_mobile};
   font-family: "OggRoman";
   ${theme.mixin.forMinWidth650(`
