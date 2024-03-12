@@ -16,38 +16,46 @@ const LanguagesContainer = styled.div`
   `)}
 `;
 
-const Language = styled.button<{ isactive: boolean }>`
+const Language = styled.button`
   ${theme.mixin.defaultButton};
   padding: 6px;
   font-family: "Medium_BasisGrotesqueArabicPro";
   text-transform: uppercase;
-  font-weight: ${(props) => (props.isactive ? "bold" : "normal")};
   font-size: ${theme.fontSize.base};
+  font-weight: normal;
   &:focus {
     ${theme.mixin.buttonFocus}
+  }
+
+  &[data-isactive="true"] {
+    font-weight: bold;
   }
 `;
 
 const LanguageButtons = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
 
-  const changeLanguage = (language: string) => {
+  const changeLanguageHandler = (language: string) => {
     i18n.changeLanguage(language);
     setCurrentLanguage(language);
   };
 
   return (
+    // I used the 'data-' prefix for custom attributes to ensure compliance with HTML standards and avoid potential validation issues.
+    // Custom attributes without the 'data-' prefix wasn't recognized by HTML parsers and could lead to compatibility issues.
+    // By prefixing custom isaxtive with 'data-', I ensure that the code is valid and interoperable across different browsers and tools.
+
     <LanguagesContainer data-testid="language-container">
       <Language
-        onClick={() => changeLanguage("pl")}
-        isactive={currentLanguage === "pl"}
+        onClick={() => changeLanguageHandler("pl")}
+        data-isactive={currentLanguage === "pl"}
       >
         pl
       </Language>
       <span>/ </span>
       <Language
-        onClick={() => changeLanguage("en")}
-        isactive={currentLanguage === "en"}
+        onClick={() => changeLanguageHandler("en")}
+        data-isactive={currentLanguage === "en"}
       >
         eng
       </Language>
