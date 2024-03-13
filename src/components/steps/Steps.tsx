@@ -16,7 +16,7 @@ const StepContainer = styled.div`
 
 const StepHeader = styled.p`
   position: absolute;
-  top: 152px;
+  top: 132px;
   line-height: 55px;
   padding: 0 20px;
   display: flex;
@@ -36,7 +36,7 @@ const StepHeader = styled.p`
 
 const InputField = styled.input`
   position: absolute;
-  top: 300px;
+  top: 290px;
   max-width: 160px;
   margin: 10px;
   height: 33px;
@@ -170,7 +170,7 @@ const Steps: React.FC<StepsProps> = ({
             value={cakesHigh}
             onChange={handleInputChange}
             id="cakes-high"
-            data-testid="step-1w-input"
+            data-testid="step-1-input"
           />
           <Annotation step="1" />
         </>
@@ -215,7 +215,7 @@ const Steps: React.FC<StepsProps> = ({
               trackDraggable={true}
             ></CircularSlider>
           </SliderContainer>
-          <SliderLabel>{advance}%</SliderLabel>
+          <SliderLabel data-testid="step3-slider-label">{advance}%</SliderLabel>
         </>
       );
       break;

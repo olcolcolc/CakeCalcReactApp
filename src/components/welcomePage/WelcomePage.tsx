@@ -14,7 +14,7 @@ const WelcomePageDiv = styled.div`
   padding: 0 20px;
   ${theme.mixin.forMinWidth650(`
         flex-direction: row;
-        margin: 50px 35px 30px 35px;
+        margin: 60px 35px 30px 35px;
     `)}
 `;
 
@@ -62,7 +62,7 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
 
   return (
     <WelcomePageDiv data-testid="welcome-page-div">
-      <DarkCakeIcon>
+      <DarkCakeIcon data-testid="dark-cake-icon">
         <Icon name="darkCake" aria-label="chocolate cake with candles" />
       </DarkCakeIcon>
       <CenterWrapper>
@@ -71,7 +71,7 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
         </Description>
         <Button name="start" onClick={onStartClick} />
       </CenterWrapper>
-      <LightCakeIcon>
+      <LightCakeIcon data-testid="light-cake-icon">
         <Icon name="lightCake" aria-label="cream cake with candles" />
       </LightCakeIcon>
     </WelcomePageDiv>
