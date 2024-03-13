@@ -80,20 +80,20 @@ describe("Steps component", () => {
           values.howManyPortions = "6";
           values.cakesHigh = "7";
           values.pricePerOnePerson = "0";
-          values.advance = "50";
+          values.advance = "0";
         }}
         setDisableNextButton={() => {
           true;
         }}
       />
     );
-    const inputField = getByTestId("step-3-slider") as HTMLInputElement;
     const stepHeader = getByTestId("step-3-header");
+    const sliderLabel = getByTestId("step3-slider-label");
 
     expect(stepHeader).toHaveTextContent("steps.3");
     expect(stepHeader).not.toHaveTextContent("steps.2");
-    expect(inputField.value).toBe("50");
-    expect(inputField.value).not.toBe("30");
+    expect(sliderLabel).toHaveTextContent("0%");
+    expect(sliderLabel).not.toHaveTextContent("30%");
   });
   it("renders 4 step correctly", () => {
     const { getByTestId } = render(

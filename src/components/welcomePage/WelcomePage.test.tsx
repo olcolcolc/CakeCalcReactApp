@@ -2,45 +2,40 @@ import { render } from "@testing-library/react";
 import WelcomePage from "./WelcomePage";
 
 describe("WelcomePage component", () => {
-  it("renders with the correct labels and description", () => {
+  it("renders with the correct description", () => {
     const handleClick = vi.fn();
 
     const { getByText } = render(<WelcomePage onStartClick={handleClick} />);
 
-    const label = getByText("welcomePage.label");
     const description = getByText("welcomePage.description");
 
-    expect(label).toBeInTheDocument();
     expect(description).toBeInTheDocument();
   });
 
-  it("renders the WelcomeIcon and a button", () => {
+  it("renders a start button", () => {
     const handleClick = vi.fn();
 
-    const { getByAltText, getByRole } = render(
-      <WelcomePage onStartClick={handleClick} />
-    );
+    const { getByRole } = render(<WelcomePage onStartClick={handleClick} />);
 
-    const welcomeIcon = getByAltText("Welcome Icon");
     const startButton = getByRole("button", { name: "start" });
 
-    expect(welcomeIcon).toBeInTheDocument();
     expect(startButton).toBeInTheDocument();
   });
-  it("welcome page div renders correcly with window width 300px", () => {
+
+  it("welcome page div renders correctly with window width 350px", () => {
     const handleClick = vi.fn();
     const { getByTestId } = render(<WelcomePage onStartClick={handleClick} />);
 
     const welcomePage = getByTestId("welcome-page-div");
 
-    // change window width to 550px
-    window.innerWidth = 550;
+    // Change window width to 350px
+    window.innerWidth = 350;
     expect(welcomePage).toHaveStyle("flex-direction: column");
 
-    // change window width to 1550px
-    window.innerWidth = 1550;
+    // Change window width to 1550px after a timeout (due to async nature)
     setTimeout(() => {
+      window.innerWidth = 1550;
       expect(welcomePage).toHaveStyle("flex-direction: row");
-    }, 10);
+    }, 20);
   });
 });

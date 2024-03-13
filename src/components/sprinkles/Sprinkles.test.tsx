@@ -6,7 +6,7 @@ describe("Sprinkle Component", () => {
     const { getAllByTestId } = render(<Sprinkles />);
     const sprinkleDivElements = getAllByTestId("sprinkle-div");
 
-    // Oczekujemy, że liczba elementów SprinkleDiv będzie równa długości tablicy doubledSprinkles
-    expect(sprinkleDivElements.length).toBe(20); // Zakładając, że doubledSprinkles zawiera 10 elementów
+    // Check if the number of SprinkleDiv elements is equal to the length of the doubledSprinkles array
+    expect(sprinkleDivElements.length).toBe(20);
   });
 });
