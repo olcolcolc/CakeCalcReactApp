@@ -28,13 +28,11 @@ const SprinkleDiv = styled.div`
 `;
 
 const Sprinkle: React.FC = () => {
-  const sprinkleIconNames = [];
-
-  // Get array with sprinkles names strings
-  for (let i = 1; i <= 10; i++) {
-    const iconName = `sprinkle${i}`;
-    sprinkleIconNames.push(iconName);
-  }
+  // Generate array with sprinkle names strings
+  const sprinkleIconNames = Array.from(
+    { length: 10 },
+    (_, i) => `sprinkle${i + 1}`
+  );
 
   // Combine sprinkles array with itself to double the elements
   const doubledSprinkles = [...sprinkleIconNames, ...sprinkleIconNames];
