@@ -110,7 +110,7 @@ const Stepper: React.FC<StepperProps> = ({ isLastStep, setIsLastStep }) => {
       {/* Navigation buttons */}
       <ButtonsContainer data-testid="buttons-container">
         <Button
-          name="previous"
+          type="previous"
           data-testid="previous-button"
           disabled={active <= 0}
           onClick={() => {
@@ -120,7 +120,7 @@ const Stepper: React.FC<StepperProps> = ({ isLastStep, setIsLastStep }) => {
           }}
         />
         <Button
-          name="next"
+          type="next"
           data-testid="next-button"
           disabled={active >= totalSteps - 1 || disableNextButton}
           onClick={() => {
