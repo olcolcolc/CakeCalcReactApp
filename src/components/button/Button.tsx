@@ -6,7 +6,6 @@ import { useTranslation } from "react-i18next";
 const Button = styled.button`
   ${theme.mixin.defaultButton};
   text-align: center;
-  font-size: ${theme.fontSize.button_start};
   font-family: "Medium_BasisGrotesqueArabicPro";
   border-radius: 50px;
   padding: 12px 40px;
@@ -103,53 +102,47 @@ const PreviousButtonWrapper = styled.div`
 `;
 
 // Interface for button props
-interface IconProps {
-  name: "start" | "next" | "previous";
+interface ButtonProps {
+  type: "start" | "next" | "previous";
   onClick?: React.MouseEventHandler;
   disabled?: boolean;
 }
 
-// Button component with different variations based on the name prop
-const ButtonComponent: React.FC<IconProps> = ({ name, onClick, disabled }) => {
+// Button component with different variations based on the type prop
+const ButtonComponent: React.FC<ButtonProps> = ({
+  type,
+  onClick,
+  disabled,
+}) => {
   // Get the translation function 't' and the i18n instance from the useTranslation hook
   const { t } = useTranslation();
 
-  let button;
-
-  // Switch case to render different buttons based on the name prop
-  switch (name) {
-    case "start":
-      button = <StartButton onClick={onClick}>start</StartButton>;
-      break;
-    case "next":
-      button = (
-        <NextButton
-          data-testid="next-button"
+  // Switch case to render different buttons based on the type prop
+  const buttonTypes = {
+    start: <StartButton onClick={onClick}>start</StartButton>,
+    next: (
+      <NextButton
+        data-testid="next-button"
+        onClick={onClick}
+        disabled={disabled}
+      >
+        {t("button.next")}
+      </NextButton>
+    ),
+    previous: (
+      <PreviousButtonWrapper>
+        <PreviousButton
+          data-testid="previous-button"
           onClick={onClick}
           disabled={disabled}
         >
-          {t("button.next")}
-        </NextButton>
-      );
-      break;
-    case "previous":
-      button = (
-        <PreviousButtonWrapper>
-          <PreviousButton
-            data-testid="previous-button"
-            onClick={onClick}
-            disabled={disabled}
-          >
-            {t("button.return")}
-          </PreviousButton>
-        </PreviousButtonWrapper>
-      );
-      break;
-    default:
-      button = null;
-  }
+          {t("button.return")}
+        </PreviousButton>
+      </PreviousButtonWrapper>
+    ),
+  };
 
-  return button;
+  return buttonTypes[type] || null;
 };
 
 export default ButtonComponent;

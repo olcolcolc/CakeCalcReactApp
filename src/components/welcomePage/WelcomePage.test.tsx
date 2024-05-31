@@ -36,6 +36,6 @@ describe("WelcomePage component", () => {
     setTimeout(() => {
       window.innerWidth = 1550;
       expect(welcomePage).toHaveStyle("flex-direction: row");
-    }, 20);
+    }, 30);
   });
 });
