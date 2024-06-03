@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import { theme } from "../../styles/theme";
 import Button from "../button/Button";
 import { useTranslation } from "react-i18next";
+import "../../styles/fonts.css";
 import { Icon } from "../icon/Icon";
 
 const WelcomePageDiv = styled.div`
@@ -65,7 +66,7 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
         <Icon name="darkCake" aria-label="chocolate cake with candles" />
       </DarkCakeIcon>
       <CenterWrapper>
-        <Description data-testid="description">
+        <Description data-testit="description">
           {t("welcomePage.description")}
         </Description>
         <Button type="start" onClick={onStartClick} />
