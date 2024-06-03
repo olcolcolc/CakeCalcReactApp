@@ -5,7 +5,7 @@ const LogoContainer = styled.a`
   text-decoration: none;
   color: ${theme.colors.black};
   font-size: ${theme.fontSize.logoLink};
-  padding: 2px 20px 0 20px;
+  padding: 0.125rem 1.25rem 0 1.25rem;
   &:focus {
     ${theme.mixin.buttonFocus}
   }
@@ -14,13 +14,13 @@ const LogoContainer = styled.a`
 const CakeSpan = styled.span`
   font-family: "OggRoman";
   font-weight: 400;
-  line-height: 44.28px;
+  line-height: 3rem;
 `;
 
 const CalcSpan = styled.span`
   font-family: "Medium_BasisGrotesqueArabicPro";
   font-weight: 500;
-  line-height: 28.66px;
+  line-height: 2rem;
 `;
 
 const Logo = () => {
