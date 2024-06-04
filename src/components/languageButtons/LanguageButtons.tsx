@@ -34,6 +34,7 @@ const Language = styled.button`
 
 const LanguageButtons = () => {
   const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+  const languages = ["pl", "en"];
 
   const changeLanguageHandler = (language: string) => {
     i18n.changeLanguage(language);
@@ -46,19 +47,18 @@ const LanguageButtons = () => {
     // By prefixing custom isaxtive with 'data-', I ensure that the code is valid and interoperable across different browsers and tools.
 
     <LanguagesContainer data-testid="language-container">
-      <Language
-        onClick={() => changeLanguageHandler("pl")}
-        data-isactive={currentLanguage === "pl"}
-      >
-        pl
-      </Language>
-      <span>/ </span>
-      <Language
-        onClick={() => changeLanguageHandler("en")}
-        data-isactive={currentLanguage === "en"}
-      >
-        eng
-      </Language>
+      {languages.map((lang, index) => (
+        <>
+          <Language
+            key={lang}
+            onClick={() => changeLanguageHandler(lang)}
+            data-isactive={currentLanguage === lang}
+          >
+            {lang}
+          </Language>
+          {index < languages.length - 1 && <span>/ </span>}
+        </>
+      ))}
     </LanguagesContainer>
   );
 };
