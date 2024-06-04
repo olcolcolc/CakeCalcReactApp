@@ -4,7 +4,7 @@ import { Cake } from "../../objects/Cake";
 import { useTranslation } from "react-i18next";
 
 const OutputContainer = styled.div`
-  margin-top: 70px;
+  margin-top: 4.5rem;
 `;
 
 const ValuesContainer = styled.div`
@@ -13,7 +13,7 @@ const ValuesContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   font-size: ${theme.fontSize.base};
   font-family: "Medium_BasisGrotesqueArabicPro";
   ${theme.mixin.forMinWidth450(`
@@ -31,17 +31,17 @@ const OutputHeader = styled.div`
   text-align: center;
   ${theme.mixin.forMinWidth650(`
     font-size: ${theme.fontSize.stepHeader_desktop};
-    margin-bottom: 30px;
+    margin-bottom: 2rem;
 `)}
 `;
 
 const Element = styled.div`
   text-align: center;
-  margin: -5px;
+  margin: -0.3rem;
 `;
 
 const ElementHeader = styled.div`
-  margin: 2px;
+  margin: 0.2rem;
 `;
 
 const Values = styled.p`
@@ -50,12 +50,12 @@ const Values = styled.p`
   color: ${theme.colors.white};
   -webkit-background-clip: text;
   background-clip: text;
-  margin: 5px 50px;
+  margin: 0.3rem 3rem;
   ${theme.mixin.forMinWidth450(`
-    padding-bottom: 12px;
+    padding-bottom: 1rem;
 `)}
   ${theme.mixin.forMinWidth650(`
-    font-size: 50px;
+    font-size: 3rem;
 `)}
 `;
 

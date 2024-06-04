@@ -66,7 +66,7 @@ const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
         <Icon name="darkCake" aria-label="chocolate cake with candles" />
       </DarkCakeIcon>
       <CenterWrapper>
-        <Description data-testit="description">
+        <Description data-testid="description">
           {t("welcomePage.description")}
         </Description>
         <Button type="start" onClick={onStartClick} />

@@ -7,11 +7,11 @@ const Button = styled.button`
   ${theme.mixin.defaultButton};
   text-align: center;
   font-family: "Medium_BasisGrotesqueArabicPro";
-  border-radius: 50px;
-  padding: 12px 40px;
+  border-radius: 3rem;
+  padding: 0.75rem 2.5rem;
   font-size: ${theme.fontSize.base};
-  height: 32px;
-  width: 80px;
+  height: 2rem;
+  width: 5rem;
   :hover {
     transform: scale(0.9);
     transition: transform 0.2s ease;
@@ -24,7 +24,7 @@ const Button = styled.button`
 const StartButton = styled(Button)`
   background: ${theme.colors.pink};
   color: ${theme.colors.black};
-  margin-top: 22px;
+  margin-top: 1.4rem;
 
   :hover {
     background: ${theme.colors.lightPink};
@@ -37,7 +37,7 @@ const StartButton = styled(Button)`
   }
 
   ${theme.mixin.forMinWidth650(`
-    margin-top: 28px;
+    margin-top: 2rem;
   `)};
 `;
 
@@ -55,15 +55,15 @@ const NextButton = styled(Button)`
   }
 
   :focus {
-    box-shadow: 0 0 10px 3px ${theme.colors.black};
+    box-shadow: 0 0 0.6rem 0.2rem ${theme.colors.black};
   }
 
   :focus:active {
-    box-shadow: 0 0 10px 3px ${theme.colors.pink};
+    box-shadow: 0 0 0.6rem 0.2rem ${theme.colors.pink};
   }
 
   :focus:hover {
-    box-shadow: 0 0 10px 3px ${theme.colors.lightPink};
+    box-shadow: 0 0 0.6rem 0.2rem ${theme.colors.lightPink};
   }
 
   :disabled {
@@ -81,24 +81,24 @@ const PreviousButton = styled.button`
   font-family: "Medium_BasisGrotesqueArabicPro";
   border-radius: 0px;
   cursor: pointer;
-  padding: 0px 8px;
-  height: 35px;
-  border-bottom: 1.5px solid transparent;
+  padding: 0px 0.5rem;
+  height: 2.2rem;
+  border-bottom: 0.1rem solid transparent;
   :hover,
   :active,
   :focus {
-    border-bottom: 1.5px solid ${theme.colors.black};
+    border-bottom: 0.1rem solid ${theme.colors.black};
     transform: none;
   }
   :disabled {
-    border-bottom: 1.5px solid transparent;
+    border-bottom: 0.1rem solid transparent;
     cursor: not-allowed;
   }
 `;
 
 const PreviousButtonWrapper = styled.div`
   margin: 0 auto;
-  padding: 10px 30px;
+  padding: 0.6rem 1.9rem;
 `;
 
 // Interface for button props
