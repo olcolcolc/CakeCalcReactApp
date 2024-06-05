@@ -60,11 +60,11 @@ const ButtonsContainer = styled.div`
 
 interface StepperProps {
   isLastStep: boolean;
-  setIsLastStep: (isLastStep: boolean) => void; // Fix the type declaration here
+  setIsLastStep: (isLastStep: boolean) => void;
 }
 
 const Stepper: React.FC<StepperProps> = ({ isLastStep, setIsLastStep }) => {
-  const [totalSteps] = useState(5); // Total number of steps
+  const totalSteps = 5; // Total number of steps
   const [active, setActive] = useState(0); // Current active step
   const [width, setWidth] = useState(0);
   const [disableNextButton, setDisableNextButton] = useState(false);
@@ -77,29 +77,22 @@ const Stepper: React.FC<StepperProps> = ({ isLastStep, setIsLastStep }) => {
   // Update progress bar width based on active step
   useEffect(() => {
     setWidth((100 / (totalSteps - 1)) * active);
-    if (active === totalSteps - 1) {
-      setIsLastStep(true); // Set isLastStep to true when it's the last step (active is equal to totalSteps - 1)
-    } else {
-      setIsLastStep(false);
-    }
+    setIsLastStep(active === totalSteps - 1);
     console.log(width, isLastStep);
   }, [totalSteps, active, setIsLastStep, width, isLastStep]);
 
   // Create an array of step circles based on total steps and active step
-  const arr = [];
-  for (let i = 0; i < totalSteps; i++) {
-    arr.push(
-      <Circle isActive={i === active} key={i}>
-        {i}
-      </Circle>
-    );
-  }
+  const steps = Array.from({ length: totalSteps }, (_, i) => (
+    <Circle isActive={i === active} key={i}>
+      {i}
+    </Circle>
+  ));
 
   return (
     <StepperContainer>
       <Content>
         {/* Progress bar visualizing steps */}
-        <ProgressBar data-testid="progress-bar">{arr}</ProgressBar>
+        <ProgressBar data-testid="progress-bar">{steps}</ProgressBar>
         {/* Render step-specific content */}
         <Steps
           stepNumber={active}
@@ -113,21 +106,15 @@ const Stepper: React.FC<StepperProps> = ({ isLastStep, setIsLastStep }) => {
           type="previous"
           data-testid="previous-button"
           disabled={active <= 0}
-          onClick={() => {
-            if (active <= 0) {
-              setActive(0);
-            } else setActive(active - 1);
-          }}
+          onClick={() => setActive((prevActive) => Math.max(0, prevActive - 1))}
         />
         <Button
           type="next"
           data-testid="next-button"
           disabled={active >= totalSteps - 1 || disableNextButton}
-          onClick={() => {
-            if (active >= totalSteps - 1) {
-              setActive(totalSteps - 1);
-            } else setActive(active + 1);
-          }}
+          onClick={() =>
+            setActive((prevActive) => Math.min(totalSteps - 1, prevActive + 1))
+          }
         />
       </ButtonsContainer>
     </StepperContainer>
