@@ -7,7 +7,7 @@ import Steps from "../steps/Steps";
 
 const StepperContainer = styled.div`
   display: flex;
-  margin: 0 0 140px 0;
+  margin: 0 0 9rem 0;
   padding: 0;
   box-sizing: border-box;
   justify-content: center;
@@ -23,7 +23,7 @@ const Content = styled.div`
 const ProgressBar = styled.div`
   display: none;
   justify-content: space-between;
-  margin-top: -25px;
+  margin-top: -1.5rem;
   align-items: center;
   position: relative;
   ${theme.mixin.forMinWidth650(`
@@ -47,14 +47,14 @@ const ProgressBar = styled.div`
 
 const ButtonsContainer = styled.div`
   position: absolute;
-  top: 440px;
+  top: 27.5rem;
   display: flex;
   width: 100%;
   justify-content: space-between;
   flex-direction: row;
   ${theme.mixin.forMinWidth650(`
-    top: 540px;
-    width: 590px;
+    top: 34rem;
+    width: 37rem;
 `)}
 `;
 
