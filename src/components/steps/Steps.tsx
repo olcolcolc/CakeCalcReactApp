@@ -11,42 +11,42 @@ const StepContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 360px;
+  height: 22.5rem;
 `;
 
 const StepHeader = styled.p`
   position: absolute;
-  top: 132px;
-  line-height: 55px;
-  padding: 0 20px;
+  top: 8.25rem;
+  line-height: 3.5rem;
+  padding: 0 1.25rem;
   display: flex;
   align-items: center;
-  height: 110px;
+  height: 7rem;
   font-size: ${theme.fontSize.stepHeader_mobile};
   text-align: center;
   font-family: "OggRoman";
   flex-direction: column;
   ${theme.mixin.forMinWidth650(`
     flex-direction: row;
-    top: 195px;
-    max-width: 500px;
+    top: 12rem;
+    max-width: 31rem;
     font-size: ${theme.fontSize.stepHeader_desktop};
-`)}
+  `)}
 `;
 
 const InputField = styled.input`
   position: absolute;
-  top: 290px;
-  max-width: 160px;
-  margin: 10px;
-  height: 33px;
-  padding: 8px 40px;
+  top: 18rem;
+  max-width: 10rem;
+  margin: 0.6rem;
+  height: 2rem;
+  padding: 0.5rem 2.5rem;
   background-color: inherit;
   border: 1px solid ${theme.colors.black};
   font-family: "Medium_BasisGrotesqueArabicPro";
   text-align: center;
-  border-radius: 50px;
-  font-size: 26px;
+  border-radius: 3rem;
+  font-size: 1.6rem;
   &:hover {
     cursor: pointer;
   }
@@ -63,32 +63,30 @@ const InputField = styled.input`
     -moz-appearance: textfield; /* Firefox */
   }
   ${theme.mixin.forMinWidth650(`
-    top: 385px;
-    max-width: 250px;
-`)}
+    top: 24rem;
+    max-width: 15.5rem;
+  `)}
 `;
 
 const SliderContainer = styled.div`
   position: absolute;
-  top: 300px;
+  top: 19rem;
   cursor: pointer;
   ${theme.mixin.forMinWidth650(`
-    top: 395px;
-`)}
+    top: 24.5rem;
+  `)}
 `;
 
 const SliderLabel = styled.p`
   position: absolute;
-  top: 360px;
+  top: 22.5rem;
   font-size: ${theme.fontSize.base};
   font-family: "Medium_BasisGrotesqueArabicPro";
   position: absolute;
   ${theme.mixin.forMinWidth650(`
-    top: 450px;
-`)}
+    top: 28rem;
+  `)}
 `;
-
-// CircularSlider is styled inside component
 
 interface StepsProps {
   stepNumber: number;
@@ -101,34 +99,30 @@ const Steps: React.FC<StepsProps> = ({
   setCakeValues,
   setDisableNextButton,
 }) => {
-  // These values are strings so that the entire input can be deleted.
   const [howManyPortions, setHowManyPortions] = useState("6");
   const [cakesHigh, setCakesHigh] = useState("7");
   const [pricePerOnePerson, setPricePerOnePerson] = useState("0");
   const [advance, setAdvance] = useState("0");
 
-  // Get the translation function 't' and the i18n instance from the useTranslation hook
   const { t } = useTranslation();
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { id, value } = event.target;
+    const disableButton = (minValue: number) =>
+      setDisableNextButton(parseInt(value, 10) < minValue);
+
     switch (id) {
       case "portions-count":
         setHowManyPortions(value);
-        // Disable button when the user enters less than 6 in the input.
-        setDisableNextButton(parseInt(value, 10) < 6);
+        disableButton(6);
         break;
       case "cakes-high":
         setCakesHigh(value);
-        // Disable button when the user enters less than 7 in the input.
-        setDisableNextButton(parseInt(value, 10) < 7);
+        disableButton(7);
         break;
       case "price-per-portion":
         setPricePerOnePerson(value);
         break;
-      // case "advance":
-      // In CircularSlider, it is impossible to assign an id to the component,
-      // so the handleChange function is written directly in the onchange attribute
       default:
         break;
     }
@@ -141,59 +135,28 @@ const Steps: React.FC<StepsProps> = ({
     });
   };
 
-  // Logic to render different steps based on the 'number' prop
-  let step;
-  switch (stepNumber) {
-    case 0:
-      step = (
+  const steps = [
+    {
+      header: t("steps.0"),
+      value: howManyPortions,
+      id: "portions-count",
+      annotation: <Annotation step="0" />,
+    },
+    {
+      header: t("steps.1"),
+      value: cakesHigh,
+      id: "cakes-high",
+      annotation: <Annotation step="1" />,
+    },
+    {
+      header: t("steps.2"),
+      value: pricePerOnePerson,
+      id: "price-per-portion",
+    },
+    {
+      header: t("steps.3"),
+      component: (
         <>
-          <StepHeader data-testid="step-0-header">{t("steps.0")}</StepHeader>
-          <InputField
-            type="number"
-            inputMode="numeric"
-            value={howManyPortions}
-            onChange={handleInputChange}
-            id="portions-count"
-            data-testid="step-0-input"
-          />
-          <Annotation step="0" />
-        </>
-      );
-      break;
-    case 1:
-      step = (
-        <>
-          <StepHeader data-testid="step-1-header">{t("steps.1")}</StepHeader>
-          <InputField
-            type="number"
-            inputMode="numeric"
-            value={cakesHigh}
-            onChange={handleInputChange}
-            id="cakes-high"
-            data-testid="step-1-input"
-          />
-          <Annotation step="1" />
-        </>
-      );
-      break;
-    case 2:
-      step = (
-        <>
-          <StepHeader data-testid="step-2-header">{t("steps.2")}</StepHeader>
-          <InputField
-            type="number"
-            value={pricePerOnePerson}
-            onChange={handleInputChange}
-            id="price-per-portion"
-            data-testid="step-2-input"
-          />
-        </>
-      );
-      break;
-    case 3:
-      step = (
-        <>
-          <StepHeader data-testid="step-3-header">{t("steps.3")}</StepHeader>
           <SliderContainer>
             <CircularSlider
               width={50}
@@ -217,11 +180,13 @@ const Steps: React.FC<StepsProps> = ({
           </SliderContainer>
           <SliderLabel data-testid="step3-slider-label">{advance}%</SliderLabel>
         </>
-      );
-      break;
-    case 4:
-      step = (
+      ),
+    },
+    {
+      // This is the final step where we display the output
+      component: (
         <div data-testid="step-4-output">
+          {/* The Output component is responsible for displaying the final result */}
           <Output
             cakeValues={{
               howManyPortions,
@@ -231,13 +196,38 @@ const Steps: React.FC<StepsProps> = ({
             }}
           />
         </div>
-      );
-      break;
-    default:
-      break;
-  }
+      ),
+    },
+  ];
 
-  return <StepContainer>{step}</StepContainer>;
+  // We get the current step based on the stepNumber,
+  // or an empty object if the stepNumber is out of range
+  const step = steps[stepNumber] || {};
+
+  return (
+    <StepContainer>
+      {/* If the current step has a header, we display it */}
+      {step.header && (
+        <StepHeader data-testid={`step-${stepNumber}-header`}>
+          {step.header}
+        </StepHeader>
+      )}
+      {step.value && (
+        <InputField
+          type="number"
+          inputMode="numeric"
+          value={step.value}
+          onChange={handleInputChange}
+          id={step.id}
+          data-testid={`step-${stepNumber}-input`}
+        />
+      )}
+      {/* If the current step has an annotation, we display it */}
+      {step.annotation}
+      {/* If the current step has a component, we display it */}
+      {step.component}
+    </StepContainer>
+  );
 };
 
 export default Steps;
