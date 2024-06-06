@@ -5,7 +5,7 @@ const LogoContainer = styled.a`
   text-decoration: none;
   color: ${theme.colors.black};
   font-size: ${theme.fontSize.logoLink};
-  padding: 0.125rem 1.25rem 0 1.25rem;
+  padding: 0.15rem 1.25rem 0 1.15rem;
   &:focus {
     ${theme.mixin.buttonFocus}
   }

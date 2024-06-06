@@ -25,21 +25,21 @@ describe("Logo component", () => {
       text-decoration: none;
       color: ${theme.colors.black};
       font-size: ${theme.fontSize.logoLink};
-      padding: 2px 20px 0 20px;
+      padding: 0.15rem 1.25rem 0px 1.15rem;
     `);
 
     // Check CakeSpan's styles
     expect(cakeSpan).toHaveStyle(`
       font-family: "OggRoman";
       font-weight: 400;
-      line-height: 44.28px;
+      line-height: 3rem;
     `);
 
     // Check CalcSpan's styles
     expect(calcSpan).toHaveStyle(`
       font-family: "Medium_BasisGrotesqueArabicPro";
       font-weight: 500;
-      line-height: 28.66px;
+      line-height: 2rem;
     `);
   });
 });
