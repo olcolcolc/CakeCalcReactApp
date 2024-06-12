@@ -11,25 +11,25 @@ const WelcomePageDiv = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 1.25rem;
   ${theme.mixin.forMinWidth650(`
         flex-direction: row;
-        margin: 60px 35px 30px 35px;
+        margin: 4rem 2rem 1.8rem 2rem;
     `)}
 `;
 
 const CenterWrapper = styled.div`
   flex-direction: column;
   ${theme.mixin.forMinWidth650(`
-      margin: 0 30px;
+      margin: 0 2rem;
     `)}
 `;
 
 const Description = styled.p`
   display: flex;
-  margin: 0 15px;
-  line-height: 60px;
-  max-width: 700px;
+  margin: 0 1rem;
+  line-height: 4rem;
+  max-width: 44rem;
   font-size: ${theme.fontSize.welcomePage_description_mobile};
   font-family: "OggRoman";
   ${theme.mixin.forMinWidth650(`
@@ -40,7 +40,7 @@ const Description = styled.p`
 const DarkCakeIcon = styled.div`
   width: 40%;
   ${theme.mixin.forMinWidth650(`
-    width: 310px;
+    width: 19rem;
     `)}
 `;
 
@@ -48,7 +48,7 @@ const LightCakeIcon = styled.div`
   display: none;
   ${theme.mixin.forMinWidth950(`
       display: flex;
-      width: 320px;
+      width: 20rem;
   `)}
 `;
 
