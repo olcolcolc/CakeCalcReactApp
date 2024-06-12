@@ -4,7 +4,6 @@ import Button from "../button/Button";
 import { useTranslation } from "react-i18next";
 import "../../styles/fonts.css";
 import { Icon } from "../icon/Icon";
-import LoadingState from "../loadingState/LoadingState";
 
 const WelcomePageDiv = styled.div`
   display: flex;
@@ -58,7 +57,6 @@ interface WelcomePageProps {
 }
 
 const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
-  // Get the translation function 't' and the i18n instance from the useTranslation hook
   const { t } = useTranslation();
 
   return (
