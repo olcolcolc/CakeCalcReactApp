@@ -57,7 +57,6 @@ interface WelcomePageProps {
 }
 
 const WelcomePage = ({ onStartClick }: WelcomePageProps) => {
-  // Get the translation function 't' and the i18n instance from the useTranslation hook
   const { t } = useTranslation();
 
   return (

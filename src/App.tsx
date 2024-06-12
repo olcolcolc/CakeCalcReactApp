@@ -4,6 +4,7 @@ import WelcomePage from "./components/welcomePage/WelcomePage";
 import MainContainerComponent from "./components/mainContainer/MainContainer";
 import Sprinkles from "./components/sprinkles/Sprinkles";
 import { Suspense } from "react";
+import LoadingState from "./components/loadingState/LoadingState";
 
 function App() {
   const [showWelcomePage, setShowWelcomePage] = useState(true);
@@ -28,7 +29,7 @@ function App() {
 
 export default function WrappedApp() {
   return (
-    <Suspense fallback="...loading">
+    <Suspense fallback={<LoadingState />}>
       <App />
     </Suspense>
   );
